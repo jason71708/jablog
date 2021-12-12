@@ -1,5 +1,5 @@
 ---
-title: '[Note] Setup React Native development environment'
+title: '[Note] 建置 React Native 開發環境'
 tags:
   - ReactNative
 sidebar_position: 1
