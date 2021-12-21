@@ -92,4 +92,6 @@ npx react-native start
 npx react-native run-ios
 ```
 
+> 若有裝 `yarn` 則可以直接 `yarn ios`
+
 跑一下之後就可以看到 iOS Simulator 啟動並在上面跑 React-Native 的 APP 囉！
