@@ -1,9 +1,11 @@
 ---
 title: 'Using localstorage in React Native'
 tags:
- - ReactNative
+ - React Native
  - localstorage
 sidebar_position: 3
+image: img/logo.svg
+keywords: [React Native, localstorage]
 ---
 
 # Using localstorage in React Native

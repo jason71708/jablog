@@ -8,13 +8,17 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: '傑部落',
   tagline: '紀錄、分享技術和心得。',
-  url: 'https://www.jablog.site/',
+  url: 'https://www.jablog.site',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo.svg',
   organizationName: 'jason71708', // Usually your GitHub org/user name.
   projectName: 'development-notes', // Usually your repo name.
+  i18n: {
+    defaultLocale: 'zh-TW',
+    locales: ['zh-TW'],
+  },
 
   presets: [
     [
@@ -23,15 +27,20 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/jason71708',
+          // editUrl: 'https://github.com/jason71708',
         },
         blog: {
           showReadingTime: true,
-          editUrl:
-            'https://www.jablog.site/',
+          // editUrl:
+          //   'https://www.jablog.site/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          trailingSlash: false,
         },
       }),
     ],
@@ -40,6 +49,11 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [
+        {name: 'keywords', content: 'frontend, blog, web'},
+        {name: 'author', content: 'Jason Zhuang'},
+        {name: 'copyright', content: 'Jason Zhuang'}
+      ],
       navbar: {
         title: '傑部落',
         logo: {

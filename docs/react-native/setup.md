@@ -1,8 +1,10 @@
 ---
 title: '建置 React Native 開發環境'
 tags:
-  - ReactNative
+  - React Native
 sidebar_position: 1
+image: img/logo.svg
+keywords: [React Native]
 ---
 
 # 建置 React Native 開發環境
