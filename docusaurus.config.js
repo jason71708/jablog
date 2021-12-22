@@ -27,7 +27,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // editUrl: 'https://github.com/jason71708',
+          showLastUpdateTime: true,
         },
         blog: {
           showReadingTime: true,
