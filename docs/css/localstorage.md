@@ -1,5 +1,5 @@
 ---
-title: '[Trick] Infinite Scrolling Effect'
+title: 'Infinite Scrolling Effect'
 tags:
  - CSS
  - Animation

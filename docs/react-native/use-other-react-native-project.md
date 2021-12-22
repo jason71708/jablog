@@ -1,5 +1,5 @@
 ---
-title: '[Note] Clone 其他 React Native 專案跑在本地端'
+title: 'Clone 其他 React Native 專案跑在本地端'
 tags:
  - ReactNative
 sidebar_position: 2

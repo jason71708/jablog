@@ -1,5 +1,5 @@
 ---
-title: '[Note] Linux which 指令'
+title: 'which 指令'
 tags:
   - Linux
 sidebar_position: 1

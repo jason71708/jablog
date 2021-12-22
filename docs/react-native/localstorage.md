@@ -1,5 +1,5 @@
 ---
-title: '[Note] Using localstorage in React Native'
+title: 'Using localstorage in React Native'
 tags:
  - ReactNative
  - localstorage
