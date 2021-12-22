@@ -3,7 +3,6 @@ title: 'which 指令'
 tags:
   - Linux
 sidebar_position: 1
-image: img/logo.svg
 keywords: [Linux]
 ---
 

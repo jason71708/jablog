@@ -3,7 +3,6 @@ title: 'Clone 其他 React Native 專案跑在本地端'
 tags:
  - React Native
 sidebar_position: 2
-image: img/logo.svg
 keywords: [React Native]
 ---
 

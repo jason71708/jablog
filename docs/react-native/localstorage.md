@@ -4,7 +4,6 @@ tags:
  - React Native
  - localstorage
 sidebar_position: 3
-image: img/logo.svg
 keywords: [React Native, localstorage]
 ---
 

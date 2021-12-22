@@ -42,6 +42,10 @@ const config = {
           priority: 0.5,
           trailingSlash: false,
         },
+        gtag: {
+          trackingID: 'G-R80F90M72F',
+          anonymizeIP: true,
+        },
       }),
     ],
   ],
@@ -54,12 +58,14 @@ const config = {
         {name: 'author', content: 'Jason Zhuang'},
         {name: 'copyright', content: 'Jason Zhuang'}
       ],
+      image: 'img/logo.svg',
       navbar: {
         title: '傑部落',
         logo: {
           alt: 'Jablog Logo',
           src: 'img/logo.svg',
         },
+        hideOnScroll: true,
         items: [
           // {
           //   type: 'doc',
@@ -78,6 +84,33 @@ const config = {
             position: 'right',
           },
         ],
+      },
+      announcementBar: {
+        id: 'new-site',
+        content: '✨傑部落搬新家囉✨',
+        backgroundColor: '#188038',
+        textColor: '#fff',
+        isCloseable: true,
+      },
+      algolia: {
+        // If Algolia did not provide you any appId, use 'BH4D9OD16A'
+        appId: 'L3WBDOO71J',
+  
+        // Public API key: it is safe to commit it
+        apiKey: '1aca47c9d71bb29c5756c5be0b1cf68d',
+  
+        indexName: 'jablog',
+  
+        // Optional: see doc section below
+        contextualSearch: true,
+  
+        // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+        // externalUrlRegex: 'external\\.com|domain\\.com',
+  
+        // Optional: Algolia search parameters
+        // searchParameters: {},
+  
+        //... other Algolia params
       },
       footer: {
         style: 'dark',
@@ -119,6 +152,9 @@ const config = {
           // },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} 傑部落 Jablog, Inc. Built with Docusaurus.`,
+      },
+      colorMode: {
+        defaultMode: 'dark',
       },
       prism: {
         theme: lightCodeTheme,
