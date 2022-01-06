@@ -97,7 +97,8 @@ const config = {
         appId: 'L3WBDOO71J',
   
         // Public API key: it is safe to commit it
-        apiKey: '1aca47c9d71bb29c5756c5be0b1cf68d',
+        apiKey: '9ef8b7818db27ea90c0194eb67b7f08a', // In algolia backstage, the api key is this.
+        // apiKey: '1aca47c9d71bb29c5756c5be0b1cf68d', // Is the key from algolia email different from the one displayed on the algolia website is wrong?
   
         indexName: 'jablog',
   
