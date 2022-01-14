@@ -10,5 +10,5 @@ export default () => {
   //     </div>
   //   </Layout>
   // )
-  return <Redirect to="/docs/react-native/setup" />
+  return <Redirect to="/blog" />
 }

@@ -81,17 +81,17 @@ const config = {
         },
         hideOnScroll: true,
         items: [
-          // {
-          //   type: 'doc',
-          //   docId: 'react-native/setup',
-          //   position: 'left',
-          //   label: 'Docs',
-          // },
-          // {
-          //   to: '/blog',
-          //   label: 'Blog',
-          //   position: 'left'
-          // },
+          {
+            to: '/blog',
+            label: 'Blog',
+            position: 'left'
+          },
+          {
+            type: 'doc',
+            docId: 'react-native/setup',
+            position: 'left',
+            label: 'Docs',
+          },
           {
             href: 'https://github.com/jason71708',
             label: 'GitHub',
