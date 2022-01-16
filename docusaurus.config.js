@@ -1,6 +1,3 @@
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
-
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
@@ -29,7 +26,7 @@ const config = {
         // `hashed` is recommended as long-term-cache of index file is possible.
         hashed: true,
         // For Docs using Chinese, The `language` is recommended to set to:
-        language: ["en", "zh"],
+        language: ['zh'],
         // When applying `zh` in language, please install `nodejieba` in your project.
       },
     ],
@@ -99,13 +96,13 @@ const config = {
           },
         ],
       },
-      announcementBar: {
-        id: 'new-site',
-        content: '✨傑部落搬新家囉✨',
-        backgroundColor: '#188038',
-        textColor: '#fff',
-        isCloseable: true,
-      },
+      // announcementBar: {
+      //   id: 'new-site',
+      //   content: '✨傑部落搬新家囉✨',
+      //   backgroundColor: '#188038',
+      //   textColor: '#fff',
+      //   isCloseable: true,
+      // },
       // algolia: {
       //   // If Algolia did not provide you any appId, use 'BH4D9OD16A'
       //   appId: 'L3WBDOO71J',
