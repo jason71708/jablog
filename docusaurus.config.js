@@ -30,6 +30,7 @@ const config = {
         // When applying `zh` in language, please install `nodejieba` in your project.
       },
     ],
+    'plugin-image-zoom'
   ],
 
   presets: [
@@ -96,6 +97,7 @@ const config = {
           },
         ],
       },
+      zoomSelector: '.markdown img',
       // announcementBar: {
       //   id: 'new-site',
       //   content: '✨傑部落搬新家囉✨',
