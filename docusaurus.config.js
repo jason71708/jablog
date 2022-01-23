@@ -18,19 +18,18 @@ const config = {
     locales: ['zh-TW'],
   },
   plugins: [
-    // ... Your other plugins.
-    [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
-      {
-        // ... Your options.
-        // `hashed` is recommended as long-term-cache of index file is possible.
-        hashed: true,
-        // For Docs using Chinese, The `language` is recommended to set to:
-        language: ['zh'],
-        // When applying `zh` in language, please install `nodejieba` in your project.
-      },
-    ],
-    'plugin-image-zoom'
+    // [
+    //   require.resolve("@easyops-cn/docusaurus-search-local"),
+    //   {
+    //     // ... Your options.
+    //     // `hashed` is recommended as long-term-cache of index file is possible.
+    //     hashed: true,
+    //     // For Docs using Chinese, The `language` is recommended to set to:
+    //     language: ['zh'],
+    //     // When applying `zh` in language, please install `nodejieba` in your project.
+    //   },
+    // ],
+    // 'plugin-image-zoom'
   ],
 
   presets: [
@@ -105,27 +104,26 @@ const config = {
       //   textColor: '#fff',
       //   isCloseable: true,
       // },
-      // algolia: {
-      //   // If Algolia did not provide you any appId, use 'BH4D9OD16A'
-      //   appId: 'L3WBDOO71J',
+      algolia: {
+        appId: '5Y7RBYHWUC',
   
-      //   // Public API key: it is safe to commit it
-      //   apiKey: '9ef8b7818db27ea90c0194eb67b7f08a', // In algolia backstage, the api key is this.
-      //   // apiKey: '1aca47c9d71bb29c5756c5be0b1cf68d', // Is the key from algolia email different from the one displayed on the algolia website is wrong?
+        // Public API key: it is safe to commit it
+        // apiKey: 'ebcde44f23da657aac7b7571352b61fd', // From Algolia backstage
+        apiKey: '259e93d9ede6e9762612fec6a40cc8fe', // From email
   
-      //   indexName: 'jablog',
+        indexName: 'jablog',
   
-      //   // Optional: see doc section below
-      //   contextualSearch: true,
+        // Optional: see doc section below
+        contextualSearch: true,
   
-      //   // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
-      //   // externalUrlRegex: 'external\\.com|domain\\.com',
+        // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+        // externalUrlRegex: 'external\\.com|domain\\.com',
   
-      //   // Optional: Algolia search parameters
-      //   // searchParameters: {},
+        // Optional: Algolia search parameters
+        // searchParameters: {},
   
-      //   //... other Algolia params
-      // },
+        //... other Algolia params
+      },
       footer: {
         style: 'dark',
         links: [
