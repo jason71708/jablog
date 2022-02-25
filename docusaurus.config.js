@@ -85,7 +85,7 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'react-native/setup',
+            docId: 'threejs/fundamentals',
             position: 'left',
             label: 'Docs',
           },
