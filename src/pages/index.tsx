@@ -10,5 +10,5 @@ export default () => {
   //     </div>
   //   </Layout>
   // )
-  return <Redirect to="/blog" />
+  return <Redirect to="/docs/threejs/fundamentals" />
 }
