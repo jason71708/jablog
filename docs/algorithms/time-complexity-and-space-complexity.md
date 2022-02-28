@@ -1,5 +1,5 @@
 ---
-title: 'Time Complexity & Space Complexity'
+title: '時間複雜度與空間複雜度 Time Complexity & Space Complexity'
 tags:
   - algorithms
 sidebar_position: 2
