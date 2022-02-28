@@ -1,5 +1,5 @@
 #!/bin/bash
-yarn build
+yarn run build --locale zh-TW
 aws s3 sync ./build s3://jablog-website --profile my-account
 
 echo "Do you want to clean cloudfront cache?"
@@ -9,7 +9,7 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Yes")
-            aws cloudfront create-invalidation --distribution-id ${ID} --paths "/*" --profile my-account
+            aws cloudfront create-invalidation --distribution-id E3OL6DGTV40HNW --paths "/*" --profile my-account
             break
             ;;
         "No")
