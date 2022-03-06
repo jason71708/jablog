@@ -6,9 +6,9 @@ sidebar_position: 4
 keywords: [algorithms, 演算法]
 ---
 
-## 操作物件的時間複雜度
-- Insertion - **O(1)**
-- Removal - **O(1)**
+## 操作陣列的時間複雜度
+- Insertion - **O(1)** or **O(n)**
+- Removal - **O(1)** or **O(n)**
 - Searching - **O(n)**
 - Access - **O(1)**
 

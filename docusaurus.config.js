@@ -18,18 +18,18 @@ const config = {
     locales: ['zh-TW'],
   },
   plugins: [
-    // [
-    //   require.resolve("@easyops-cn/docusaurus-search-local"),
-    //   {
-    //     // ... Your options.
-    //     // `hashed` is recommended as long-term-cache of index file is possible.
-    //     hashed: true,
-    //     // For Docs using Chinese, The `language` is recommended to set to:
-    //     language: ['zh'],
-    //     // When applying `zh` in language, please install `nodejieba` in your project.
-    //   },
-    // ],
-    // 'plugin-image-zoom'
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        // ... Your options.
+        // `hashed` is recommended as long-term-cache of index file is possible.
+        hashed: true,
+        // For Docs using Chinese, The `language` is recommended to set to:
+        language: ['zh'],
+        // When applying `zh` in language, please install `nodejieba` in your project.
+      },
+    ],
+    'plugin-image-zoom'
   ],
 
   presets: [
@@ -43,8 +43,6 @@ const config = {
         },
         blog: {
           showReadingTime: true,
-          // editUrl:
-          //   'https://www.jablog.site/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -104,26 +102,6 @@ const config = {
       //   textColor: '#fff',
       //   isCloseable: true,
       // },
-      algolia: {
-        appId: '5Y7RBYHWUC',
-  
-        // Public API key: it is safe to commit it
-        // apiKey: 'ebcde44f23da657aac7b7571352b61fd', // From Algolia backstage
-        apiKey: '259e93d9ede6e9762612fec6a40cc8fe', // From email
-  
-        indexName: 'jablog',
-  
-        // Optional: see doc section below
-        contextualSearch: true,
-  
-        // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
-        // externalUrlRegex: 'external\\.com|domain\\.com',
-  
-        // Optional: Algolia search parameters
-        // searchParameters: {},
-  
-        //... other Algolia params
-      },
       footer: {
         style: 'dark',
         links: [
