@@ -1,5 +1,5 @@
 ---
-title: 'which 指令'
+title: 'which command'
 tags:
   - Linux
 sidebar_position: 1
