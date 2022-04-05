@@ -66,7 +66,7 @@ Primitives 是用來建立 3D 的形狀，Three.js 有很多已建置好的，�
 
 此處練習延續 [Fundamentals 章節](./02-fundamentals.md) 的範例，以下紀錄幾個較特別的。
 
-這裡用到了 `THREE.MeshPhongMaterial`，他是一種會被光源影響顯示的材質，在等等的 [Material 章節](./07-materials.md)會提到。
+這裡用到了 `THREE.MeshPhongMaterial`，他是一種會被光源影響顯示的材質，在等等的 [Material 章節](./06-materials.md)會提到。
 
 ```js
 const material = new THREE.MeshPhongMaterial({
