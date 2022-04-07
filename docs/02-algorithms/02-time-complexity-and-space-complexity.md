@@ -2,7 +2,6 @@
 title: 'Time Complexity & Space Complexity'
 tags:
   - algorithms
-sidebar_position: 2
 keywords: [algorithms, 演算法]
 ---
 

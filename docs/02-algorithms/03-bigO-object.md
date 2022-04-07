@@ -2,7 +2,6 @@
 title: 'Big O of Object'
 tags:
   - algorithms
-sidebar_position: 3
 keywords: [algorithms, 演算法]
 ---
 

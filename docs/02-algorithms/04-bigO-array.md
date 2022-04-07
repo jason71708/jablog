@@ -2,7 +2,6 @@
 title: 'Big O of Array'
 tags:
   - algorithms
-sidebar_position: 4
 keywords: [algorithms, 演算法]
 ---
 

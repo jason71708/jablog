@@ -2,7 +2,6 @@
 title: 'Big O Notation'
 tags:
   - algorithms
-sidebar_position: 1
 keywords: [algorithms, 演算法]
 ---
 

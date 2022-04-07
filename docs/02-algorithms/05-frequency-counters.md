@@ -2,17 +2,16 @@
 title: 'Frequency Counter'
 tags:
   - algorithms
-sidebar_position: 5
 keywords: [algorithms, 演算法]
 ---
 
-## 介紹
+## Introduction
 
 Frequency Counter 是一種解題技巧，它使用物件的屬性來記錄陣列或字串裡面特定值的出現次數。
 
 它可以避免使用遞迴的方式來計算，可以有效減少時間複雜度。
 
-## 練習 1 - Same
+## Practice 1 - Same
 
 給定兩個只有數字的陣列，判斷第一個陣列中的數字的平方是否也出現在第二個陣列中，且出現次數要相同。
 
@@ -74,7 +73,7 @@ function same(arr1, arr2){
 
 這邊使用了三個迴圈 **O(n)**，比第一個解法 **O(n^2)** 較好。
 
-## 練習 2 - Anagram
+## Practice 2 - Anagram
 
 給定兩個字串，判斷兩個字串的字母出現次數是否相同。
 
@@ -85,7 +84,7 @@ function same(arr1, arr2){
 例如：`'cinema'` 和 `'iceman'`，答案是 `true`。
 
 <details>
-  <summary>解答</summary>
+  <summary>Solution</summary>
 
   ```js
   function validAnagram(first, second) {

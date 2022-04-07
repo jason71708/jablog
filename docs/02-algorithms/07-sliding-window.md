@@ -1,5 +1,5 @@
 ---
-title: 'Multiple Pointers'
+title: 'Sliding Window'
 tags:
   - algorithms
 keywords: [algorithms, 演算法]
