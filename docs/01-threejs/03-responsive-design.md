@@ -2,7 +2,6 @@
 title: 'Responsive Design'
 tags:
   - threejs
-sidebar_position: 3
 keywords: [threejs]
 ---
 

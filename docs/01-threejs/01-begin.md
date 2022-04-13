@@ -2,7 +2,6 @@
 title: 'Three.js Notes'
 tags:
   - threejs
-sidebar_position: 1
 keywords: [threejs]
 ---
 

@@ -2,7 +2,6 @@
 title: 'Fundamentals'
 tags:
   - threejs
-sidebar_position: 2
 keywords: [threejs]
 ---
 

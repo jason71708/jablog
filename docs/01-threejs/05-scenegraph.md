@@ -2,7 +2,6 @@
 title: 'Scenegraph'
 tags:
   - threejs
-sidebar_position: 5
 keywords: [threejs]
 ---
 

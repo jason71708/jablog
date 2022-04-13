@@ -2,7 +2,6 @@
 title: 'Primitives'
 tags:
   - threejs
-sidebar_position: 4
 keywords: [threejs]
 ---
 
