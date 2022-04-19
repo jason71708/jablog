@@ -1,5 +1,5 @@
 ---
-title: 'Scenegraph'
+title: 'Scene Graph'
 tags:
   - threejs
 keywords: [threejs]
