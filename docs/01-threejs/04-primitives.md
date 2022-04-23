@@ -45,7 +45,7 @@ Primitives 是用來建立 3D 的形狀，Three.js 有很多已建置好的，�
 
 ## [TextGeometry](https://threejs.org/docs/?q=TextGeometry#examples/en/geometries/TextGeometry)
 
-需使用 `FontLoader` 加載字型檔案，給定要繪製字串與和 [ExtrudeGeometry](/extrudegeometry) 一樣相關的參數。
+需使用 `FontLoader` 加載字型檔案，給定要繪製字串與和 [ExtrudeGeometry](/#extrudegeometry) 一樣相關的參數。
 
 `TextGeometry` 基於用 `ExtrudeGeometry` 實作的。
 
