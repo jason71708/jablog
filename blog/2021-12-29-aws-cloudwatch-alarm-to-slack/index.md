@@ -1,5 +1,4 @@
 ---
-slug: 2021-12-29-aws-cloudwatch-alarm-to-slack
 title: 在 AWS 設置 CloudWatch 監控服務並串接通知到 Slack 頻道上
 description: 使用 AWS CloudWatch 監控 server 運行狀況，並在警示發生時發送通知到 Slack 頻道上。
 tags: [AWS, CloudWatch, Lambda, SNS, KMS, IAM, Slack]
