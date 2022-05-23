@@ -179,3 +179,5 @@ mergeSort(data); // 注意先前的實作的 insertionSort 函式會改變輸入
 ```
 
 實際體驗看看兩種排序所耗費的時間差別吧！
+
+test
