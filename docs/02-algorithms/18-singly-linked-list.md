@@ -151,3 +151,117 @@ unshift(val) {
   return this;
 }
 ```
+
+## Get
+
+建立一個 Get 方法，可以取得 Linked List 的第 n 個節點。
+
+若 n 大於 Linked List 的長度或小於零，回傳 `null` 。
+
+```js
+get(index) {
+  if (index < 0 || index >= this.length) return null;
+  let current = this.head;
+  let count = 0;
+  while (count !== index) {
+    current = current.next;
+    count++;
+  }
+  return current;
+}
+```
+
+## Set
+
+建立一個 Set 方法，可以將 Linked List 的第 n 個節點設定為新的值。
+
+若成功將第 n 個節點設定為新的值，回傳 `true` ，否則回傳 `false` 。
+
+```js
+set(index, val) {
+  const foundNode = this.get(index);
+  if (foundNode) {
+    foundNode.val = val;
+    return true;
+  }
+  return false;
+}
+```
+
+## Insert
+
+新增一個節點到 Linked List 的第 n 個位置。
+
+一樣若成功新增則回傳 `true` ，否則回傳 `false` 。
+
+```js
+insert(index, value) {
+  if (index < 0 || index > this.length) return false;
+  if (index === this.length) return !!this.push(value);
+  if (index === 0) return !!this.unshift(value);
+  const newNode = new Node(value);
+  const prev = this.get(index - 1);
+  const temp = prev.next;
+  prev.next = newNode;
+  newNode.next = temp;
+  this.length++;
+  return true;
+}
+```
+
+## Remove
+
+刪除指定位置的節點。
+
+回傳規則和 Insert 一樣。
+
+```js
+remove(index) {
+  if (index < 0 || index >= this.length) return false;
+  if (index === this.length - 1) return !!this.pop();
+  if (index === 0) return !!this.shift();
+  const prev = this.get(index - 1);
+  const removed = prev.next;
+  prev.next = removed.next;
+  this.length--;
+  return true;
+}
+```
+
+## Reverse
+
+將 Linked List 原地(In Place)反轉順序。
+
+最後回傳自己。
+
+```js
+reverse() {
+  if (this.length <= 1) return this;
+  let current = this.head;
+  this.head = this.tail;
+  this.tail = current;
+  let next = null;
+  let prev = null;
+  for (let i = 0; i < this.length; i++) {
+    next = current.next;
+    current.next = prev;
+    prev = current;
+    current = next;
+  }
+  return this;
+}
+```
+
+## Big O Complexity
+
+Insertion: O(1)
+
+Removal: O(1)
+
+Search: O(n)
+
+Access: O(n)
+
+Linked List 在新增、移除等操作的效能上比陣列還優秀。
+
+但 Array 有 Index 的機制所以可以比 Linked List 更快速的搜尋與存取特定位置的元素。
