@@ -1,8 +1,8 @@
 ---
 title: 'Singly Linked List'
 tags:
-  - algorithms
-keywords: [algorithms, 演算法]
+  - data structures
+keywords: [data structures, 資料結構]
 ---
 
 ## Introduction
