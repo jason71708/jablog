@@ -5,6 +5,8 @@ tags:
 keywords: [algorithms, 演算法]
 ---
 
+## Introduction
+
 Linked List 是一種資料結構，由一個個節點 (Node) 鏈結起來組成，本身僅存有 Head Node 和 Tail Node 以及總節點數 (length)。每個節點都有一個資料和一個指向下一個節點的指標。
 
 例如有一個 Linked List 為：
@@ -25,8 +27,8 @@ Linked List 的新增 (Insertion)、刪除 (Deletion) 的效能比陣列好，�
 
 ```js
 class Node {
-  constructor(data) {
-    this.data = data;
+  constructor(val) {
+    this.value = val;
     this.next = null;
   }
 }
@@ -181,7 +183,7 @@ get(index) {
 set(index, val) {
   const foundNode = this.get(index);
   if (foundNode) {
-    foundNode.val = val;
+    foundNode.value = val;
     return true;
   }
   return false;
@@ -254,14 +256,148 @@ reverse() {
 
 ## Big O Complexity
 
-Insertion: O(1)
+| Insertion | Removal | Search | Access |
+|---|---|---|---|
+| O(1) | O(1) | O(n) | O(n) |
 
-Removal: O(1)
 
-Search: O(n)
+## Singly Linked List in TypeScript
 
-Access: O(n)
+以下稍微整理成 TypeScript 的版本。
 
-Linked List 在新增、移除等操作的效能上比陣列還優秀。
+```ts
+class SinglyLinkedNode {
+  value: any;
+  next: SinglyLinkedNode | null;
+  constructor(val) {
+    this.value = val;
+    this.next = null;
+  }
+}
 
-但 Array 有 Index 的機制所以可以比 Linked List 更快速的搜尋與存取特定位置的元素。
+class SinglyLinkedList {
+  head: SinglyLinkedNode | null;
+  tail: SinglyLinkedNode | null;
+  length: number;
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
+
+  push(val: any) {
+    const node = new SinglyLinkedNode(val);
+    if (!this.head) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      this.tail.next = node;
+      this.tail = node;
+    }
+    this.length++;
+    return this;
+  }
+
+  pop() {
+    if (!this.head) return undefined;
+    let current = this.head;
+    let pre = current;
+    while (current.next) {
+      pre = current;
+      current = current.next;
+    }
+    this.tail = pre;
+    this.tail.next = null;
+    this.length--;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return current;
+  }
+
+  shift() {
+    if (!this.head) return undefined;
+    let current = this.head;
+    this.head = current.next;
+    this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return current;
+  }
+
+  unshift(val: any) {
+    const node = new SinglyLinkedNode(val);
+    if (!this.head) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      node.next = this.head;
+      this.head = node;
+    }
+    this.length++;
+    return this;
+  }
+
+  get(index: number) {
+    if (index < 0 || index >= this.length) return null;
+    let current = this.head;
+    let count = 0;
+    while (count !== index) {
+      current = current.next;
+      count++;
+    }
+    return current;
+  }
+
+  set(index: number, val: any) {
+    const foundNode = this.get(index);
+    if (foundNode) {
+      foundNode.value = val;
+      return true;
+    }
+    return false;
+  }
+
+  insert(index: number, val: any) {
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) return !!this.push(val);
+    if (index === 0) return !!this.unshift(val);
+    const newNode = new SinglyLinkedNode(val);
+    const prev = this.get(index - 1);
+    const temp = prev.next;
+    prev.next = newNode;
+    newNode.next = temp;
+    this.length++;
+    return true;
+  }
+
+  remove(index: number) {
+    if (index < 0 || index >= this.length) return false;
+    if (index === this.length - 1) return !!this.pop();
+    if (index === 0) return !!this.shift();
+    const prev = this.get(index - 1);
+    const removed = prev.next;
+    prev.next = removed.next;
+    this.length--;
+    return true;
+  }
+
+  reverse() {
+    if (this.length <= 1) return this;
+    let current = this.head;
+    this.head = this.tail;
+    this.tail = current;
+    let next: SinglyLinkedNode | null = null;
+    let prev: SinglyLinkedNode | null = null;
+    for (let i = 0; i < this.length; i++) {
+      next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
+    return this;
+  }
+}
+```
