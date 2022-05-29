@@ -190,6 +190,27 @@ remove(index) {
 }
 ```
 
+## Reverse
+
+```js
+reverse(){
+  if (this.length <= 1) return this;
+
+  let currentNode = this.head;
+  this.head = this.tail;
+  this.tail = currentNode;
+  
+  while(currentNode) {
+    const prevNode = currentNode.prev;
+    currentNode.prev = currentNode.next;
+    currentNode.next = prevNode;
+    currentNode = currentNode.prev;
+  }
+  
+  return this;
+}
+```
+
 ## Big O Complexity
 
 | Insertion | Removal | Search | Access |
@@ -335,6 +356,23 @@ class DoublyLinkedList {
     targetNode.next = null;
     this.length++;
     return true;
+  }
+
+  reverse(){
+    if (this.length <= 1) return this;
+
+    let currentNode = this.head;
+    this.head = this.tail;
+    this.tail = currentNode;
+    
+    while(currentNode) {
+      const prevNode = currentNode.prev;
+      currentNode.prev = currentNode.next;
+      currentNode.next = prevNode;
+      currentNode = currentNode.prev;
+    }
+    
+    return this;
   }
 }
 ```
