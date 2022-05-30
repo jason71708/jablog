@@ -21,9 +21,15 @@ Stack 是一種 **LIFO** (Last In First Out) 資料結構
 
 只要有符合 **LIFO** (Last In First Out) 的規則，都可以算是 Stack 結構。
 
-像是 JavaScript 中， Array 本身的 Pop 與 Push 組合或是 Shift 與 Unshift 組合。
+像是 JavaScript 中， 陣列本身的 Pop 與 Push 組合或是 Shift 與 Unshift 組合。
 
-而在前兩篇的 [Linked List](./01-singly-linked-list.md) 實作中，Pop 與 Push 組合或是 Shift 與 Unshift 組合也符合 Stack 結構。
+但是陣列中的 Shift 與 Unshift 方法會讓所有元素都更新 Index，顯然使用 Pop 與 Push 方法在效能上會是比較好的選擇
+
+而在前兩篇的 [Linked List](./01-singly-linked-list.md) 實作中， Pop 與 Push 組合或是 Shift 與 Unshift 組合也符合 Stack 結構。
+
+而在之前 Singly Linked List 實作中， Pop 方法需要遍歷陣列至最後一個，顯然在效能上會是使用 Shift 與 Unshift 方法會比較好。
+
+Doubly Linked List 則沒差，因為有雙向指標，要從前或從後都可以。
 
 以下實作簡單的 Stack 結構：
 
@@ -48,7 +54,7 @@ class Stack {
     } else {
       const temp = this.first
       this.first = node
-      this.first = temp
+      this.first.next = temp
     }
     return ++this.size
   }
@@ -65,9 +71,11 @@ class Stack {
 }
 ```
 
-這邊的只定義 Push 與 Pop 方法，且是針對第一個位置操作，為的是讓時間複雜度降為 O(1)。
+想像 Stack 是桌上疊超多本書，我們要拿只能從最上方開始拿。
 
-其實方法名稱要取什麼都可以，回傳什麼也都可以，只要符合用途就行，唯一要注意的是減少時間複雜度至 Constant Time。
+這邊定義 Push 與 Pop 方法，且是針對第一個位置操作，時間複雜度為 O(1)。
+
+方法回傳什麼都可以，只要符合用途就行，唯一要注意的是減少時間複雜度至 Constant Time。
 
 ## Big O Complexity
 
