@@ -21,3 +21,7 @@ keywords: [data structures, 資料結構]
 1. 具有兩個根節點。
 2. 關聯指向相鄰的兄弟節點。
 
+而像網頁的 HTML DOM 就是一種樹狀結構，從 `document` , `body` 到各種標籤元素，都具有父子關係。
+電腦本身的資料夾結構也是。
+
+而樹的的種類有[非常多樣](https://en.wikipedia.org/wiki/List_of_data_structures#Trees)，除了上述定義的廣泛樹狀結構，其中有兩項也很基本。
