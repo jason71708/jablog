@@ -29,7 +29,7 @@ keywords: [data structures, 資料結構]
 而樹的的種類有[非常多樣](https://en.wikipedia.org/wiki/List_of_data_structures#Trees)，除了上述定義的廣泛樹狀結構，其中衍生出基本的兩項：
 
 Binary Tree - 每個節點的子節點最少零個，至多兩個 (left 、 right)。
-Binary Search Tree - Binary Tree 衍生而來，左邊的子節點的值一定小於其父節點，右邊子節點的值一定大於其父節點。
+Binary Search Tree - Binary Tree 衍生而來，每個節點之間有特定順序，左邊的子節點的值一定小於其父節點，右邊子節點的值一定大於其父節點。
 
 ## Implementation
 
