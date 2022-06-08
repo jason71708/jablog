@@ -101,14 +101,144 @@ keywords: [data structures, 資料結構]
 </details>
 
 ## Depth First Search - PreOrder
+
+此搜尋方法是從根節點開始往左遍歷下去，直到左邊沒有節點後換找右邊。
+
+一樣以 [Breadth First Search](#breadth-first-search) 的舉例來說：
+
+1. 從根節點開始遍歷：
+
+`data: [10]`
+
+2. 接著往左：
+
+`data: [10, 6]`
+
+3. 繼續往左：
+
+`data: [10, 6, 3]`
+
+4. `3` 左下沒節點，換找右下，右下也沒節點：
+
+`data: [10, 6, 3]`
+
+5. 回到 `6` 找右下節點：
+
+`data: [10, 6, 3, 8]`
+
+6. `8` 左下沒節點，換找右下，右下也沒節點：
+
+`data: [10, 6, 3, 8]`
+
+7. 回到 `6` ，但 `6` 左右都找過了，回到 `10` 找右下：
+
+`data: [10, 6, 3, 8, 15]`
+
+8. `15` 左下沒節點，右下有：
+
+`data: [10, 6, 3, 8, 15, 20]`
+
+9. `20` 左下沒節點，換找右下，右下也沒節點，回到 `15` ， `15` 左右都找過，回到 `10` ， `10` 左右都找過了且是根節點，回傳結果
+
+`data: [10, 6, 3, 8, 15, 20]`
+
+實作上會用到 [Recursion](../02-algorithms/09-recursion.md) 的技巧，並建立一個 Helper Function 傳入節點，將該節點新增到回傳結果的陣列中，並檢查該節點是否有左右節點，有的話再呼叫一次自己帶入左右節點遞迴執行下去。
+
+<details>
+  <summary>Implementation</summary>
+
+  ```js
+  DepthFirstSearchPreOrder() {
+    const result = []
+
+    function preOrderTraverse(node) {
+      result.push(node.value)
+      if (node.left) preOrderTraverse(node.left)
+      if (node.right) preOrderTraverse(node.right)
+    }
+
+    preOrderTraverse(this.root)
+    return result
+  }
+  ```
+
+</details>
+
 ## Depth First Search - PostOrder
+
+一樣是先往左下遍歷，但先不把節點加進回傳結果中，直到遍歷至沒有左子節點時，換往右邊遍歷下去，直到沒有右子節點時，才將該節點加進回傳結果中。
+
+整體而已只需要改一下上面程式執行的順序即可。
+
+跟上面一樣的舉例，其結果會是：`[3, 8, 6, 20, 15, 10]`
+
+<details>
+  <summary>Implementation</summary>
+
+  ```js
+  DepthFirstSearchPostOrder() {
+    const result = []
+
+    function postOrderTraverse(node) {
+      if (node.left) postOrderTraverse(node.left)
+      if (node.right) postOrderTraverse(node.right)
+      result.push(node.value)
+    }
+
+    postOrderTraverse(this.root)
+    return result
+  }
+  ```
+
+</details>
+
 ## Depth First Search - InOrder
 
+一樣是先往左下遍歷，但先不把節點加進回傳結果中，直到遍歷至沒有左子節點時，**將該節點加進回傳結果中**，換往右邊遍歷下去，直到沒有右子節點時結束。
 
+也只需要改一行即可。
 
-## Big O Complexity
+跟上面一樣的舉例，其結果會是：`[3, 6, 8, 10, 15, 20]`
 
-<!-- |  | Insertion | Search |
-|---|---|---|
-| Best & Average | O(log n) | O(log n) |
-| Worse | O(n) | O(n) | -->
+<details>
+  <summary>Implementation</summary>
+
+  ```js
+  DepthFirstSearchInOrder() {
+    const result = []
+
+    function inOrderTraverse(node) {
+      if (node.left) inOrderTraverse(node.left)
+      result.push(node.value)
+      if (node.right) inOrderTraverse(node.right)
+    }
+
+    inOrderTraverse(this.root)
+    return result
+  }
+  ```
+
+</details>
+
+## Compare
+
+以時間複雜度來看，每種遍歷方法都只會查找該節點一次而已，所以都是 O(n) 。
+
+先看以下兩個情況：
+
+> 圖 1 ：假設下圖這樣平均分佈的樹狀資料共有 10 層
+![breadth-first-search](https://he-s3.s3.amazonaws.com/media/uploads/fdec3c2.jpg)
+
+> 圖 2 ：假設下圖這樣偏集中一邊的樹狀資料共有 1024 層
+![binary-search-tree-worse-case](./binary-search-tree-worse-case.png)
+
+假設上兩個情況的總節點數都一樣。
+
+以 Breadth First Search 來看，圖 1 的情況執行到越多層，會有越多節點存放在 Queue 中等待查找，在空間複雜度表現會較差。圖 2 的話因為每層都只有零星幾個，在空間複雜度上表現較好。
+
+而以 Depth First Search 來看，由於是遞迴執行，會看總共有幾層需要一直遞迴下去，影響 Call Stack 需要存幾個執行函式。 (在 [Recursion](../02-algorithms/09-recursion.md) 的章節有提到 JS 執行函式時會將函式丟到 Call Stack 內，若函式裡又呼叫函式，則又會丟到 Call Stack 內，一直下去，直到函式執行完才會從 Call Stack 內移除。)
+
+由此可知圖 1 平均分佈了 10 層， Call Stack 頂多只會存到 10 個執行函式，空間複雜度表現較好。而圖 2 偏一邊集中導致有超多層，代表 Call Stack 也需要存更多執行函式，因此空間複雜度表現較差。
+
+而 Depth First Search 中的 PreOder 、 PostOrder 、 InOrder ，則可以根據情況來決定要使用哪種。
+InOrder 的輸出結果是照大小順序的，適合用在需要照大小排列的情況。 PreOder 看輸出結果是從根節點開始往左再往右，適合用來複製資料，建構另個一樣的樹狀資料。
