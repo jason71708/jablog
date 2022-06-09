@@ -95,12 +95,16 @@ bubbleUp() {
 - 直到比左右子節點都大或是已經沒有左右子節點為止
 - ![Binary Search Tree](./binary-heap.png)
 
+若移除根節點後就沒有其他節點了，就直接回傳被移除的節點，不用再做比對交換。
+
 ```js
 extractMax() {
   const maxElement = this.values[0]
   const lastElement = this.values.pop()
-  this.values[0] = lastElement
-  this.sinkDown()
+  if (this.values.length > 0) {
+    this.values[0] = lastElement
+    this.sinkDown()
+  }
   return maxElement
 }
 sinkDown() {
@@ -124,15 +128,21 @@ sinkDown() {
         swapLeft = false
       }
     }
+
     if (swapLeft) {
       this.values[leftIndex] = element
       this.values[currentIndex] = leftElement
+      currentIndex = leftIndex
     } else if (swapRight) {
       this.values[rightIndex] = element
       this.values[currentIndex] = rightElement
+      currentIndex = rightIndex
     } else {
       break
     }
+
+    leftIndex = 2 * currentIndex + 1
+    rightIndex = 2 * currentIndex + 2
   }
 }
 ```
