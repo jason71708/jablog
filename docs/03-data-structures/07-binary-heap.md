@@ -13,7 +13,7 @@ Binary Heap 和 [Binary Search Tree](./05-binary-search-tree.md) 很類似，但
 - Max Binary Heap - 父節點永遠比子節點大
 - Min Binary Heap - 子節點永遠比父節點大
 
->![Binary Search Tree](./binary-heap.png)
+>![Binary Heap](./binary-heap.png)
 像上圖就是屬於 Max Binary Heap
 
 而 Max Binary Heap 的規則就只管父節點比子節點大而已，就算某個子節點比父節點的相鄰節點大也沒關係。
@@ -77,7 +77,7 @@ bubbleUp() {
     if (newElement <= parentElement) break
     this.values[parentIndex] = newElement
     this.values[currentIndex] = parentElement
-    currentIndex = parentElement
+    currentIndex = parentIndex
   }
 }
 ```
@@ -93,7 +93,7 @@ bubbleUp() {
 - 將新的根節點與其左右子節點比對
 - 若比左右子節點小則與其交換位置 (若同時比左右都小，則挑左右之中最大的節點交換位置)
 - 直到比左右子節點都大或是已經沒有左右子節點為止
-- ![Binary Search Tree](./binary-heap.png)
+- ![Binary Heap](./binary-heap.png)
 
 若移除根節點後就沒有其他節點了，就直接回傳被移除的節點，不用再做比對交換。
 
@@ -119,8 +119,8 @@ sinkDown() {
 
     let swapLeft = false
     let swapRight = false
-    if (element < leftElement) swapLeft = true
-    if (element < rightElement) swapRight = true
+    if (leftElement && element < leftElement) swapLeft = true
+    if (rightElement && element < rightElement) swapRight = true
     if (swapLeft && swapRight) {
       if (leftElement > rightElement) {
         swapRight = false
@@ -146,3 +146,21 @@ sinkDown() {
   }
 }
 ```
+
+## Big O Complexity
+
+| Search | Insertion | Removal |
+|---|---|---|
+| O(n) | O(log n) | O(log n) |
+
+> 沿用此張圖示例
+![Binary Heap](./binary-heap.png)
+
+搜尋的部分， Binary Heap 只保證上下節點的大小規則，所以假設要找 13 ，從根節點開始遍歷在第二層遇到 89、93 時這兩個值是都有可能在 13 上面的，所以還是需要遍歷整個節點們。
+
+Insertion 與 Removal 都是類似的，從最後開始往上比對跟從頭開始往下比對，每次比對都是走另半邊，不用全部都比對一次。
+
+至於為何沒有 Worst Case 與 Best Case 呢？
+是因為 Binary Heap 一定都是同層加滿後才會往下一層加，不會像下圖 Binary Search Tree 這樣集中分佈在某一邊。
+
+![binary-search-tree-worse-case](./binary-search-tree-worse-case.png)
