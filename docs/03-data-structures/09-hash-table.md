@@ -13,7 +13,6 @@ Hash Table 是用來儲存鍵值對的資料 (key-value pairs)。
 
 為了練習實作 Hash Table ，我們使用陣列來儲存 Value ，還需要有個 Hash Function 來接受一個 Key 並回傳一個數字。 (對應 Array Index )。
 
-
 ## Hash Function
 
 ```js
@@ -29,7 +28,7 @@ function hash(key, arrayLen) {
 }
 ```
 
-這邊主要實作簡易的 Hash Function ，還有其他百百種 Hash 的方式可以使用。
+這邊主要實作簡易的 Hash Function ，還有其他百百種 Hash 的方式可以使用，但一定要**相同輸入得到相同輸出**，不可有隨機性。
 
 特別提到 Hash Table 有設大小上限，例如設 100 ，那麼此 Hash Function 最多就是回傳 99 (Index)。
 
@@ -74,7 +73,7 @@ hash('pink', 13)
 
 和上個方法不同，每個位置依然存值，但遇到重複數字時，我們往下一個或上一個位置移動，如果那個位置是空的就把值存進去。
 
-## Implementation
+## Implementation - Separate Chaining Ver.
 
 實作 HashTable Clase ， 陣列長度在一開始實例化就可以帶進去，我們的 Hash Function 只需接受 Key 就好。
 
@@ -137,3 +136,49 @@ get(key) {
   return undefined
 }
 ```
+
+## Keys
+
+如 JS 的 `Object.keys()` 一樣，也為 Hash Table 實作一個 Keys 方法回傳所有的 Key 。
+
+```js
+keys() {
+  let keysArr = []
+  for(let i = 0; i < this.keyMap.length; i++) {
+    for(let j = 0; j < this.keyMap[i].length; j++) {
+      keysArr.push(this.keyMap[i][j][0])
+    }
+  }
+  return keysArr;
+}
+```
+
+## Values
+
+同樣實作類似 JS 的 `Object.values()` 方法，回傳所有的 Value 。
+
+```js
+values(){
+  let valuesArr = []
+  for(let i = 0; i < this.keyMap.length; i++){
+    for(let j = 0; j < this.keyMap[i].length; j++){
+      valuesArr.push(this.keyMap[i][j][1])
+    }
+  }
+  return valuesArr;
+}
+```
+
+## Big O Complexity
+
+Average Case:
+
+| Insertion | Deletion | Access |
+|---|---|---|
+| O(1) | O(1) | O(1) |
+
+通常一個實作的好的 Hash Table 其以上操作的時間複雜度都應該要是 O(1) 。
+
+以使用 Separate Chaining 方法時，不好的情況像是， Hash Function 輸出的數字重複率太高，存的值都集中在某個位置，導致在搜尋時得要遍歷該位置的陣列，此時時間複雜度就會接近於 O(n) 。
+
+而 Linear Probing 不會有這問題，每個位置都滿了之後，就不能再加入新的資料了。
