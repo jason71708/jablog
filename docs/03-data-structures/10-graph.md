@@ -114,4 +114,81 @@ Adjacency List 重點在於只存有關聯的節點，有關連的節點才會�
 
 如 `Vicky` 都沒跟其他人有連線，所以他的列表就是空的。
 
-## Big O Complexity with Adjacency Matrix & List
+## Big O Complexity with Adjacency List & Matrix
+
+|V| - 節點的數量
+|E| - 連線的數量
+
+| Operation | Adjacency List | Adjacency Matrix |
+|---|---|---|
+| Add Vertex | O(1) | O(|V²|) |
+| Add Edge | O(1) | O(1) |
+| Remove Vertex | O(|V|+|E|) | O(|V²|) |
+| Remove Edge | O(E) | O(1) |
+| Query | O(|V|+|E|) | O(1) |
+| Storage | O(|V|+|E|) | O(|V²|) |
+
+> 以下簡稱 List 與 Matrix
+
+List 因為只存有連線關係的節點，所以比 Matrix 在記憶體使用上會較少。
+同個原因，所以 List 在遍歷所有連線時會比 Matrix 快。
+
+但在查找特定連線時， Matrix 會比 List 快許多。
+
+## Implementation - Adjacency List Ver.
+
+為何用 Adjacency List 呢？
+
+因為在實際情況下，節點與節點之間並沒有那麼多的連線，就像社群網站 FB ，假設我有 1000 個好友，但 FB 總用戶至少也有好幾個億，
+若用 Adjacency Matrix 的話，我只有跟另外 1000 個節點有連線而已，剩下好幾個億節點也都要跟著存 0 條連線，這樣看起來 Adjacency List 是個比較好的選擇。
+
+但一切依當下要解決的情境而定，也會有 Adjacency Matrix 適合的場景。
+
+以下實作以字串當作 Key 來存節點的 Adjacency List 以及 Undirected, Unweighted 版本的 Graph ：
+
+```js
+class Graph{
+  constructor(){
+    this.adjacencyList = {}
+  }
+}
+```
+
+## Add & Remove Edge
+
+```js
+addEdge(vertex1,vertex2){
+  if (this.adjacencyList[vertex1] && this.adjacencyList[vertex2]) {
+    this.adjacencyList[vertex1].push(vertex2);
+    this.adjacencyList[vertex2].push(vertex1);
+  }
+}
+
+removeEdge(vertex1,vertex2){
+  this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(
+    v => v !== vertex2
+  );
+  this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter(
+    v => v !== vertex1
+  );
+}
+```
+
+## Add & Remove Vertex
+
+Remove Vertex 時除了刪掉該節點之外，也要刪掉其他節點與此節點有連線的部分。
+
+```js
+addVertex(vertex){
+  if(!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
+}
+
+removeVertex(vertex){
+  if(this.adjacencyList[vertex]) return
+  while(this.adjacencyList[vertex].length){
+    const adjacentVertex = this.adjacencyList[vertex].pop();
+    this.removeEdge(vertex, adjacentVertex);
+  }
+  delete this.adjacencyList[vertex]
+}
+```
