@@ -22,10 +22,10 @@ class WeightedGraph {
   constructor() {
     this.adjacencyList = {}
   }
-  addVertex(vertex){
-    if(!this.adjacencyList[vertex]) this.adjacencyList[vertex] = []
+  addVertex(vertex) {
+    if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = []
   }
-  addEdge(vertex1, vertex2, weight){
+  addEdge(vertex1, vertex2, weight) {
     if (this.adjacencyList[vertex1] && this.adjacencyList[vertex2]) {
       this.adjacencyList[vertex1].push({node: vertex2, weight})
       this.adjacencyList[vertex2].push({node: vertex1, weight})
@@ -48,71 +48,126 @@ class WeightedGraph {
 
 ```js
 class Node {
-  constructor(val, priority){
+  constructor(val, priority) {
     this.val = val
     this.priority = priority
   }
 }
 class PriorityQueue {
-  constructor(){
+  constructor() {
       this.values = []
   }
-  enqueue(val, priority){
+  enqueue(val, priority) {
     let newNode = new Node(val, priority)
     this.values.push(newNode)
     this.bubbleUp()
   }
-  bubbleUp(){
+  bubbleUp() {
     let idx = this.values.length - 1
     const element = this.values[idx]
-    while(idx > 0){
+    while (idx > 0) {
       let parentIdx = Math.floor((idx - 1)/2)
       let parent = this.values[parentIdx]
-      if(element.priority >= parent.priority) break
+      if (element.priority >= parent.priority) break
       this.values[parentIdx] = element
       this.values[idx] = parent
       idx = parentIdx
     }
   }
-  dequeue(){
+  dequeue() {
     const min = this.values[0]
     const end = this.values.pop()
-    if(this.values.length > 0){
+    if (this.values.length > 0) {
       this.values[0] = end
       this.sinkDown()
     }
     return min
   }
-  sinkDown(){
+  sinkDown() {
     let idx = 0
     const length = this.values.length
     const element = this.values[0]
-    while(true){
+    while (true) {
       let leftChildIdx = 2 * idx + 1
       let rightChildIdx = 2 * idx + 2
       let leftChild,rightChild
       let swap = null
 
-      if(leftChildIdx < length){
+      if (leftChildIdx < length) {
         leftChild = this.values[leftChildIdx]
-        if(leftChild.priority < element.priority) {
+        if (leftChild.priority < element.priority) {
           swap = leftChildIdx
         }
       }
-      if(rightChildIdx < length){
+      if (rightChildIdx < length) {
         rightChild = this.values[rightChildIdx]
-        if(
+        if (
           (swap === null && rightChild.priority < element.priority) || 
           (swap !== null && rightChild.priority < leftChild.priority)
         ) {
           swap = rightChildIdx
         }
       }
-      if(swap === null) break
+      if (swap === null) break
       this.values[idx] = this.values[swap]
       this.values[swap] = element
       idx = swap
     }
   }
+}
+```
+
+`sinkDown` 的部分和另篇 [Priority Queue](../03-data-structures/08-priority-queue.md) 裡實作的較不一樣，不同的做法但都可以達成目標。
+
+## Implement
+
+```js
+dijkstra(start, finish) {
+  const nodes = new PriorityQueue()
+  const distances = {}
+  const previous = {}
+  let path = [] // to return at end
+  let smallest
+  // build up initial state
+  for (let vertex in this.adjacencyList) {
+    if (vertex === start) {
+      distances[vertex] = 0
+      nodes.enqueue(vertex, 0)
+    } else {
+      distances[vertex] = Infinity
+      nodes.enqueue(vertex, Infinity)
+    }
+    previous[vertex] = null
+  }
+  // as long as there is something to visit
+  while (nodes.values.length) {
+    smallest = nodes.dequeue().val
+    if (smallest === finish) {
+      // BUILD UP PATH TO RETURN AT END
+      while (previous[smallest]) {
+        path.push(smallest)
+        smallest = previous[smallest]
+      }
+      break
+    } 
+    if (smallest || distances[smallest] !== Infinity) {
+      for (let neighbor in this.adjacencyList[smallest]) {
+        // find neighboring node
+        let nextNode = this.adjacencyList[smallest][neighbor]
+        // calculate new distance to neighboring node
+        let candidate = distances[smallest] + nextNode.weight
+        let nextNeighbor = nextNode.node
+        if (candidate < distances[nextNeighbor]) {
+          // updating new smallest distance to neighbor
+          distances[nextNeighbor] = candidate
+          // updating previous - How we got to neighbor
+          previous[nextNeighbor] = smallest
+          // enqueue in priority queue with new priority
+          nodes.enqueue(nextNeighbor, candidate)
+        }
+      }
+    }
+  }
+  return path.concat(smallest).reverse()     
 }
 ```
