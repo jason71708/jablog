@@ -40,6 +40,162 @@ class WeightedGraph {
 
 ![graph-ud-u](./graph-ud-u.png)
 
+以上圖為例子，找尋從 A 到 E 的最短距離。
+
+我們需要定義幾個變數：
+- `distances` - 記錄從初始節點到各個節點所需的距離
+- `previous` - 紀錄到各個節點時，上個節點是哪個
+
+一開始初始化變數時，我們將 `distances` 的 A 節點紀錄為 `0` (從 A 到 A 的距離當然為零)，其他的節點紀錄為 `Infinity`。
+`previous` 則是各個節點都先設 `null` 。
+
+大概會像是這樣：
+```js
+const distances = {
+  A: 0,
+  B: Infinity,
+  C: Infinity,
+  D: Infinity,
+  E: Infinity,
+  F: Infinity,
+}
+const previous = {
+  A: null,
+  B: null,
+  C: null,
+  D: null,
+  E: null,
+  F: null,
+}
+```
+
+接著就開始第一步，從 `distances` 中找出目前距離初始節點 A 最短距離的節點：
+是 A ，因為其他預設值都是設 Infinity。
+
+找出目前距離初起節點最短的 A 之後，將 A 相連的節點們一個個加上 A 紀錄的距離與 A 到該相鄰節點的距離，若此次計算出的距離比原本 `distances` 所紀錄的距離還短，我們就更新在 `distances` 上，並且 `previous` 也要紀錄這些相鄰節點的上個節點是 A ：
+
+```js
+const distances = {
+  A: 0,
+  B: 4,
+  C: 2,
+  D: Infinity,
+  E: Infinity,
+  F: Infinity,
+}
+const previous = {
+  A: null,
+  B: 'A',
+  C: 'A',
+  D: null,
+  E: null,
+  F: null,
+}
+```
+
+A 已經訪問過了，接續同樣動作，從 `distances` 找出剩下節點中目前距離初始節點 A 最短距離的節點：
+是 C 。
+
+C 的相鄰節點們一個個加上 C 紀錄的距離與跟 C 之間的距離，若此次計算出的距離比原本 `distances` 所紀錄的距離還短，我們就更新在 `distances` 上，並且 `previous` 也要紀錄這些相鄰節點的上個節點是 C ：
+
+```js
+const distances = {
+  A: 0,
+  B: 4,
+  C: 2,
+  D: 4,
+  E: Infinity,
+  F: 6,
+}
+const previous = {
+  A: null,
+  B: 'A',
+  C: 'A',
+  D: 'C',
+  E: null,
+  F: 'C',
+}
+```
+
+C 已經訪問過了，從 `distances` 找出剩下節點中目前距離初始節點 A 最短距離的節點：
+是 B 跟 D ，先後順序不重要，這邊先選 B 出來。
+
+B 的相鄰節點們一個個加上 B 紀錄的距離與跟 B 之間的距離，若此次計算出的距離比原本 `distances` 所紀錄的距離還短，我們就更新在 `distances` 上，並且 `previous` 也要紀錄這些相鄰節點的上個節點是 B ：
+
+```js
+const distances = {
+  A: 0,
+  B: 4,
+  C: 2,
+  D: 4,
+  E: 7,
+  F: 6,
+}
+const previous = {
+  A: null,
+  B: 'A',
+  C: 'A',
+  D: 'C',
+  E: 'B',
+  F: 'C',
+}
+```
+
+B 已經訪問過了，從 `distances` 找出剩下節點中目前距離初始節點 A 最短距離的節點：
+是 D 。
+
+D 的相鄰節點們一個個加上 D 紀錄的距離與跟 D 之間的距離，若此次計算出的距離比原本 `distances` 所紀錄的距離還短，我們就更新在 `distances` 上，並且 `previous` 也要紀錄這些相鄰節點的上個節點是 D ：
+
+```js
+const distances = {
+  A: 0,
+  B: 4,
+  C: 2,
+  D: 4,
+  E: 7,
+  F: 5,
+}
+const previous = {
+  A: null,
+  B: 'A',
+  C: 'A',
+  D: 'C',
+  E: 'B',
+  F: 'D',
+}
+```
+
+D 已經訪問過了，從 `distances` 找出剩下節點中目前距離初始節點 A 最短距離的節點：
+是 F 。
+
+F 的相鄰節點們一個個加上 F 紀錄的距離與跟 F 之間的距離，若此次計算出的距離比原本 `distances` 所紀錄的距離還短，我們就更新在 `distances` 上，並且 `previous` 也要紀錄這些相鄰節點的上個節點是 F ：
+
+```js
+const distances = {
+  A: 0,
+  B: 4,
+  C: 2,
+  D: 4,
+  E: 6,
+  F: 5,
+}
+const previous = {
+  A: null,
+  B: 'A',
+  C: 'A',
+  D: 'C',
+  E: 'F',
+  F: 'D',
+}
+```
+
+F 已經訪問過了，從 `distances` 找出剩下節點中目前距離初始節點 A 最短距離的節點：
+是 E 。
+
+E 就是我們的終點節點，所以迴圈到此結束，目前 E 所紀錄的距離就是從 A 到 E 所需的最短距離。
+
+而路徑我們則可以用 `previous` 來幫助我們回朔： E -> F -> D -> C -> A 。
+
 ## Priority Queue
 
 而找尋當前哪個節點擁有最短路徑這部分可以使用 [Priority Queue](../03-data-structures/08-priority-queue.md) 來實作，每次加進去時，會依照其優先度調整順序，之後要找最短路徑時只要拿第一個就好了。
