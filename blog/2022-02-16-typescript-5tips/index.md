@@ -9,7 +9,6 @@ tags: [TypeScript]
 
 以下介紹 10 種技巧：
 <!--truncate-->
-
 ## 條件式型別限制
 
 如同 JavaScript 有 `?` 可寫[三元判斷式](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)之外， TypeScript 也能用 `?` 來判斷型別。
@@ -54,6 +53,77 @@ const laptopPreviewInfo = getDevicePreviewInfo(laptop)
 const iPhone200ProMax = new Phone()
 const iPhonePreviewInfo = getDevicePreviewInfo(iPhone200ProMax)
 // iPhonePreviewInfo: PhonePreviewInfo
+```
+
+## keyof
+
+```ts
+interface Computer {
+  id: number;
+  cpu: number;
+  ram: number;
+  keyboard: string;
+  devices: string[]
+}
+
+type ComputerKeys = keyof Computer; // id | cpu | ram | keyboard | devices
+```
+
+非常實用，型別版本的 `Object.keys()` 。
+
+## as const
+
+```ts
+const products = ['Computer', 'Phone', 'Laptops'];
+type Products = typeof products; // string[]
+
+const products2 = ['Computer', 'Phone', 'Laptops'] as const;
+type Products2 = typeof products2; // ['Computer', 'Phone', 'Laptops'];
+```
+
+`as const` 關鍵字相當於型別版本的 `const` ，能用前面的值定義為唯獨 (readonly) 的常數型別，上面 `Products2` 如果給
+成其他字串陣列的值，非原本定義的那樣則會報錯。
+
+## index access
+
+```ts
+const products = ['Computer', 'Phone', 'Laptops'] as const;
+type Products = typeof products; // ['Computer', 'Phone', 'Laptops'];
+
+type Product = Products[number]; // 'Computer' | 'Phone' | 'Laptops'
+
+interface Computer {
+  id: number;
+  cpu: number;
+  ram: number;
+  keyboard: string;
+  devices: string[]
+}
+type ComputerId = Computer['id']; // number
+type ComputerKeysType = Computer[keyof Computer] // string | number | string[]
+```
+
+跟 JavaScript 本身使用 `array[0]` 與 `someObject['key']` 的方式一樣，只是變成型別版本。
+
+## 泛型函式限縮參數
+
+沿用上面的 `Computer` ：
+
+```ts
+function getProperty<Type, Key extends keyof Type>(obj: Type, key: Key) {
+  return obj[key];
+}
+
+const laptop: Computer = {
+  id: 123999,
+  cpu: 2.5,
+  ram: 16,
+  keyboard: 'keyboard A',
+  devices: ['speaker', 'audio']
+};
+
+getProperty(laptop, 'id'); // 123999
+getProperty(laptop, 'touchableScreen'); // type error
 ```
 
 ## 同場加映： Function Overload (函式多載)
