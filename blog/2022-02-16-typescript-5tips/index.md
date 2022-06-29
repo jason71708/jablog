@@ -7,7 +7,7 @@ tags: [TypeScript]
 
 寫 TypeScript 也有一年多的時間，整理了一些實用的寫法讓撰寫型別能更加彈性與順暢。
 
-以下介紹 10 種技巧：
+以下介紹 5 種技巧：
 <!--truncate-->
 ## 條件式型別限制
 
@@ -81,8 +81,7 @@ const products2 = ['Computer', 'Phone', 'Laptops'] as const;
 type Products2 = typeof products2; // ['Computer', 'Phone', 'Laptops'];
 ```
 
-`as const` 關鍵字相當於型別版本的 `const` ，能用前面的值定義為唯獨 (readonly) 的常數型別，上面 `Products2` 如果給
-成其他字串陣列的值，非原本定義的那樣則會報錯。
+`as const` 關鍵字相當於型別版本的 `const` ，能用前面的值定義為唯獨 (readonly) 的常數型別，上面 `Products2` 如果給成其他字串陣列的值，非原本定義的那樣則會報錯。
 
 ## index access
 
