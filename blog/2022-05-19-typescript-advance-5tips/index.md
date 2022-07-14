@@ -199,3 +199,25 @@ function Application() {
   )
 }
 ```
+
+## TypeScript Generic Function Constraints
+
+用 `extends` 搭配寫定特定物件屬性的方式，可大副增加泛型函式的彈性，不必再讓參數綁定到特定型別。
+
+假設此泛型函式會用到 `length` 屬性，那只要寫成 `<T extends { length: number }>` 就好，任何有 `length` 屬性的物件都可以帶此函式。
+
+```ts
+function longest<Type extends { length: number }>(a: Type, b: Type) {
+  if (a.length >= b.length) {
+    return a;
+  } else {
+    return b;
+  }
+}
+
+const longerArray = longest([1, 2], [1, 2, 3]);
+
+const longerString = longest("alice", "bob");
+
+const notOK = longest(10, 100); // Error! 10 doesn't have a 'length' property
+```
