@@ -80,3 +80,86 @@ const getSelect = (device: Devices) => {
 ```
 
 上述 `Devices` 還有 `Mic` 這個可能，但是我們的判斷缺少了，這時型別是 `never` 的 `errorState` 會報錯，提醒還有 `Mic` 這個可能。在非常多 if else 或用 switch 時，最後加入 `never` 型別可以幫助我們有效排查疏失。
+
+## Discriminated unions
+
+假設 `Computer` 只是一個 `interface` 或 `type` ，並不是 Class 而沒辦法使用 `instanceof` 的情況，我們可以增加一個屬性並寫定字串。
+
+```ts
+
+export interface Computer {
+  __typename: 'computer'
+  id: string
+  cpu: string
+  ram: number
+}
+
+// ...
+
+export const computer: Computer[] = [
+  {
+    __typename: "computer", // 
+    id: "123-abc-456",
+    cpu: 4,
+    ram: 16
+  },
+  // ...
+];
+
+export type Devices = Computer | Phone | Mic;
+
+const getInfo = (value: Devices | string) => {
+  if (typeof value === "string") return value;
+  if (value.__typename === "computer") return `CPU: ${value.cpu}, RAM: ${value.ram}`;
+  if (value.__typename === "phone") return `Touch Screen: ${value.touchScreen}, Speaker: ${value.speaker}`;
+  // ...
+
+  return "";
+};
+```
+
+實際在編輯器撰寫時可以看到在 if else 區塊內 `value.` 出現的提示就是對應 `__typename` 的型別物件屬性。
+
+定義型別時直接指定常數可以用在非常多地方，例如進行非同步行為時的狀態：
+
+```ts
+type PendingState = {
+  status: 'pending';
+};
+
+type LoadingState = {
+  status: 'loading';
+};
+
+type SuccessState = {
+  status: 'success';
+  data: Book[];
+};
+
+type ErrorState = {
+  status: 'error';
+  error: any;
+};
+
+type State = PendingState | LoadingState | SuccessState | ErrorState;
+```
+
+還有 React Component ：
+
+```ts
+interface SingleSelectProps<TValue extends Devices> {
+  isMulti: false;
+  onChange: (value: TValue) => void;
+}
+
+interface MultiSelectProps<TValue extends Devices> {
+  isMulti: true;
+  onChange: (value: TValue[]) => void;
+}
+
+export const GenericSelect = <TValue extends Devices>(
+ props: SingleSelectProps<TValue> | MultiSelectProps<TValue>
+) => {
+  // ...
+}
+```
