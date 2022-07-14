@@ -163,3 +163,39 @@ export const GenericSelect = <TValue extends Devices>(
   // ...
 }
 ```
+
+## Polymorphic Component in React and TypeScript
+
+之前可能有使用某個三方元件，給定 `as="div"` 或 `as="span"` 就可以渲染出不同的元素。
+
+其實就是用 `React.ElementType` 與給定預設值的方式：
+
+```tsx
+type TitleOwnProps<E extends React.ElementType = React.ElementType> = {
+  children: string
+  as?: E
+}
+
+type TitleProps<E extends React.ElementType> = TitleOwnProps<E> &
+  Omit<React.ComponentProps<E>, keyof TitleOwnProps>
+
+const __DEFAULT_ELEMENT__ = 'h2'
+
+function Title<E extends React.ElementType = typeof __DEFAULT_ELEMENT__>({
+  children,
+  as,
+  ...props
+}: TitleProps<E>) {
+  const Component = as || __DEFAULT_ELEMENT__
+  
+  return <Component {...props} aria-labelledby='title'>{children}</Component>
+}
+
+function Application() {
+  return (
+    <Title as='a' href='/'>
+      Application component rendering Title
+    </Title>
+  )
+}
+```
