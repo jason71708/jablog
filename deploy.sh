@@ -1,6 +1,8 @@
 #!/bin/bash
 yarn run build --locale zh-TW
-aws s3 sync ./build s3://jablog-site --profile my-account
+aws s3 sync ./build s3://jablog-website --profile my-account --exclude '*.html'
+find ./build -iname "*.html" -exec rename 's/.html//' '{}' \;
+aws s3 sync ./build s3://jablog-website --profile my-account --exclude '.*' --content-type 'text/html'
 
 echo "Do you want to clean cloudfront cache?"
 PS3='Please enter your choice: '
