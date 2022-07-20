@@ -28,7 +28,7 @@ WebGL 是 JavaScript 提供的 API，提供畫點、線、面，但這些操作�
 
 我們寫個 CSS 屬性讓 `div` 移動時裡面的 `h1` 也會跟著動吧。
 
-在 3D 環境中，有個人物移動，那它身上的器官像眼睛、鼻子、嘴巴等等的物件也都要跟著動，這就是稍後章節會提到的 [Scenegraph](./scenegraph)
+在 3D 環境中，有個人物移動，那它身上的器官像眼睛、鼻子、嘴巴等等的物件也都要跟著動，這就是稍後章節會提到的 [Scenegraph](./05-scenegraph.md)
 
 ## Camera
 Camera 掌管 3D 環境中哪個範圍需要被畫在瀏覽器的 Canvas 上，好比我們眼睛就只能看到前方。
@@ -160,7 +160,7 @@ scene.add(light);
 + const material = new THREE.MeshPhongMaterial({color: 0xee1188});
 ```
 而為了能看出光照的效果，我們把不會受光源影響的材質 `MeshBasicMaterial`，改成會受光源影響的 `MeshPhongMaterial`。
-[Materials](./materials) 相關的文章會在後面提到。
+[Materials](./06-materials.md) 相關的文章會在後面提到。
 
 接著寫一個函式將建立 cube 的程式碼封裝在內，讓我們容易建立多個 cube。
 

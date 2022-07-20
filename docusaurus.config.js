@@ -12,7 +12,7 @@ const config = {
   favicon: 'img/logo.svg',
   organizationName: 'jason71708', // Usually your GitHub org/user name.
   projectName: 'development-notes', // Usually your repo name.
-  trailingSlash: false,
+  trailingSlash: true,
   i18n: {
     defaultLocale: 'zh-TW',
     locales: ['zh-TW'],
