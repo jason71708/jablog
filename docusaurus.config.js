@@ -1,12 +1,9 @@
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-
 const isDev = process.env.NODE_ENV === 'development';
 const baseUrl = process.env.BASE_URL ?? '/';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: '傑部落',
+  title: '傑部落 Jablog',
   tagline: '紀錄、分享開發、技術和心得。',
   organizationName: 'jason71708', // Usually your GitHub org/user name.
   projectName: 'development-notes', // Usually your repo name.
@@ -29,7 +26,7 @@ const config = {
     'static',
   ],
   themes: [
-    // 'live-codeblock',
+    'live-codeblock',
   ],
   plugins: [
     [
@@ -164,19 +161,47 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      metadata: [
-        {name: 'keywords', content: 'frontend, blog, web'},
-        {name: 'author', content: 'Jason Zhuang'},
-        {name: 'copyright', content: 'Jason Zhuang'}
-      ],
+      liveCodeBlock: {
+        playgroundPosition: 'bottom',
+      },
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
+      // announcementBar: {
+      //   id: 'new-site',
+      //   content: '✨傑部落搬新家囉✨',
+      //   backgroundColor: '#188038',
+      //   textColor: '#fff',
+      //   isCloseable: true,
+      // },
+      prism: {
+        // magicComments: [
+        //   {
+        //     className: 'theme-code-block-highlighted-line',
+        //     line: 'highlight-next-line',
+        //     block: {start: 'highlight-start', end: 'highlight-end'},
+        //   },
+        //   {
+        //     className: 'code-block-error-line',
+        //     line: 'This will error',
+        //   },
+        // ],
+      },
       image: 'img/logo.png',
+      metadata: [
+        {name: 'keywords', content: 'frontend, blog, web, developer'},
+        {name: 'author', content: 'Jason Zhuang'},
+        {name: 'copyright', content: '傑部落 Jablog'}
+      ],
       navbar: {
-        title: '傑部落',
+        hideOnScroll: true,
+        title: '傑部落 Jablog',
         logo: {
           alt: 'Jablog Logo',
           src: 'img/logo.png',
         },
-        hideOnScroll: true,
         items: [
           {
             to: '/blog',
@@ -190,69 +215,34 @@ const config = {
             label: 'Docs',
           },
           {
-            href: 'https://github.com/jason71708',
-            label: 'GitHub',
+            type: 'localeDropdown',
             position: 'right',
+          },
+          {
+            href: 'https://github.com/jason71708',
+            position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'GitHub Profile',
           },
         ],
       },
       zoomSelector: '.markdown img',
-      // announcementBar: {
-      //   id: 'new-site',
-      //   content: '✨傑部落搬新家囉✨',
-      //   backgroundColor: '#188038',
-      //   textColor: '#fff',
-      //   isCloseable: true,
-      // },
       footer: {
         style: 'dark',
-        links: [
-          // {
-          //   title: 'Docs',
-          //   items: [
-          //     {
-          //       label: 'Tutorial',
-          //       to: '/docs',
-          //     },
-          //   ],
-          // },
-          // {
-          //   title: 'Community',
-          //   items: [
-          //     {
-          //       label: 'Discord',
-          //       href: 'https://discordapp.com/invite/docusaurus',
-          //     },
-          //     {
-          //       label: 'Twitter',
-          //       href: 'https://twitter.com/docusaurus',
-          //     },
-          //   ],
-          // },
-          // {
-          //   title: 'More',
-          //   items: [
-          //     {
-          //       label: 'Blog',
-          //       to: '/blog',
-          //     },
-          //     {
-          //       label: 'GitHub',
-          //       href: 'https://github.com/jason71708',
-          //     },
-          //   ],
-          // },
-        ],
+        links: [],
         copyright: `Copyright © ${new Date().getFullYear()} 傑部落 Jablog, Inc. Built with Docusaurus.`,
-      },
-      colorMode: {
-        defaultMode: 'dark',
-      },
-      prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
       },
     }),
 };
 
-module.exports = config;
+// module.exports = config;
+
+async function createConfig() {
+  const lightTheme = (await import('./src/utils/prismLight.mjs')).default;
+  const darkTheme = (await import('./src/utils/prismDark.mjs')).default;
+  config.themeConfig.prism.theme = lightTheme;
+  config.themeConfig.prism.darkTheme = darkTheme;
+  return config;
+}
+
+module.exports = createConfig;
