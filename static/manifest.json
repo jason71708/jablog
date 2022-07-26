@@ -1,0 +1,22 @@
+{
+  "name": "Jablog",
+  "short_name": "Jablog",
+  "theme_color": "#25c2a0",
+  "background_color": "#424242",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./index.html",
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://www.jablog.site/manifest.json"
+    }
+  ],
+  "icons": [
+    {
+      "src": "img/logo.png",
+      "sizes": "240x240",
+      "type": "image/png"
+    }
+  ]
+}
