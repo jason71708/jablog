@@ -214,10 +214,10 @@ const config = {
             position: 'left',
             label: 'Docs',
           },
-          {
-            type: 'localeDropdown',
-            position: 'right',
-          },
+          // {
+          //   type: 'localeDropdown',
+          //   position: 'right',
+          // },
           {
             href: 'https://github.com/jason71708',
             position: 'right',
