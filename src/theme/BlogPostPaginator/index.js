@@ -1,11 +1,12 @@
 import React from 'react';
-import Footer from '@theme-original/BlogPostItem/Footer';
+import BlogPostPaginator from '@theme-original/BlogPostPaginator';
 import Giscus from '@giscus/react';
 
-export default function FooterWrapper(props) {
+export default function BlogPostPaginatorWrapper(props) {
   return (
     <>
-      <Footer {...props} />
+      <BlogPostPaginator {...props} />
+      <br />
       <Giscus
         id="comments"
         repo="jason71708/jablog"
@@ -19,7 +20,7 @@ export default function FooterWrapper(props) {
         emitMetadata="0"
         inputPosition="top"
         theme="preferred_color_scheme"
-        lang="zh-TW"
+        lang="en"
         loading="lazy"
         crossOrigin="anonymous"
       />

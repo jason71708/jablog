@@ -19,7 +19,7 @@ export default function FooterWrapper(props) {
         emitMetadata="0"
         inputPosition="top"
         theme="preferred_color_scheme"
-        lang="zh-TW"
+        lang="en"
         loading="lazy"
         crossOrigin="anonymous"
       />
