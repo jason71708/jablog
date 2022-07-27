@@ -6,7 +6,7 @@ const config = {
   title: '傑部落 Jablog',
   tagline: '紀錄、分享開發、技術和心得。',
   organizationName: 'jason71708', // Usually your GitHub org/user name.
-  projectName: 'development-notes', // Usually your repo name.
+  projectName: 'jablog', // Usually your repo name.
   baseUrl,
   baseUrlIssueBanner: true,
   url: 'https://www.jablog.site',
@@ -28,6 +28,25 @@ const config = {
   themes: [
     'live-codeblock',
   ],
+  customFields: {
+    giscus: {
+      id: 'comments',
+      repo: 'jason71708/jablog',
+      repoId: 'R_kgDOHuA6TA',
+      category: "Announcements",
+      categoryId: "DIC_kwDOHuA6TM4CQcHo",
+      mapping: "title",
+      // term: "Welcome to @giscus/react component!",
+      strict: "0",
+      reactionsEnabled: "1",
+      emitMetadata: "0",
+      inputPosition: "top",
+      theme: "preferred_color_scheme",
+      lang: "en",
+      loading: "lazy",
+      crossOrigin: "anonymous",
+    },
+  },
   plugins: [
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
