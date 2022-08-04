@@ -24,7 +24,7 @@ Floyd 判圈算法 (Floyd Cycle Detection Algorithm)，又稱龜兔賽跑算法 
 
 ### 是否有環形結構
 
-如果是遇到有環形的資料的話，最後兔子一定會倒追到烏龜並相遇在某個點上。如果沒有環形，兔子最後會走到底 (`null`)，類似 Linked List 最後一個節點的 `next` 是指向 `null` 。
+如果是遇到有環形的資料的話，最後兔子一定會倒追到烏龜並相遇在某個點上。如果沒有環形，兔子最後會走到底 (`null`)，類似 [Linked List](../03-data-structures/01-singly-linked-list.md) 最後一個節點的 `next` 是指向 `null` 。
 
 ### 環長度
 
@@ -33,4 +33,3 @@ Floyd 判圈算法 (Floyd Cycle Detection Algorithm)，又稱龜兔賽跑算法 
 ### 起點
 
 找起點的方式延續上面的步驟，兔子與烏龜目前在環上某個點相遇，把其中一個指針移到最一開始的節點上，另個待在原地。接著兩個同時往前每次走一格，直到相遇時該節點就是起點。
-
