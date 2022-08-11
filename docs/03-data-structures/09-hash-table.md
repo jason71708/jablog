@@ -75,7 +75,7 @@ hash('pink', 13)
 
 ## Implementation - Separate Chaining Ver.
 
-實作 HashTable Clase ， 陣列長度在一開始實例化就可以帶進去，我們的 Hash Function 只需接受 Key 就好。
+實作 HashTable Class ， 陣列長度在一開始實例化就可以帶進去，我們的 Hash Function 只需接受 Key 就好。
 
 我們採用上面提到 Separate Chaining 方法，所以我們 `keyMap` 中每個元素都會是陣列，真的要存的 Value 是放到此陣列中。
 
