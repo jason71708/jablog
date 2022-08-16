@@ -67,7 +67,21 @@ Gap = length / 2 = 4
 ## Implementation
 
 ```js
-function shellSort(array) {
+function shellSort( array ) {
+  // Separating element by gap
+  for ( let gap = Math.floor( array.length / 2 ); gap >= 1; gap = Math.floor( gap / 2 ) ) {
+    // Iterating every element and comparing with it's previous element
+    for ( let i = gap; i < array.length; i++ ) {
+      let currentIndex = i;
+      // If it founds need to swap, keep forward comparing until current element is bigger than previous element
+      while ( currentIndex - gap >= 0 && array[ currentIndex ] < array[ currentIndex - gap ] ) {
+        let temp = array[ currentIndex ];
+        array[ currentIndex ] = array[ currentIndex - gap ];
+        array[ currentIndex - gap ] = temp;
+        currentIndex -= gap;
+      }
+    }
+  }
 }
 ```
 
@@ -75,4 +89,12 @@ function shellSort(array) {
 
 | Time Complexity (Best) | Time Complexity (Average) | Time Complexity (Worst) | Space Complexity |
 |---|---|---|---|
-| O() | O() | O() | O() |
+| O(n log(n)) | O((n (log(n))²) | O(n (log(n))²) | O(1) |
+
+整體而言複雜度概念上和 [Insertion Sort](./14-insertion-sort.md) 相近，只是 Shell Sort 多加了 Gap 的概念做改良。
+
+空間複雜度一樣都是 O(1)， 都使用原本輸入的陣列做原地排序 (in-place)。
+
+時間複雜度的部分，若是在**快排序好的資料**上，最好的情況接近於 **log(n)** (總共幾輪 Gap 遞減) 乘上 **n** (每輪元素一一比對，但卻都沒有需要往前遍歷交換位置)。
+
+大部分與最壞的情況下，每輪元素比對時會需要往前遍歷做交換，由於每輪比對後會保證其一部份的順序是正確的，故每輪每個元素遍歷時最多就是 **log(n)** 次，所以是 n log(n) 再乘上 log(n) 。
