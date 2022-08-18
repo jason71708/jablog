@@ -5,8 +5,6 @@ tags:
 keywords: [algorithms, 演算法]
 ---
 
-## Introduction
-
 Linear Search 非常常見，甚至在學迴圈時就已經學過了。以下直接給範例練習！
 
 ## Practice - Linear Search

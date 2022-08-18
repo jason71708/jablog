@@ -5,8 +5,6 @@ tags:
 keywords: [algorithms, 演算法]
 ---
 
-## Introduction
-
 Recursion 的定義是一個會**呼叫自己**的函式。
 
 Recursion 技巧在很多地方都有用到，例如：

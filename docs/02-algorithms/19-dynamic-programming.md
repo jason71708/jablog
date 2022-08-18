@@ -5,11 +5,9 @@ tags:
 keywords: [algorithms, 演算法]
 ---
 
-## Introduction
+解決一個問題時，若此問題可以分解成多個**重複性的子問題**，且這些**子問題的解答可以構成最終該問題的解答**，則我們可以用 Dynamic Programming 的技巧，透過紀錄這些重複多次的子問題的解答，可以有效減少許多執行重複計算同樣問題。
 
 > 原文： Dynamic Programming is a technique in computer programming that helps to efficiently solve a class of problems that have overlapping subproblems and optimal substructure property.
-
-解決一個問題時，若此問題可以分解成多個**重複性的子問題**，且這些**子問題的解答可以構成最終該問題的解答**，則我們可以用 Dynamic Programming 的技巧，透過紀錄這些重複多次的子問題的解答，可以有效減少許多執行重複計算同樣問題。
 
 計算費氏數列 (Fibonacci) 的問題就符合上述條件，故以下都以該題目舉例。
 

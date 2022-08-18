@@ -5,13 +5,11 @@ tags:
 keywords: [algorithms, 演算法]
 ---
 
-## Introduction
-
-之後關於排序的章節非常推薦觀看此[網站](https://visualgo.net/en/sorting)的動畫演示。
+一種排序資料的方式，實務上不太常使用，除了某些特定情境。相對於其他排序方式，Bubble Sort 效能較差。
 
 ![bubble-sort](./bubble-sort.png)
 
-一種排序資料的方式，實務上不太常使用，除了某些特定情境。相對於其他排序方式，Bubble Sort 效能較差。
+之後關於排序的章節非常推薦觀看此[網站](https://visualgo.net/en/sorting)的動畫演示。
 
 Bubble Sort 實作上是一一比對兩兩相鄰的資料，假設排序要求從小到大排序數字，較大數字會與較小數字交換位置使得較大數字在後面。
 

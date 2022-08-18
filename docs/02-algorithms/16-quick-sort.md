@@ -5,8 +5,6 @@ tags:
 keywords: [algorithms, 演算法]
 ---
 
-## Introduction
-
 > Quick Sort 有使用到 [Recursion](./09-recursion.md) 的技巧。
 
 第一步是從陣列中取出一個數字當作基準值 (pivot)，我們選該陣列的第一個元素。

@@ -5,6 +5,8 @@ tags:
 keywords: [algorithms, 演算法]
 ---
 
+這篇介紹物件本身操作的時間複雜度
+
 ## 操作物件的時間複雜度
 - Insertion - **O(1)**
 - Removal - **O(1)**

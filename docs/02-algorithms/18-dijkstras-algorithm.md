@@ -5,11 +5,9 @@ tags:
 keywords: [algorithms, 演算法]
 ---
 
-## Introduction
+而此演算法是由一位叫 Edsger Dijkstra 的荷蘭工程師所發明，他在電腦科學領域[貢獻了許多](https://en.wikipedia.org/wiki/Edsger_W._Dijkstra#Pioneering_contributions_and_impact_on_computing_science)奠定目前網際網路、電腦科學與數位服務等等的基礎。
 
 > 在學習 Dijkstra's Algorithm 需前理解資料結構的 [Priority Queue](../03-data-structures/08-priority-queue.md) 與 [Graph](../03-data-structures/10-graph.md) 。
-
-而此演算法是由一位叫 Edsger Dijkstra 的荷蘭工程師所發明，他在電腦科學領域[貢獻了許多](https://en.wikipedia.org/wiki/Edsger_W._Dijkstra#Pioneering_contributions_and_impact_on_computing_science)奠定目前網際網路、電腦科學與數位服務等等的基礎。
 
 而 Dijkstra's Algorithm 正是用他的名字來命名，此演算法是用於找出在 Graph 中兩個節點之間的最短路徑。
 

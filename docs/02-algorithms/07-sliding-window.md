@@ -5,15 +5,13 @@ tags:
 keywords: [algorithms, 演算法]
 ---
 
-## Introduction
+定義兩個指標，一個是 `start`，一個是 `end`。
 
 像是：
 ```js
 //start     end
 // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
-
-定義兩個指標，一個是 `start`，一個是 `end`。
 
 `start` 與 `end` 根據題目所需來移動，這兩個指標所圍出的範圍可大可小，類似像可滑動的兩片窗戶一樣。
 

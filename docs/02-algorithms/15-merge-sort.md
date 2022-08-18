@@ -5,8 +5,6 @@ tags:
 keywords: [algorithms, 演算法]
 ---
 
-## Introduction
-
 > Merge Sort 有使用到 [Divide and Conquer](./08-divide-and-conquer.md) 與 [Recursion](./09-recursion.md) 的技巧。
 
 第一步：將陣列分割成更小的陣列，直到每個陣列只有一個或零個元素。

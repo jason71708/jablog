@@ -5,6 +5,8 @@ tags:
 keywords: [algorithms, 演算法]
 ---
 
+這篇介紹陣列本身操作的時間複雜度
+
 ## 操作陣列的時間複雜度
 - Insertion - **O(1)** or **O(n)**
 - Removal - **O(1)** or **O(n)**

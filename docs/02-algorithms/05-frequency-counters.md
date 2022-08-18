@@ -5,11 +5,7 @@ tags:
 keywords: [algorithms, 演算法]
 ---
 
-## Introduction
-
-Frequency Counter 是一種解題技巧，它使用物件的屬性來記錄陣列或字串裡面特定值的出現次數。
-
-它可以避免使用遞迴的方式來計算，可以有效減少時間複雜度。
+Frequency Counter 是一種解題技巧，它使用物件的屬性來記錄陣列或字串裡面特定值的出現次數。它可以避免使用遞迴的方式來計算，可以有效減少時間複雜度。
 
 ## Practice 1 - Same
 

@@ -5,13 +5,7 @@ tags:
 keywords: [algorithms, 演算法]
 ---
 
-## Introduction
-
-建立 pointer 變數代表目前指到哪個位置 (index)。
-
-使用兩個 pointer 代表目前查找的位置與範圍，不用再額外宣告物件或陣列來儲存或遞迴查找。
-
-此技巧能有效減少時間與空間複雜度。
+建立 pointer 變數代表目前指到哪個位置 (index)。使用兩個 pointer 代表目前查找的位置與範圍，不用再額外宣告物件或陣列來儲存或遞迴查找。此技巧能有效減少時間與空間複雜度。
 
 ## Practice 1 - sumZero
 

@@ -5,13 +5,9 @@ tags:
 keywords: [algorithms, 演算法]
 ---
 
-## Introduction
+Binary Search 是一種更快的搜尋方式，比起 Liner Search 每次查找時只會排除一個元素，Binary Search 每次查找比對後可以排除掉當前資料量的一半元素。但 Binary Search 只能用在**排序過**的資料。
 
-Binary Search 是一種更快的搜尋方式，在先前的[Divide and Conquer 章節](./08-divide-and-conquer.md)有提到過，可回去複習後實作以下練習。
-
-比起 Liner Search 每次查找時只會排除一個元素，Binary Search 每次查找比對後可以排除掉當前資料量的一半元素。
-
-但 Binary Search 只能用在**排序過**的資料。
+先前的 [Divide and Conquer 章節](./08-divide-and-conquer.md)有提到過，可回去複習後實作以下練習。
 
 ## Practice 1 - Binary Search
 
