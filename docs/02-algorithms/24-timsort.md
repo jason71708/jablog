@@ -197,3 +197,102 @@ function timSort(arr, n)
 而其他大部分情況下，合併兩個 run 時需要再做比對排序，所以和一般的 Merge Sort 一樣都是 **O((n log(n))** 。
 
 而 Timsort 合併時需要額外的空間所以空間複雜度為 **O(n)** 。
+
+## Real World Timsort
+
+現在講複雜版本，上段有提到 Timsort 用許多方式優化來讓其依據各種情況下採用不同的策略進行排序演算。
+
+### Ascending 升冪
+
+假設有兩組 run 長這樣：
+
+`[11, 21, 31, 41, 51, 9], [5, 4, 3, 2, 1, 9]`
+
+考慮到有部分元素已經排序好的情況，我們在排序時可以加上觀察一連串元素目前是升序還是降序，是降序的話則原地反轉 (in-place)。就不會像一般 Insertion Sort 遇到降序時會一個個往前交換順序，多了很多操作時間。
+
+### `merge_collapse`
+
+Timsort 會用 [Stack](../03-data-structures/03-stack.md) 來暫存 run ，並用 `merge_collapse` 的函式合併。
+
+策略如下：
+
+1. A > B + C
+2. B > C
+
+當目前 3 個 run 的大小符合以上條件時，A 會被丟進另個 Stack 中，接著從舊的 Stack 取出前三個 B 、 C 、 D 繼續比對。
+
+不符合上述條件時則會判斷 A 、 C 大小，小的跟 B 合併，之所以只跟 B 合併是為了保持 Stable 順序，所以只能相鄰合併。
+
+所以當 A:30 B:20 C:10 時，最後會是 A:30 B+C:30 。
+
+而此策略在於平衡每個 run 的大小，使合併能更有效率。假設目前幾組 run 的數量長這樣：128, 64, 32, 16, 8, 4, 2。
+
+前面那幾個都會被丟進 Stack 中，直到 8、4、2 最後一組，最後變 8、4+2。
+
+Stack 是先進後出，所以接著合併回來會變成：
+
+1. `6 8 16 32 64 128`
+2. `14 16 32 64 128`
+3. `30 32 64 128`
+4. `62 64 128`
+5. `126 128`
+6. `254`
+
+可以看出能此合併策略可以使每個 run 更平均，不會有 2 與 128 合併這樣沒效率的行為出現。
+
+### `gollaping mode`
+
+而兩個 run 合併時，一般 Merge Sort 所用的方法稱為 `one-pair-at-a-time` 。
+
+但在合併時，兩個 run 都是排序好的。假設如下：
+
+`A: [3, 7, 11, 12, 13, 31, 45, 221]` 、 `B: [21, 22, 24, 24, 29, 1000]`
+
+此時可以觀察到其實 `3, 7, 11, 12, 13` 可以直接整組排在 B 的前面。
+
+所以 Timsort 有個 `gollaping mode` 的合併演算，去觀察 run 的第一個元素是排列在另個 run 的哪個位置，像上例 B[0] 的大小是在 A[4] 和 A[5] 中間，所以可以說 A[0] ~ A[4] 的元素全都小於 B[0]。
+
+另外合併時 Timsort 也會建立一個暫存的陣列，大小時兩個 run 取最小長度，並將較小的 run 放進暫存陣列內：
+
+```
+A: [] B: [21, 22, 24, 24, 29, 1000]
+temp: [3, 7, 11, 12, 13, 31, 45, 221]
+```
+
+像上面所說，A[0] ~ A[4] 都小於 B[0] 所以可以整段放回去：
+
+```
+A: [3, 7, 11, 12, 13] B: [21, 22, 24, 24, 29, 1000]
+temp: [31, 45, 221]
+```
+
+接著換 temp[0] 比對，大於 B[4]，小於 B[5]。
+
+所以一樣整段放進去：
+
+```
+A: [3, 7, 11, 12, 13, 21, 22, 24, 24, 29] B: [1000]
+temp: [31, 45, 221]
+```
+
+以此類推。
+
+但實際情況可能不會都那麼剛好，當元素都沒有剛好整組可排列時 `galloping mode` 會比 `one-pair-at-a-time mode` 還耗時間，所以 Timsort 還有個固定參數 `MIN_GALLOP=7` 與變數 `minGallop=MIN_GALLOP` 去決定要用哪個模式 ，一開始使用 `one-pair-at-a-time mode` ，一直遇到第一個元素大於另個 run 多個元素時會改用 `galloping mode` 。
+
+假設 A[0] 在 B[9] 與 B[10] 中間，此時找到的位置是 9 ，大於 `minGallop` 會採用 `galloping mode` 否則使用 `one-pair-at-a-time mode`。
+
+而一直使用 `galloping mode` 則還會降低 `minGallop` 的值，使其更容易觸發 `galloping mode` 。
+
+### `galloping search`
+
+使用 `galloping mode` 時會需要查找 A[0] 的元素排序在 B[0] 的哪個位置，這時除了 [Binary Search](./11-binary-search.md) 之外， Timsort 還使用了 `galloping search` (expotential search) 。
+
+`galloping search` 使用 `(2^k)th` 方式查找元素，也就是 1, 3, 7, 15, 31 的順序方式。
+
+而作者有列出 `galloping search` 對比 `linear search` 與 Binary Search 的計算花費，得出 Index = 7 之前 `galloping search` 會需要更多的比較次數，所以 `MIN_GALLOP` 預設是 7。大於等於 7 才使用 `galloping search` 。
+
+## Timsort Implementation
+
+以下提供其他人已經實作好的程式碼：https://github.com/mziccard/node-timsort/blob/master/src/timsort.js
+
+作者原文：https://bugs.python.org/file4451/timsort.txt
