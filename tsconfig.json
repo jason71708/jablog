@@ -36,5 +36,8 @@
     // tests, removing this would make things much harder to catch.
     "skipLibCheck": false,
   },
-  "exclude": ["src/sw.js"]
+  "exclude": [
+    "**/*.js",
+    "**/*.jsx"
+  ]
 }
