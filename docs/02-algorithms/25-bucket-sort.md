@@ -51,3 +51,59 @@ Bucket Sort 的步驟有 3 個，分散 (Scatter)、排序 (Sort)、收集 (Gath
 
 |  -9  |  -4.123  |  -2  |  0.03  |  0.12  |  0.5  |  0.87  |  2  |  3  |  3.12  |  9  |  10  |  11  |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+## Implementation
+
+```js
+function bucketSort(array, bucketCount = 10) {
+  const buckets = Array.from({length: bucketCount}, (_) => [])
+  const min = Math.min(...array)
+  const max = Math.max(...array)
+  const rage = (max - min) / bucketCount
+
+  for (let i = 0; i < array.length; i++) {
+    const index = Math.floor((array[i] - min) / rage)
+    if (index === buckets.length) {
+      buckets[index - 1].push(array[i])
+    } else {
+      buckets[index].push(array[i])
+    }
+  }
+  for (let i = 0; i < buckets.length; i++) {
+    insertionSort(buckets[i])
+  }
+
+  return buckets.reduce((result, bucket) => {
+    while (bucket.length) {
+      result.push(bucket.shift())
+    }
+    return result
+  }, [])
+}
+```
+
+要注意的是最大值拿到的 Index (`const index = Math.floor((array[i] - min) / rage)`) 會剛好大於桶子的 Index ，所以額外做了判斷。
+
+## Big O Complexity
+
+| Time Complexity (Best) | Time Complexity (Average) | Time Complexity (Worst) | Space Complexity |
+|---|---|---|---|
+| O(n+k) | O(n+k) | O(n²) | O(n+k) |
+
+> K 為桶子數量
+
+最好的情況是分散完之後，每個桶子都只有一個元素，此時只需分散與合併，兩個動作。分散需遞迴資料所以是 n ，而合併需要遞迴桶子所以是 k。
+
+平均情況可以查看[維基](https://en.wikipedia.org/wiki/Bucket_sort)的 Average-case analysis ， 得出 O(n + n²/k + k ) ，在 k 接近於 n 的情況下， 簡化成 O(n+k) 或是 O(n) 。
+
+最差的情況則是資料都集中在同一個桶子內，照成純粹看**排序**步驟使用的算法最差的情況，故為 n² 。
+
+空間複雜度則是建了 k 個桶子並回傳 n 大小的排序好的陣列回去。
+
+## Conclusion
+
+通常使用 Bucket Sort 時會預期這些未排序的資料的值是平均散佈的，不然最差的情況是所有資料都在同一個桶子內，這樣就沒有分桶子的意義了。
+
+而一樣是分類排序，為何不是用 [Radix Sort](./17-radix-sort.md) 或是 [Counting Sort](./22-counting-sort.md) ？
+
+在於有**小數點**的資料， [Counting Sort](./22-counting-sort.md) 是用整數數字作為其 Key 值在陣列中做查詢，但是遇到小數點就無法作為 Key 值了，而 [Radix Sort](./17-radix-sort.md) 也會預期都是整數，否則其本身算法還需要加上找出目前資料中小數點位數最多的值，並從小數點最後位開始比對，並不是從個位。
