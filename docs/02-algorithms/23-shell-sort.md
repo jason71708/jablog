@@ -89,7 +89,7 @@ function shellSort( array ) {
 
 | Time Complexity (Best) | Time Complexity (Average) | Time Complexity (Worst) | Space Complexity |
 |---|---|---|---|
-| O(n log(n)) | O((n (log(n))²) | O(n (log(n))²) | O(1) |
+| O(n log(n)) | O(n (log(n))²) | O(n (log(n))²) | O(1) |
 
 整體而言複雜度概念上和 [Insertion Sort](./14-insertion-sort.md) 相近，只是 Shell Sort 多加了 Gap 的概念做改良。
 
