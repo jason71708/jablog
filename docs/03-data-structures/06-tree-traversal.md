@@ -148,7 +148,7 @@ keywords: [data structures, 資料結構]
   <summary>Implementation</summary>
 
   ```js
-  DepthFirstSearchPreOrder() {
+  depthFirstSearchPreOrder() {
     const result = []
 
     function preOrderTraverse(node) {
@@ -176,7 +176,7 @@ keywords: [data structures, 資料結構]
   <summary>Implementation</summary>
 
   ```js
-  DepthFirstSearchPostOrder() {
+  depthFirstSearchPostOrder() {
     const result = []
 
     function postOrderTraverse(node) {
@@ -204,7 +204,7 @@ keywords: [data structures, 資料結構]
   <summary>Implementation</summary>
 
   ```js
-  DepthFirstSearchInOrder() {
+  depthFirstSearchInOrder() {
     const result = []
 
     function inOrderTraverse(node) {

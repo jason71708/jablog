@@ -77,7 +77,7 @@ insert(value) {
     let current = this.root
     while (true) {
       if (value === current.value) return undefined
-      if (value < currnt.value) {
+      if (value < current.value) {
         if (current.left === null) {
           current.left = node
           return this

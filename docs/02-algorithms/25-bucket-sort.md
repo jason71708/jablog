@@ -54,6 +54,8 @@ Bucket Sort 的步驟有 3 個，分散 (Scatter)、排序 (Sort)、收集 (Gath
 
 ## Implementation
 
+這邊就沿用 [Insertion Sort](./14-insertion-sort.md) 章節的函式，不在此多寫。
+
 ```js
 function bucketSort(array, bucketCount = 10) {
   const buckets = Array.from({length: bucketCount}, (_) => [])
