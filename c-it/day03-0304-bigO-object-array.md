@@ -1,10 +1,3 @@
----
-title: 'Big O of Object'
-tags:
-  - algorithms
-keywords: [algorithms, 演算法]
----
-
 <!-- Day 3 好用兩件套 - 物件與陣列的時間與空間複雜度 -->
 
 陣列與物件是 JavaScript 內建的資料結構，當提到一個資料結構的好壞時，我們會評斷操作該資料結構時所用的各個方法 (新增、刪除、存取或修改、查詢) 所需的時間與空間。

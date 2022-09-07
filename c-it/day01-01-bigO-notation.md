@@ -1,10 +1,3 @@
----
-title: 'Big O Notation'
-tags:
-  - algorithms
-keywords: [algorithms, 演算法]
----
-
 <!-- Day 1 這到底是什麼符號喔齁齁齁齁齁 - Big O Notation -->
 
 Big O Notation 是一種表示演算法複雜度的方式。同樣解決一個演算法問題，若該算法執行的時間越少，使用的記憶體愈少，就是越好的解法。可以用來評斷該演算法的好壞。
