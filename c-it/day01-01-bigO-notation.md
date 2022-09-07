@@ -91,3 +91,9 @@ function logAtMost5(n) {
 ```
 
 上述兩個函式在 n 為無限大的情況下，第一個函式是 **O(n)**，但是第二個函式只要 *n* 大於 5 就只會執行 5 次，所以第二個函式的複雜度表示 **O(1)**。
+
+### Bonus
+
+Big O Notation 表示法的正確發音以 **O(n)** 為例：歐噢腐恩 *(O of n)*
+
+而回答時間複雜度部分也可以簡單講 constant time (*O(1)*) 、 linear time (*O(n)*) 、 quadratic time (*O(n²)*) 。
