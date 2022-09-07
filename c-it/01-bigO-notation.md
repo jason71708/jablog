@@ -5,6 +5,8 @@ tags:
 keywords: [algorithms, 演算法]
 ---
 
+<!-- Day 1 這到底是什麼符號喔齁齁齁齁齁 - Big O Notation -->
+
 Big O Notation 是一種表示演算法複雜度的方式。同樣解決一個演算法問題，若該算法執行的時間越少，使用的記憶體愈少，就是越好的解法。可以用來評斷該演算法的好壞。
 
 當我們想要評估一個演算法的複雜度時，我們通常都會假設輸入的資料量趨近無限大，考慮最邊際的情況。
@@ -52,11 +54,13 @@ function addUpto2(n) {
 
 [演算法效能視覺化工具](https://rithmschool.github.io/function-timer-demo/)
 
-![tracker](./tracker.jpg)
+![tracker](https://www.jablog.site/assets/images/tracker-2687d1fd1d937cc1473bd7dd3a5b9225.jpg)
 
 從這網站可以看到，不同演算法在 *n* 越大的情況下，線的斜率變化。
 
 ![trands](./trands.jpg)
+
+以下舉網站中三個算法為例：
 
 - `addUpToFirst` 時間複雜度表示 **O(n)**
 - `addUpToSecond` 時間複雜度表示 **O(1)**
