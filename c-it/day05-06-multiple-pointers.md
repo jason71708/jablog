@@ -1,9 +1,4 @@
----
-title: 'Multiple Pointers'
-tags:
-  - algorithms
-keywords: [algorithms, 演算法]
----
+<!-- Day 05 BO2 - Multiple Pointers -->
 
 Multiple Pointers 技巧是透過建立 pointer 變數代表目前指到哪個位置 (index)。使用兩個 pointer 代表目前查找的位置與範圍，不用再額外宣告物件或陣列來儲存或遞迴查找。此技巧能有效減少時間與空間複雜度。
 
