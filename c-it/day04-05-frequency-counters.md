@@ -1,6 +1,8 @@
-<!-- Day 04 BO1 - Frequency Counter -->
+<!-- Day 4 BO5-1 - Frequency Counter -->
 
 Frequency Counter 是一種解題技巧，它使用物件的鍵值 (Key) 來記錄陣列或字串裡面特定值的出現次數。它可以避免一直遍歷資料，可以有效減少時間複雜度。
+
+> BO5 意思是 Best of 5 games ，即五場三勝， BO3 就是三戰兩勝。
 
 ## Practice 1 - Same
 

@@ -1,4 +1,4 @@
-<!-- Day 06 BO3 - Sliding Window -->
+<!-- Day 6 BO5-3 - Sliding Window -->
 
 Sliding Window 跟上篇 [Multiple Pointers](./06-multiple-pointers.md) 類似，定義兩個指標，一個是 `start`，一個是 `end`。
 
