@@ -1,9 +1,4 @@
----
-title: 'Divide and Conquer'
-tags:
-  - algorithms
-keywords: [algorithms, 演算法]
----
+<!-- Day 7 BO5-4 - Divide and Conquer -->
 
 將一組資料切分成兩組或多組資料，再用切分後的資料進行處理。此技巧能有效減少時間複雜度。
 
