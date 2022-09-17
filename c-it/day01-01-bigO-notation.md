@@ -51,7 +51,7 @@ function addUpto2(n) {
 
 從這網站可以看到，不同演算法在 *n* 越大的情況下，線的斜率變化。
 
-![trands](./trands.jpg)
+![trands](https://www.jablog.site/assets/images/trands.jpg)
 
 以下舉網站中三個算法為例：
 
