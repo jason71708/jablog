@@ -1,15 +1,10 @@
----
-title: 'Bubble Sort'
-tags:
-  - algorithms
-keywords: [algorithms, 演算法]
----
+<!-- Day 10 還敢下來啊 - Bubble Sort -->
 
 一種排序資料的方式，實務上不太常使用，除了某些特定情境。相對於其他排序方式，Bubble Sort 效能較差。
 
 儘管如此，作為基礎中的基礎，最好還是要理解其概念。
 
-![bubble-sort](./bubble-sort.png)
+![bubble-sort](https://www.jablog.site/assets/images/bubble-sort-a1e64d2c2b0f37cc41de2d91d8f8ae85.png)
 
 之後關於排序的章節非常推薦觀看此[網站](https://visualgo.net/en/sorting)的動畫演示。
 
