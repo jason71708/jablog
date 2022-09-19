@@ -1,4 +1,4 @@
-<!-- Day 7 BO5-5 - Recursion -->
+<!-- Day 8 BO5-5 - Recursion -->
 
 Recursion 的定義是一個會**呼叫自己**的函式。
 
