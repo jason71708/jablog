@@ -8,20 +8,16 @@ Linear Search 非常常見，甚至在學迴圈時就已經用過了。以下直
 
 給定一個數字陣列 `array` 與一個數字 `n`，求出 `n` 是否在 `array` 中。回傳 `true` 或 `false。`
 
-<details>
-  <summary>Solution</summary>
-
-  ```js
-  function linearSearch(array, n){
-    for (let i = 0; i < array.length; i++) {
-        if (n === array[i]) {
-            return true
-        }
+```js
+function linearSearch(array, n){
+for (let i = 0; i < array.length; i++) {
+    if (n === array[i]) {
+        return true
     }
-    return false;
-  }
-  ```
-</details>
+}
+return false;
+}
+```
 
 最基本的搜尋方式，耗費的時間隨著輸入的資料而增長，時間複雜度為 O(n)。
 
@@ -36,30 +32,26 @@ Binary Search 是一種更快的搜尋方式，比起 Liner Search 每次查找�
 
 給定一個已排序過的數字陣列 `array` 與一個數字 `n`，求出 `n` 是否在 `array` 中。回傳 `true` 或 `false。`
 
-<details>
-  <summary>Solution</summary>
+```js
+function binarySearch(array, n){
+let start = 0,
+  end = array.length - 1,
+  middle = Math.floor(array.length / 2);
 
-  ```js
-  function binarySearch(array, n){
-    let start = 0,
-      end = array.length - 1,
-      middle = Math.floor(array.length / 2);
-
-    while (start <= end) {
-      if (array[middle] === n) {
-          return true;
-      } else if (array[middle] > n) {
-          end = middle - 1;
-      } else {
-          start = middle + 1;
-      }
-      middle = Math.floor((start + end) / 2);
-    }
-
-    return false;
+while (start <= end) {
+  if (array[middle] === n) {
+      return true;
+  } else if (array[middle] > n) {
+      end = middle - 1;
+  } else {
+      start = middle + 1;
   }
-  ```
-</details>
+  middle = Math.floor((start + end) / 2);
+}
+
+return false;
+}
+```
 
 Binary Search 時間複雜度為 `O(log n)`。
 

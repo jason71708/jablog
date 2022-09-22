@@ -103,16 +103,12 @@ function factorial(n) {
 
 接著我們把這個函式改成 Recursion：
 
-<details>
-  <summary>Solution</summary>
-
-  ```js
-  function factorial(n) {
-    if (n === 1) return 1;
-    return n * factorial(n - 1);
-  }
-  ```
-</details>
+```js
+function factorial(n) {
+if (n === 1) return 1;
+return n * factorial(n - 1);
+}
+```
 
 ## Helper Method Recursion
 
@@ -167,21 +163,18 @@ function collectOddValues(arr) {
 - `isPalindrome('foobar') // false`
 - `isPalindrome('tacocat') // true`
 
-<details>
-  <summary>Solution</summary>
 
-  ```js
-  function isPalindrome(str) {
-    if (str.length <= 1) return true;
-    return str[0] === str[str.length -1] ? isPalindrome(str.slice(1, str.length - 1)) : false;
-  }
-  // 'tacocat'
-  // 抓第一個與最後一個比對，如果一樣就把這兩個字元去除接著繼續比對，否則回傳 false
-  // 'acoca'
-  // 'coc'
-  // 'o'
-  ```
-</details>
+```js
+function isPalindrome(str) {
+if (str.length <= 1) return true;
+return str[0] === str[str.length -1] ? isPalindrome(str.slice(1, str.length - 1)) : false;
+}
+// 'tacocat'
+// 抓第一個與最後一個比對，如果一樣就把這兩個字元去除接著繼續比對，否則回傳 false
+// 'acoca'
+// 'coc'
+// 'o'
+```
 
 ## Practice 3 - Fibonacci
 
@@ -196,28 +189,25 @@ function collectOddValues(arr) {
 - `fibonacci(28) // 317811`
 - `fibonacci(35) // 9227465`
 
-<details>
-  <summary>Solution</summary>
 
-  ```js
-  function fibonacci(n) {
-    if (n <= 2) return 1;
-    return fibonacci(n - 1) + fibonacci(n - 2);
-  }
-  ```
+```js
+function fibonacci(n) {
+if (n <= 2) return 1;
+return fibonacci(n - 1) + fibonacci(n - 2);
+}
+```
 
-  個人原本的解法：
-  ```js
-  function fib(num){
-    if (num === 0) return 0;
-    if (num <= 2) return 1;
+個人原本的解法：
+```js
+function fib(num){
+if (num === 0) return 0;
+if (num <= 2) return 1;
 
-    function helper(index, previous1, previous2) {
-      if (index <= 1) return previous1 + previous2;
-      return helper(index - 1, previous2, previous1 + previous2);
-    }
+function helper(index, previous1, previous2) {
+  if (index <= 1) return previous1 + previous2;
+  return helper(index - 1, previous2, previous1 + previous2);
+}
 
-    return helper(num - 2, 1, 1);
-  }
-  ```
-</details>
+return helper(num - 2, 1, 1);
+}
+```
