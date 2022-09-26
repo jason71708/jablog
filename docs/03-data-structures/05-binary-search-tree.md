@@ -5,8 +5,6 @@ tags:
 keywords: [data structures, 資料結構]
 ---
 
-## Introduction
-
 一種樹狀資料結構，含有根節點與子節點，每個節點彼此是親子的關聯。
 
 ![binary-search-tree](./binary-search-tree.png)

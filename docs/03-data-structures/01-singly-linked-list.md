@@ -5,8 +5,6 @@ tags:
 keywords: [data structures, 資料結構]
 ---
 
-## Introduction
-
 Linked List 是一種資料結構，由一個個節點 (Node) 鏈結起來組成，本身僅存有 Head Node 和 Tail Node 以及總節點數 (length)。每個節點都有一個資料和一個指向下一個節點的指標。
 
 例如有一個 Linked List 為：

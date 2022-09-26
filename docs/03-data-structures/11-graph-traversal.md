@@ -5,8 +5,6 @@ tags:
 keywords: [data structures, 資料結構]
 ---
 
-## Introduction
-
 當要取得、更新、檢查 Graph 裡所有的節點時就會需要用到 Traversal 方法，常見的使用場景為點對點的網際網路、網站爬蟲、導航、迷宮問題或遊戲類的 AI 。
 
 如同 [Three Traversal](./06-tree-traversal.md) 有 DFS 與 BFS ， Graph Traversal 也有 Depth First 和 Breadth First 兩種的遍歷方法。

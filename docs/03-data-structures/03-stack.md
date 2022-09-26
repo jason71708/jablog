@@ -5,8 +5,6 @@ tags:
 keywords: [data structures, 資料結構]
 ---
 
-## Introduction
-
 Stack 是一種 **LIFO** (Last In First Out) 資料結構
 
 最後一個加入的元素，會被第一個移除。

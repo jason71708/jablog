@@ -5,8 +5,6 @@ tags:
 keywords: [data structures, 資料結構]
 ---
 
-## Introduction
-
 由於樹狀結構並不像 Lined List 或陣列那樣是線狀的，故需要遍歷整個樹狀結構是很複雜的，而且有多種方式。
 
 大致上分為以下兩種：

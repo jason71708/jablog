@@ -5,8 +5,6 @@ tags:
 keywords: [data structures, 資料結構]
 ---
 
-## Introduction
-
 Binary Heap 和 [Binary Search Tree](./05-binary-search-tree.md) 很類似，但規則上有些不同。
 
 有兩種 Binary Heap ：

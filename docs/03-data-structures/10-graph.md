@@ -5,8 +5,6 @@ tags:
 keywords: [data structures, 資料結構]
 ---
 
-## Introduction
-
 簡言之， Graph 就是很多個節點與節點之間的連線所組成的，與前幾篇提到的 [Three](./05-binary-search-tree.md) 也算是 Graph 的一種 ， Graph 主要有以下幾點特色：
 - Graph 沒有特定的根節點
 - 節點之間的連線可以有或沒有方向性

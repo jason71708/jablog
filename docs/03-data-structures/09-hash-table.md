@@ -5,8 +5,6 @@ tags:
 keywords: [data structures, 資料結構]
 ---
 
-## Introduction
-
 Hash Table 是用來儲存鍵值對的資料 (key-value pairs)。
 
 而 Hash Table 在找特定資料與新增刪除時的速度都非常快，類似像 JS 的 Object 。

@@ -5,10 +5,6 @@ tags:
 keywords: [data structures, 資料結構]
 ---
 
-## Introduction
-
-和上篇的 [Stack](./03-stack.md) 類似。
-
 Queue 是一種 **FIFO** (First In First Out) 資料結構。
 
 第一個加入的元素，會被第一個移除。

@@ -5,8 +5,6 @@ tags:
 keywords: [data structures, 資料結構]
 ---
 
-## Introduction
-
 Singly Linked List 與 Doubly Linked List 差別在 Node 的指標一個只有下一個節點，另個有存上下兩個節點。
 
 Doubly Linked List 中的節點有雙向指標 (prev、next)。

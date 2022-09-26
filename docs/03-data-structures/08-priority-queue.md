@@ -5,8 +5,6 @@ tags:
 keywords: [data structures, 資料結構]
 ---
 
-## Introduction
-
 Priority Queue 的每個節點都含有優先度 (Priority)，而套用至 Queue 的規則中則是優先度高的會先被移除。
 
 舉日常開發的任務優先度來說，一般功能開發佔 3 ，嚴重 Bug 佔 5 ， 版面樣式微調佔 1 ：
