@@ -1,9 +1,4 @@
----
-title: 'Merge Sort'
-tags:
-  - algorithms
-keywords: [algorithms, 演算法]
----
+<!-- Day 17 切出去合進來 升職發大財 - Merge Sort -->
 
 Merge Sort 是一種透過切分資料再一一合併的排序演算法。
 
@@ -40,103 +35,90 @@ Merge Sort 是一種透過切分資料再一一合併的排序演算法。
 
 首先實作切分陣列的函式，這邊會使用到 Recursion 的技巧，只要陣列長度大於 1 就呼叫自己再切一次。
 
-<details>
-  <summary>Solution</summary>
-
-  ```js
-  function splitArray(arr) {
-    if (arr.length <= 1) {
-      return arr;
-    }
-
-    const mid = Math.floor(arr.length / 2);
-    const left = arr.slice(0, mid);
-    const right = arr.slice(mid);
-
-    return [splitArray(left), splitArray(right)];
+```js
+function splitArray(arr) {
+  if (arr.length <= 1) {
+    return arr;
   }
-  ```
 
-  用上面範例陣列輸入之後所得的結果會是：
-  
-  `[[[[30],[[5],[1]]],[[31],[[10],[9]]]],[[[2],[[3],[4]]],[[8],[[7],[6]]]]]`
-</details>
+  const mid = Math.floor(arr.length / 2);
+  const left = arr.slice(0, mid);
+  const right = arr.slice(mid);
+
+  return [splitArray(left), splitArray(right)];
+}
+```
+
+用上面範例陣列輸入之後所得的結果會是：
+- `[[[[30],[[5],[1]]],[[31],[[10],[9]]]],[[[2],[[3],[4]]],[[8],[[7],[6]]]]]`
 
 ## Practice 2 - Merge Sort (Merge and Sort Array part)
 
 接著實作合併陣列的函式。
 
-<details>
-  <summary>Solution</summary>
-
-  ```js
-  function merge(array1, array2){
-    let i = 0, j = 0, newArray = [];
-    // 這邊謹記，我們是從只有一個或零個元素的陣列開始合併，所以每次執行這個函式所拿到的兩個陣列各自都會是排序過後的
-    // 其中一方陣列已經空了，就直接把另一方陣列的元素加入新陣列
-    // 假設左方陣列空了，右方還有，就代表右方剩下的數字都比左方大，所以直接加入新陣列
-    while (i < array1.length && j < array2.length) {
-      if (array1[i] === array2[j]) {
-        newArray.push(array1[i], array2[j]);
-        i++;
-        j++;
-      } else if (array1[i] > array2[j]) {
-        newArray.push(array2[j])
-        j++;
-      } else {
-        newArray.push(array1[i])
-        i++;
-      }
+```js
+function merge(array1, array2){
+  let i = 0, j = 0, newArray = [];
+  // 這邊謹記，我們是從只有一個或零個元素的陣列開始合併，所以每次執行這個函式所拿到的兩個陣列各自都會是排序過後的
+  // 其中一方陣列已經空了，就直接把另一方陣列的元素加入新陣列
+  // 假設左方陣列空了，右方還有，就代表右方剩下的數字都比左方大，所以直接加入新陣列
+  while (i < array1.length && j < array2.length) {
+    if (array1[i] === array2[j]) {
+      newArray.push(array1[i], array2[j]);
+      i++;
+      j++;
+    } else if (array1[i] > array2[j]) {
+      newArray.push(array2[j])
+      j++;
+    } else {
+      newArray.push(array1[i])
+      i++;
     }
-    if (i < array1.length) {
-      newArray.push(...array1.slice(i));
-    } else if (j < array2.length) {
-      newArray.push(...array2.slice(j));
-    }
-    return newArray;
   }
-  ```
-
-  以上是比較白話的寫法，以下精簡版本：
-
-  ```js
-  function merge(left, right) {
-    const result = [];
-    while (left.length && right.length) {
-      if (left[0] < right[0]) {
-        result.push(left.shift());
-      } else {
-        result.push(right.shift());
-      }
-    }
-    return [...result, ...left, ...right];
+  if (i < array1.length) {
+    newArray.push(...array1.slice(i));
+  } else if (j < array2.length) {
+    newArray.push(...array2.slice(j));
   }
-  ```
-</details>
+  return newArray;
+}
+```
+
+以上是比較白話的寫法，以下精簡版本：
+
+```js
+function merge(left, right) {
+  const result = [];
+  while (left.length && right.length) {
+    if (left[0] < right[0]) {
+      result.push(left.shift());
+    } else {
+      result.push(right.shift());
+    }
+  }
+  return [...result, ...left, ...right];
+}
+```
 
 ## Practice 3 - Merge Sort
 
 來實作完整的 Merge Sort！ (上面的 `merge` 可以沿用)
 
-<details>
-  <summary>Solution</summary>
-
-  ```js
-  function mergeSort(arr) {
-    if (arr.length <= 1) {
-      return arr;
-    }
-
-    const mid = Math.floor(arr.length / 2);
-    const left = arr.slice(0, mid)
-    const right = arr.slice(mid)
-
-    return merge(mergeSort(left), mergeSort(right));
+```js
+function mergeSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
   }
-  ```
 
-  這邊用到 Recursion 的技巧類似於 [費氏數列這題](./09-recursion.md#practice-3---fibonacci)
-</details>
+  const mid = Math.floor(arr.length / 2);
+  const left = arr.slice(0, mid)
+  const right = arr.slice(mid)
+
+  return merge(mergeSort(left), mergeSort(right));
+}
+```
+
+這邊用到 Recursion 的技巧類似於第八天的費氏數列那題。
 
 ## Big O Complexity
 
