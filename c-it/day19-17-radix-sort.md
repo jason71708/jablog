@@ -1,13 +1,6 @@
----
-title: 'Radix Sort'
-tags:
-  - algorithms
-keywords: [algorithms, 演算法]
----
+<!-- Day 19 排序新理解 - Radix Sort -->
 
-在這篇之前的排序法都可以用在任何可以比較的資料上，例如一個含有帳戶資料的陣列，按照每個帳戶的 ID 、更新時間、名字、帳戶餘額等等來排序。
-
-但 Radix Sort (基數排序) 較不一樣，它只可以用在**數字**的排序上，而且它**不比大小**。
+在這篇之前的排序法都可以用在任何可以比較的資料上，例如一個含有帳戶資料的陣列，按照每個帳戶的 ID 、更新時間、名字、帳戶餘額等等來排序。但 Radix Sort (基數排序) 較不一樣，它只可以用在**數字**的排序上，而且它**不比大小**。
 
 以 `[9, 133, 567, 44, 21, 45, 11, 561]` 來說：
 
@@ -56,87 +49,67 @@ keywords: [algorithms, 演算法]
 
 給一個數字，回傳這個數字有幾位數，例如 `digitCount(123)` 回傳 `3`。
 
-<details>
-  <summary>Solution</summary>
+```js
+function digitCount(n) {
+  return String(n).length;
+}
+```
 
-  ```js
-  function digitCount(n) {
-    return String(n).length;
-  }
-  ```
+或者是
 
-  或者是
-
-  ```js
-  function digitCount(n) {
-    if (num === 0) return 1;
-    return Math.floor(Math.log10(Math.abs(num))) + 1;
-    // 由於 Math.log10(0) 的情況會是 -Infinity，所以要額外做判斷。
-  }
-  ```
-
-</details>
+```js
+function digitCount(n) {
+  if (num === 0) return 1;
+  return Math.floor(Math.log10(Math.abs(num))) + 1;
+  // 由於 Math.log10(0) 的情況會是 -Infinity，所以要額外做判斷。
+}
+```
 
 ## Practice 2 - Most Digits
 
 給定一個只有數字的陣列，回傳其中最大數字有幾位數，例如 `mostDigits([13, 56, 7899])` 回傳 `4`。
 
-<details>
-  <summary>Solution</summary>
-
-  ```js
-  function mostDigits(arr) {
-    let max = 0;
-    for (let i = 0; i < arr.length; i++) {
-      if (String(arr[i]).length > max) {
-        max = String(arr[i]).length;
-      }
+```js
+function mostDigits(arr) {
+  let max = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (String(arr[i]).length > max) {
+      max = String(arr[i]).length;
     }
-    return max;
   }
-  ```
-
-</details>
+  return max;
+}
+```
 
 ## Practice 3 - GetDigits
 
 給定一個數字與位數，回傳這個數字的這個位數的數字，例如 `getDigits(123, 3)` 回傳 `1`。
 
-<details>
-  <summary>Solution</summary>
-
-  ```js
-  function getDigits(num, digit) {
-    return Math.floor(Math.abs(num) / Math.pow(10, digit - 1)) % 10;
-  }
-  ```
-
-</details>
+```js
+function getDigits(num, digit) {
+  return Math.floor(Math.abs(num) / Math.pow(10, digit - 1)) % 10;
+}
+```
 
 ## Practice 4 - Radix Sort
 
 接著沿用上面幾個練習來實作。
 
-<details>
-  <summary>Solution</summary>
-
-  ```js
-  function radixSort(arr) {
-    const maxDigit = mostDigits(arr);
-    for (let k = 1; k <= maxDigit; k++) {
-      const digitSlots = Array(10).fill().map(() => []);
-      // 或是 Array.from({ length: 10 }, () => []);
-      for (let i = 0; i < arr2.length; i++) {
-        digitSlots[getDigits(arr2[i], k)].push(arr2[i]);
-      }
-      arr = digitSlots.flat();
-      // 或是 arr = [].concat(...digitSlots);
+```js
+function radixSort(arr) {
+  const maxDigit = mostDigits(arr);
+  for (let k = 1; k <= maxDigit; k++) {
+    const digitSlots = Array(10).fill().map(() => []);
+    // 或是 Array.from({ length: 10 }, () => []);
+    for (let i = 0; i < arr2.length; i++) {
+      digitSlots[getDigits(arr2[i], k)].push(arr2[i]);
     }
-    return arr2;
+    arr = digitSlots.flat();
+    // 或是 arr = [].concat(...digitSlots);
   }
-  ```
-
-</details>
+  return arr2;
+}
+```
 
 ## Big O Complexity
 
