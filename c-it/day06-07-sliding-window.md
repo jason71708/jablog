@@ -1,6 +1,6 @@
 <!-- Day 6 BO5-3 - Sliding Window -->
 
-Sliding Window 跟上篇 Multiple Pointers 類似，定義兩個指標，一個是 `start`，一個是 `end`。
+Sliding Window 跟上篇 [Multiple Pointers](https://ithelp.ithome.com.tw/articles/10294084) 類似，定義兩個指標，一個是 `start`，一個是 `end`。
 
 像是：
 

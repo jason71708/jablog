@@ -14,11 +14,11 @@ Queue 是一種 **FIFO** (First In First Out) 資料結構。
 
 而一樣的，陣列中的 Shift 與 Unshift 方法會讓所有元素都更新 Index ，所以使用陣列來實作 Queue 在效能上可能要考慮一下。
 
-而在之前的 Linked List 實作中， Shift 與 Push 組合或是 Pop 與 Unshift 組合也符合 Queue 結構。
+而在之前的 [Linked List](https://ithelp.ithome.com.tw/articles/10298945) 實作中， Shift 與 Push 組合或是 Pop 與 Unshift 組合也符合 Queue 結構。
 
-但 Pop 方法需要遍歷整個 Linked List ，顯然 Shift 與 Push 的效能會比較好。
+但 Pop 方法需要遍歷整個 [Linked List](https://ithelp.ithome.com.tw/articles/10298945) ，顯然 Shift 與 Push 的效能會比較好。
 
-同理，Doubly Linked List 則沒差，因為有雙向指標，要從頭新增或移除或從後新增或移除效能上都一樣。
+同理， [Doubly Linked List](https://ithelp.ithome.com.tw/articles/10298946) 則沒差，因為有雙向指標，要從頭新增或移除或從後新增或移除效能上都一樣。
 
 以下實作簡單的 Queue 結構：
 

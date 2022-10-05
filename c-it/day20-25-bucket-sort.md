@@ -1,6 +1,6 @@
 <!-- Day 20 你會分類你要先講 - Bucket Sort -->
 
-Bucket Sort 和之前的 Radix Sort 有點類似，建立幾個桶子並將資料丟進去排序。而 Bucket Sort 是取區間，例如 1 號桶子裝 0 ~ 9 的數值， 2 號桶子裝 1 ~ 19 的數值，以此類推。
+Bucket Sort 和之前的 [Radix Sort](https://ithelp.ithome.com.tw/articles/10303968) 有點類似，建立幾個桶子並將資料丟進去排序。而 Bucket Sort 是取區間，例如 1 號桶子裝 0 ~ 9 的數值， 2 號桶子裝 1 ~ 19 的數值，以此類推。
 
 ## Fundamental
 

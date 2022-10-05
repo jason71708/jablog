@@ -1,6 +1,6 @@
 <!-- Day 18 快還要更快 - Quick Sort -->
 
-Quick Sort 使用基準值 (pivot) 比對排序，並透過 Recursion 的技巧，不斷將每個元素放到正確的位置上。
+Quick Sort 使用基準值 (pivot) 比對排序，並透過 [Recursion](https://ithelp.ithome.com.tw/articles/10296158) 的技巧，不斷將每個元素放到正確的位置上。
 
 第一步是從陣列中取出一個數字當作基準值 (pivot)，取哪個都可以，這邊我們選該陣列的第一個元素。
 
@@ -214,7 +214,7 @@ function quickSort(array) {
 
 最好與平均的情況是當基準值排序好後，在將近中間的位置，接著將基準值左右兩邊再進行一次排序。
 
-此情況會接近像上篇 Merge Sort 那樣的 O(n log n)，陣列剖半再剖半，然後在每輪中各個元素比對一次。
+此情況會接近像[上篇](https://ithelp.ithome.com.tw/articles/10300778) Merge Sort 那樣的 O(n log n)，陣列剖半再剖半，然後在每輪中各個元素比對一次。
 
 而最差的情況下每輪排序完後，基準值的左邊或右邊其中一邊只有 1 或 0 個元素，根本沒有剖半到。
 

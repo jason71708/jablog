@@ -35,30 +35,30 @@
 ## 📜 本系列大綱
 
 ### 從鐵牌爬起
-- Day 1 - Big O Notation
-- Day 2 - 時間與空間複雜度
-- Day 3 - 物件與陣列的時間與空間複雜度
-- Day 4 - Frequency Counter
-- Day 5 - Multiple Pointers
-- Day 6 - Sliding Window
-- Day 7 - Divide and Conquer
-- Day 8 - Recursion
+- [Day 1 這到底是什麼符號喔齁齁齁齁齁 - Big O Notation](https://ithelp.ithome.com.tw/articles/10288453)
+- [Day 2 哎呀這什麼水平 - 時間與空間複雜度](https://ithelp.ithome.com.tw/articles/10292419)
+- [Day 3 好用兩件套 - 物件與陣列的時間與空間複雜度](https://ithelp.ithome.com.tw/articles/10293886)
+- [Day 4 BO5-1 - Frequency Counter](https://ithelp.ithome.com.tw/articles/10294036)
+- [Day 5 BO5-2 - Multiple Pointers](https://ithelp.ithome.com.tw/articles/10294084)
+- [Day 6 BO5-3 - Sliding Window](https://ithelp.ithome.com.tw/articles/10296153)
+- [Day 7 BO5-4 - Divide and Conquer](https://ithelp.ithome.com.tw/articles/10296157)
+- [Day 8 BO5-5 - Recursion](https://ithelp.ithome.com.tw/articles/10296158)
 
 ### 金銀銅牌本一家
-- Day 9 - Linear Search & Binary Search
-- Day 10 - Bubble Sort
-- Day 11 - Selection Sort
-- Day 12 - Insertion Sort
-- Day 13 - Singly Linked List
-- Day 14 - Doubly Linked List
-- Day 15 - Stack
-- Day 16 - Queue
+- [Day 9 極速上分 - Linear Search & Binary Search](https://ithelp.ithome.com.tw/articles/10296159)
+- [Day 10 還敢下來啊 - Bubble Sort](https://ithelp.ithome.com.tw/articles/10294082)
+- [Day 11 選我選我選我選我 - Selection Sort](https://ithelp.ithome.com.tw/articles/10298928)
+- [Day 12 我的回合，抽卡！！！ - Insertion Sort](https://ithelp.ithome.com.tw/articles/10298937)
+- [Day 13 只會往前絕不後退 - Singly Linked List](https://ithelp.ithome.com.tw/articles/10298945)
+- [Day 14 左右開通 - Doubly Linked List](https://ithelp.ithome.com.tw/articles/10298946)
+- [Day 15 先進後出 - Stack](https://ithelp.ithome.com.tw/articles/10300208)
+- [Day 16 先進先出 - Queue](https://ithelp.ithome.com.tw/articles/10300209)
 
 ### 白金上鑽石之路
-- Day 17 - Merge Sort
-- Day 18 - Quick Sort
-- Day 19 - Radix Sort
-- Day 20 - Bucket Sort
+- [Day 17 切出去合進來 升職發大財 - Merge Sort](https://ithelp.ithome.com.tw/articles/10300778)
+- [Day 18 快還要更快 - Quick Sort](https://ithelp.ithome.com.tw/articles/10301442)
+- [Day 19 排序新理解 - Radix Sort](https://ithelp.ithome.com.tw/articles/10303968)
+- [Day 20 你會分類你要先講 - Bucket Sort](https://ithelp.ithome.com.tw/articles/10304456)
 - Day 21 - Binary Search Tree
 - Day 22 - Tree Traversal
 - Day 23 - Tree Sort

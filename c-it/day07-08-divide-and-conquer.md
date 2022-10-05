@@ -2,7 +2,7 @@
 
 將一組資料切分成兩組或多組資料，再用切分後的資料進行處理。此技巧能有效減少時間複雜度。
 
-此技巧大量用於搜尋演算法內，以下用 **二分搜尋法 (Binary Search)** 來舉例：
+此技巧大量用於搜尋演算法內，以下用 [**二分搜尋法 (Binary Search)**](https://ithelp.ithome.com.tw/articles/10296159) 來舉例：
 
 ## Practice 1 - Binary Search
 

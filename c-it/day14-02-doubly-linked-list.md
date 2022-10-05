@@ -1,6 +1,6 @@
 <!-- Day 14 左右開通 - Doubly Linked List -->
 
-Singly Linked List 與 Doubly Linked List 差別在 Node 的指標一個只有下一個節點，另個有存上下兩個節點。
+[Singly Linked List](https://ithelp.ithome.com.tw/articles/10298945) 與 Doubly Linked List 差別在 Node 的指標一個只有下一個節點，另個有存上下兩個節點。
 
 Doubly Linked List 中的節點有雙向指標 (prev、next)。
 
@@ -210,7 +210,7 @@ reverse(){
 |---|---|---|---|
 | O(1) | O(1) | O(n) | O(n) |
 
-實際上 Search 與 Access 是 O(n / 2)，效能上比 Singly Linked List 好。
+實際上 Search 與 Access 是 O(n / 2)，效能上比 [Singly Linked List](https://ithelp.ithome.com.tw/articles/10298945) 好。
 
 但也因為 Doubly Linked List 的每個 Node 多存了一個 Prev 指標，因此會需要用多一點的記憶體。
 

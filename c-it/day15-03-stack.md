@@ -18,11 +18,11 @@ Stack 是一種 **LIFO** (Last In First Out) 資料結構
 
 但是陣列中的 Shift 與 Unshift 方法會讓所有元素都更新 Index，顯然使用 Pop 與 Push 方法在效能上會是比較好的選擇
 
-而在前面 Linked List 實作中， Pop 與 Push 組合或是 Shift 與 Unshift 組合也符合 Stack 結構。
+而在前面 [Linked List](https://ithelp.ithome.com.tw/articles/10298945) 實作中， Pop 與 Push 組合或是 Shift 與 Unshift 組合也符合 Stack 結構。
 
-而在之前 Singly Linked List 實作中， Pop 方法需要遍歷陣列至最後一個，顯然在效能上會是使用 Shift 與 Unshift 方法會比較好。
+而在之前 [Singly Linked List](https://ithelp.ithome.com.tw/articles/10298945) 實作中， Pop 方法需要遍歷陣列至最後一個，顯然在效能上會是使用 Shift 與 Unshift 方法會比較好。
 
-Doubly Linked List 則沒差，因為有雙向指標，要從前或從後都可以。
+[Doubly Linked List](https://ithelp.ithome.com.tw/articles/10298946) 則沒差，因為有雙向指標，要從前或從後都可以。
 
 以下實作簡單的 Stack 結構：
 

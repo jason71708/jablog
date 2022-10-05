@@ -2,7 +2,7 @@
 
 Merge Sort 是一種透過切分資料再一一合併的排序演算法。
 
-> Merge Sort 有使用到 Divide and Conquer 與 Recursion 的技巧。
+> Merge Sort 有使用到 [Divide and Conquer](https://ithelp.ithome.com.tw/articles/10296157) 與 [Recursion](https://ithelp.ithome.com.tw/articles/10296158) 的技巧。
 
 第一步：將陣列分割成更小的陣列，直到每個陣列只有一個或零個元素。
 
@@ -118,7 +118,7 @@ function mergeSort(arr) {
 }
 ```
 
-這邊用到 Recursion 的技巧類似於第八天的費氏數列那題。
+這邊用到 Recursion 的技巧類似於 [Day 8](https://ithelp.ithome.com.tw/articles/10296158) 裡的費氏數列那題。
 
 ## Big O Complexity
 
@@ -128,7 +128,7 @@ function mergeSort(arr) {
 
 Space Complexity 的部分較好理解，輸入的陣列元素有多少，我們在分割存新陣列或是合併成新陣列時，總元素的個數就有多少。
 
-Time Complexity 的部分，不像前面 Insertion Sort 最好的情況是 O(n)，Merge Sort 總是先切分成最小個陣列後再合併排序起來，所以在各個情況下，Time Complexity 都是 O(n log n)。
+Time Complexity 的部分，不像前面 [Insertion Sort](https://ithelp.ithome.com.tw/articles/10298937) 最好的情況是 O(n)，Merge Sort 總是先切分成最小個陣列後再合併排序起來，所以在各個情況下，Time Complexity 都是 O(n log n)。
 
 至於為何是 n * log n，其中 n 是陣列的元素總數 (比對幾次)，log n 是切分的次數。
 
