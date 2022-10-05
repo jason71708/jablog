@@ -1,13 +1,8 @@
----
-title: 'Binary Search Tree'
-tags:
-  - data structures
-keywords: [data structures, 資料結構]
----
+<!-- Day 21 超硬 Tree 登場 - Binary Search Tree -->
 
 一種樹狀資料結構，含有根節點與子節點，每個節點彼此是親子的關聯。
 
-![binary-search-tree](./binary-search-tree.png)
+![binary-search-tree](https://www.jablog.site/assets/images/binary-search-tree-965eaa490ca3e7c3100e77e7a78986d0.png)
 
 1. Root: 根節點，樹狀資料結構的第一個的節點，以上圖來說就是 15。
 2. Child: 子節點，具有父節點，以上圖來說 6 、 23 是 15 的子節點。
@@ -130,4 +125,4 @@ find(value) {
 
 在最壞的情況下，子節點都集中在同一邊造成每次尋找都只能濾掉當前的節點而已。
 
-![binary-search-tree-worse-case](./binary-search-tree-worse-case.png)
+![binary-search-tree-worse-case](https://www.jablog.site/assets/images/binary-search-tree-worse-case-51839b7d499b2597763fd7f5d4fbc3ff.png)
