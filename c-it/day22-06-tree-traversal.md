@@ -1,11 +1,6 @@
----
-title: 'Tree Traversal'
-tags:
-  - data structures
-keywords: [data structures, 資料結構]
----
+<!-- Day 22 這篇若...不看...財哥也...感嘆... - Tree Traversal -->
 
-由於樹狀結構並不像 [Lined List](./01-singly-linked-list.md) 或陣列那樣是線狀的，故需要遍歷整個樹狀結構是很複雜的，而且有多種方式。
+由於樹狀結構並不像 [Lined List](https://ithelp.ithome.com.tw/articles/10298945) 或陣列那樣是線狀的，故需要遍歷整個樹狀結構是很複雜的，而且有多種方式。
 
 大致上分為以下兩種：
 
@@ -25,7 +20,7 @@ keywords: [data structures, 資料結構]
 ![breadth-first-search](https://he-s3.s3.amazonaws.com/media/uploads/fdec3c2.jpg)
 > [Image From hackerearth.com](https://www.hackerearth.com/practice/algorithms/graphs/breadth-first-search/tutorial/)
 
-而實作上我們需要建立一個 Queue 與一個遍歷完存放節點的物件，這兩個都可以用陣列達成。
+而實作上我們需要建立一個 [Queue](https://ithelp.ithome.com.tw/articles/10300209) 與一個遍歷完存放節點的物件，這兩個都可以用陣列達成。
 
 第一步先將根節點放入 Queue 中，接著開始遞迴查找當前 Queue 拿出來的節點底下是否有左右節點，有的話就放到 Queue 裡面等待查詢，
 
@@ -37,7 +32,7 @@ keywords: [data structures, 資料結構]
 
 以下圖樹狀資料為例：
 
-![bfs-example](./bfs-example.png)
+![bfs-example](https://www.jablog.site/assets/images/bfs-example-96523baf2c43a1a10b1e23dfc41cf3f8.png)
 
 1. 首先放 root 進 Queue ，並開始遞迴查找：
 
@@ -75,28 +70,23 @@ keywords: [data structures, 資料結構]
 
 `queue: [], result: [10, 6, 15, 3, 8, 20], current: 20`
 
-<details>
-  <summary>Implementation</summary>
+```js
+breadthfirstSearch() {
+  const data = []
+  const queue = []
+  let node = this.root
+  queue.push(node)
 
-  ```js
-  breadthfirstSearch() {
-    const data = []
-    const queue = []
-    let node = this.root
-    queue.push(node)
-
-    while(queue.length) {
-      node = queue.shift()
-      data.push(node.value)
-      if (node.left) queue.push(node.left)
-      if (node.right) queue.push(node.right)
-    }
-
-    return data
+  while(queue.length) {
+    node = queue.shift()
+    data.push(node.value)
+    if (node.left) queue.push(node.left)
+    if (node.right) queue.push(node.right)
   }
-  ```
 
-</details>
+  return data
+}
+```
 
 ## Depth First Search - PreOrder
 
@@ -140,27 +130,22 @@ keywords: [data structures, 資料結構]
 
 `data: [10, 6, 3, 8, 15, 20]`
 
-實作上會用到 [Recursion](../02-algorithms/09-recursion.md) 的技巧，並建立一個 Helper Function 傳入節點，將該節點新增到回傳結果的陣列中，並檢查該節點是否有左右節點，有的話再呼叫一次自己帶入左右節點遞迴執行下去。
+實作上會用到 [Recursion](https://ithelp.ithome.com.tw/articles/10296158) 的技巧，並建立一個 Helper Function 傳入節點，將該節點新增到回傳結果的陣列中，並檢查該節點是否有左右節點，有的話再呼叫一次自己帶入左右節點遞迴執行下去。
 
-<details>
-  <summary>Implementation</summary>
+```js
+depthFirstSearchPreOrder() {
+  const result = []
 
-  ```js
-  depthFirstSearchPreOrder() {
-    const result = []
-
-    function preOrderTraverse(node) {
-      result.push(node.value)
-      if (node.left) preOrderTraverse(node.left)
-      if (node.right) preOrderTraverse(node.right)
-    }
-
-    preOrderTraverse(this.root)
-    return result
+  function preOrderTraverse(node) {
+    result.push(node.value)
+    if (node.left) preOrderTraverse(node.left)
+    if (node.right) preOrderTraverse(node.right)
   }
-  ```
 
-</details>
+  preOrderTraverse(this.root)
+  return result
+}
+```
 
 ## Depth First Search - PostOrder
 
@@ -170,25 +155,20 @@ keywords: [data structures, 資料結構]
 
 跟上面一樣的舉例，其結果會是：`[3, 8, 6, 20, 15, 10]`
 
-<details>
-  <summary>Implementation</summary>
+```js
+depthFirstSearchPostOrder() {
+  const result = []
 
-  ```js
-  depthFirstSearchPostOrder() {
-    const result = []
-
-    function postOrderTraverse(node) {
-      if (node.left) postOrderTraverse(node.left)
-      if (node.right) postOrderTraverse(node.right)
-      result.push(node.value)
-    }
-
-    postOrderTraverse(this.root)
-    return result
+  function postOrderTraverse(node) {
+    if (node.left) postOrderTraverse(node.left)
+    if (node.right) postOrderTraverse(node.right)
+    result.push(node.value)
   }
-  ```
 
-</details>
+  postOrderTraverse(this.root)
+  return result
+}
+```
 
 ## Depth First Search - InOrder
 
@@ -198,25 +178,20 @@ keywords: [data structures, 資料結構]
 
 跟上面一樣的舉例，其結果會是：`[3, 6, 8, 10, 15, 20]`
 
-<details>
-  <summary>Implementation</summary>
+```js
+depthFirstSearchInOrder() {
+  const result = []
 
-  ```js
-  depthFirstSearchInOrder() {
-    const result = []
-
-    function inOrderTraverse(node) {
-      if (node.left) inOrderTraverse(node.left)
-      result.push(node.value)
-      if (node.right) inOrderTraverse(node.right)
-    }
-
-    inOrderTraverse(this.root)
-    return result
+  function inOrderTraverse(node) {
+    if (node.left) inOrderTraverse(node.left)
+    result.push(node.value)
+    if (node.right) inOrderTraverse(node.right)
   }
-  ```
 
-</details>
+  inOrderTraverse(this.root)
+  return result
+}
+```
 
 ## Compare
 
@@ -228,13 +203,13 @@ keywords: [data structures, 資料結構]
 ![breadth-first-search](https://he-s3.s3.amazonaws.com/media/uploads/fdec3c2.jpg)
 
 > 圖 2 ：假設下圖這樣偏集中一邊的樹狀資料共有 1024 層
-![binary-search-tree-worse-case](./binary-search-tree-worse-case.png)
+![binary-search-tree-worse-case](https://www.jablog.site/assets/images/binary-search-tree-worse-case-51839b7d499b2597763fd7f5d4fbc3ff.png)
 
 假設上兩個情況的總節點數都一樣。
 
 以 Breadth First Search 來看，圖 1 的情況執行到越多層，會有越多節點存放在 Queue 中等待查找，在空間複雜度表現會較差。圖 2 的話因為每層都只有零星幾個，在空間複雜度上表現較好。
 
-而以 Depth First Search 來看，由於是遞迴執行，會看總共有幾層需要一直遞迴下去，影響 Call Stack 需要存幾個執行函式。 (在 [Recursion](../02-algorithms/09-recursion.md) 的章節有提到 JS 執行函式時會將函式丟到 Call Stack 內，若函式裡又呼叫函式，則又會丟到 Call Stack 內，一直下去，直到函式執行完才會從 Call Stack 內移除。)
+而以 Depth First Search 來看，由於是遞迴執行，會看總共有幾層需要一直遞迴下去，影響 Call Stack 需要存幾個執行函式。 (在 [Recursion](https://ithelp.ithome.com.tw/articles/10296158) 的章節有提到 JS 執行函式時會將函式丟到 Call Stack 內，若函式裡又呼叫函式，則又會丟到 Call Stack 內，一直下去，直到函式執行完才會從 Call Stack 內移除。)
 
 由此可知圖 1 平均分佈了 10 層， Call Stack 頂多只會存到 10 個執行函式，空間複雜度表現較好。而圖 2 偏一邊集中導致有超多層，代表 Call Stack 也需要存更多執行函式，因此空間複雜度表現較差。
 
