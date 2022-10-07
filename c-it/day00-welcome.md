@@ -61,8 +61,8 @@
 - [Day 20 你會分類你要先講 - Bucket Sort](https://ithelp.ithome.com.tw/articles/10304456)
 - [Day 21 超硬 Tree 登場 - Binary Search Tree](https://ithelp.ithome.com.tw/articles/10304503)
 - [Day 22 這篇若...不看...財哥也...感嘆... - Tree Traversal](https://ithelp.ithome.com.tw/articles/10305480)
-- [Day 23 - Tree Sort](https://ithelp.ithome.com.tw/articles/10305481)
-- Day 24 - Binary Heap
+- [Day 23 極速解題 - Tree Sort](https://ithelp.ithome.com.tw/articles/10305481)
+- [Day 24 出疊書上課囉 - Binary Heap](https://ithelp.ithome.com.tw/articles/10305502)
 - Day 25 - Priority Queue
 - Day 26 - Heap Sort
 - Day 27 - Hash Table
