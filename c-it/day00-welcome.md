@@ -59,9 +59,9 @@
 - [Day 18 快還要更快 - Quick Sort](https://ithelp.ithome.com.tw/articles/10301442)
 - [Day 19 排序新理解 - Radix Sort](https://ithelp.ithome.com.tw/articles/10303968)
 - [Day 20 你會分類你要先講 - Bucket Sort](https://ithelp.ithome.com.tw/articles/10304456)
-- Day 21 - Binary Search Tree
-- Day 22 - Tree Traversal
-- Day 23 - Tree Sort
+- [Day 21 超硬 Tree 登場 - Binary Search Tree](https://ithelp.ithome.com.tw/articles/10304503)
+- [Day 22 這篇若...不看...財哥也...感嘆... - Tree Traversal](https://ithelp.ithome.com.tw/articles/10305480)
+- [Day 23 - Tree Sort](https://ithelp.ithome.com.tw/articles/10305481)
 - Day 24 - Binary Heap
 - Day 25 - Priority Queue
 - Day 26 - Heap Sort
