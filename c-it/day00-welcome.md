@@ -65,7 +65,7 @@
 - [Day 24 出疊書上課囉 - Binary Heap](https://ithelp.ithome.com.tw/articles/10305502)
 - [Day 25 先拿龍再拆塔 - Priority Queue](https://ithelp.ithome.com.tw/articles/10307291)
 - [Day 26 展現解題 GAP - Heap Sort](https://ithelp.ithome.com.tw/articles/10307742)
-- Day 27 - Hash Table
+- [Day 27 迷因新寵兒 - Hash Table](https://ithelp.ithome.com.tw/articles/10307747)
 
 ### 大師
 - Day 28 - Graph
