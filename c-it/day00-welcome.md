@@ -64,7 +64,7 @@
 - [Day 23 極速解題 - Tree Sort](https://ithelp.ithome.com.tw/articles/10305481)
 - [Day 24 出疊書上課囉 - Binary Heap](https://ithelp.ithome.com.tw/articles/10305502)
 - [Day 25 先拿龍再拆塔 - Priority Queue](https://ithelp.ithome.com.tw/articles/10307291)
-- Day 26 - Heap Sort
+- [Day 26 展現解題 GAP - Heap Sort](https://ithelp.ithome.com.tw/articles/10307742)
 - Day 27 - Hash Table
 
 ### 大師
