@@ -46,7 +46,7 @@ depthFirstRecursive(start){
 
 ### DFS Iterative
 
-除了使用[遞迴](https://ithelp.ithome.com.tw/articles/10296158)的方式實作，我們也可以不依賴 Call Stack 的機制，改用自己定義的 [Stack](https://ithelp.ithome.com.tw/articles/10300208) 來實作。
+除了使用[遞迴](https://ithelp.ithome.com.tw/articles/10296158)的方式實作，我們也可以不依賴 [Call Stack](https://developer.mozilla.org/en-US/docs/Glossary/Call_stack) 的機制，改用自己定義的 [Stack](https://ithelp.ithome.com.tw/articles/10300208) 來實作。
 
 一樣的概念，假設從 Jason 開始遍歷，先把 Jason 丟到 Stack 中等待遍歷，然後設迴圈：當 Stack 中還有節點時， Pop 取出來，放進 Result 陣列中，並遍歷當前節點的相鄰節點，將這些相鄰節點一一丟到 Stack 中等待遍歷，然後進入下一次迴圈，從 Stack 中取最後一個節點出來，繼續上述動作以此類推。(提醒一下 Stack 的規則是先進後出)
 

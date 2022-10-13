@@ -1,13 +1,8 @@
----
-title: "Dijkstra's Algorithm"
-tags:
-  - algorithms
-keywords: [algorithms, 演算法]
----
+<!-- Day 30 太無情了 - Dijkstra's Algorithm -->
 
 此演算法是由一位叫 Edsger Dijkstra 的荷蘭工程師所發明，他在電腦科學領域[貢獻了許多](https://en.wikipedia.org/wiki/Edsger_W._Dijkstra#Pioneering_contributions_and_impact_on_computing_science)奠定目前網際網路、電腦科學與數位服務等等的基礎。
 
-> 在學習 Dijkstra's Algorithm 需前理解資料結構的 [Priority Queue](../03-data-structures/08-priority-queue.md) 與 [Graph](../03-data-structures/10-graph.md) 。
+> 在學習 Dijkstra's Algorithm 需前理解資料結構的 [Priority Queue](https://ithelp.ithome.com.tw/articles/10307291) 與 [Graph](https://ithelp.ithome.com.tw/articles/10308203) 。
 
 而 Dijkstra's Algorithm 正是用他的名字來命名，此演算法是用於找出在 Graph 中兩個節點之間的最短路徑。
 
@@ -32,11 +27,11 @@ class WeightedGraph {
 }
 ```
 
-剩餘的部分可參考 [Graph](../03-data-structures/10-graph.md) 章節。
+剩餘的部分可參考 [Graph](https://ithelp.ithome.com.tw/articles/10308203) 章節。
 
 ## Pseudo Code
 
-![graph-ud-u](./graph-ud-u.png)
+![graph-ud-u](https://www.jablog.site/assets/images/graph-ud-u-963fe98f49fc3f3e8a7d1f143f863c0d.png)
 
 以上圖為例子，找尋從 A 到 E 的最短距離。
 
@@ -198,7 +193,7 @@ E 就是我們的終點節點，所以迴圈到此結束，目前 E 所紀錄的
 
 ## Priority Queue
 
-而找尋當前哪個節點擁有最短路徑這部分可以使用 [Priority Queue](../03-data-structures/08-priority-queue.md) 來實作，每次加進去時，會依照其優先度調整順序，之後要找最短路徑時只要拿第一個就好了。
+而找尋當前哪個節點擁有最短路徑這部分可以使用 [Priority Queue](https://ithelp.ithome.com.tw/articles/10307291) 來實作，每次加進去時，會依照其優先度調整順序，之後要找最短路徑時只要拿第一個就好了。
 
 用此資料結構也能有效降低時間複雜度，若用陣列找尋最小值的話每次都需要遍歷整個陣列 - O(n) ， Priority Queue 則是在調整順序時只需 - O(log n) 。
 
@@ -273,7 +268,7 @@ class PriorityQueue {
 }
 ```
 
-`sinkDown` 的部分和另篇 [Priority Queue](../03-data-structures/08-priority-queue.md) 裡實作的較不一樣，不同的做法但都可以達成目標。
+`sinkDown` 的部分和另篇 [Priority Queue](https://ithelp.ithome.com.tw/articles/10307291) 裡實作的較不一樣，不同的做法但都可以達成目標。
 
 ## Implement
 

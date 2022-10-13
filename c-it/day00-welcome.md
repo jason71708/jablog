@@ -70,7 +70,7 @@
 ### 大師
 - [Day 28 又肉又痛 - Graph](https://ithelp.ithome.com.tw/articles/10308203)
 - [Day 29 走囉～高歌離席～ - Graph Traversal](https://ithelp.ithome.com.tw/articles/10308233)
-- Day 30 - Dijkstra's Algorithm
+- [Day 30 太無情了 - Dijkstra's Algorithm](https://ithelp.ithome.com.tw/articles/10308236)
 - Day 31 - Dynamic Programming
 - Day 32 - Counting Sort
 - Day 33 - Shell Sort
