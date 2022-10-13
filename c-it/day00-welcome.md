@@ -68,7 +68,7 @@
 - [Day 27 迷因新寵兒 - Hash Table](https://ithelp.ithome.com.tw/articles/10307747)
 
 ### 大師
-- Day 28 - Graph
+- [Day 28 又肉又痛 - Graph](https://ithelp.ithome.com.tw/articles/10308203)
 - Day 29 - Graph Traversal
 - Day 30 - Dijkstra's Algorithm
 - Day 31 - Dynamic Programming

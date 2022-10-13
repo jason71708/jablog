@@ -1,11 +1,6 @@
----
-title: 'Graph'
-tags:
-  - data structures
-keywords: [data structures, 資料結構]
----
+<!-- Day 28 又肉又痛 - Graph -->
 
-簡言之， Graph 就是很多個節點與節點之間的連線所組成的，與前幾篇提到的 [Three](./05-binary-search-tree.md) 也算是 Graph 的一種 ， Graph 主要有以下幾點特色：
+簡言之， Graph 就是很多個節點與節點之間的連線所組成的，前幾天提到的 [Three](https://ithelp.ithome.com.tw/articles/10304503) 也算是 Graph 的一種 ， Graph 主要有以下幾點特色：
 - Graph 沒有特定的根節點
 - 節點之間的連線可以有或沒有方向性
 - 一個節點可以任意與多個節點連線
@@ -27,9 +22,9 @@ Graph 是目前最廣泛應用的資料結構之一，在社群網路、地圖�
 
 ## Storing Graph - Adjacency Matrix
 
-![graph-uw-ud](./graph-uw-ud.png)
+![graph-uw-ud](https://www.jablog.site/assets/images/graph-uw-ud-be4b3478e100d8a94f3c643af2b68c0b.png)
 
-![ad-matrix-uw-ud](./ad-matrix-uw-ud.png)
+![ad-matrix-uw-ud](https://www.jablog.site/assets/images/ad-matrix-uw-ud-5fdf2c98788f3f683086290d9c4c9db7.png)
 
 [來源](https://visualgo.net/en/graphds)
 
@@ -74,9 +69,9 @@ Adjacency Matrix 重點在於就算某個節點沒有跟其他節點連線，也
 
 ## Storing Graph - Adjacency List
 
-![graph-uw-ud](./graph-uw-ud.png)
+![graph-uw-ud](https://www.jablog.site/assets/images/graph-uw-ud-be4b3478e100d8a94f3c643af2b68c0b.png)
 
-![ad-list-uw-ud](./ad-list-uw-ud.png)
+![ad-list-uw-ud](https://ithelp.ithome.com.tw/upload/images/20221013/201238892S0ZayFC7I.png)
 
 [來源](https://visualgo.net/en/graphds)
 
