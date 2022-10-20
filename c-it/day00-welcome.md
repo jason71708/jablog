@@ -72,7 +72,7 @@
 - [Day 29 走囉～高歌離席～ - Graph Traversal](https://ithelp.ithome.com.tw/articles/10308233)
 - [Day 30 太無情了 - Dijkstra's Algorithm](https://ithelp.ithome.com.tw/articles/10308236)
 - [Day 31 41分推 - Dynamic Programming](https://ithelp.ithome.com.tw/articles/10308512)
-- Day 32 你看我 CS - Counting Sort
+- [Day 32 你看我 CS - Counting Sort](https://ithelp.ithome.com.tw/articles/10309262)
 - Day 33 - Shell Sort
 
 ### 邁向菁英
