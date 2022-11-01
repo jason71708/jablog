@@ -73,7 +73,7 @@
 - [Day 30 太無情了 - Dijkstra's Algorithm](https://ithelp.ithome.com.tw/articles/10308236)
 - [Day 31 41分推 - Dynamic Programming](https://ithelp.ithome.com.tw/articles/10308512)
 - [Day 32 你看我 CS - Counting Sort](https://ithelp.ithome.com.tw/articles/10309262)
-- Day 33 - Shell Sort
+- [Day 33 極致改良 - Shell Sort](https://ithelp.ithome.com.tw/articles/10309513)
 
 ### 邁向菁英
 - Day 34 - Timsort

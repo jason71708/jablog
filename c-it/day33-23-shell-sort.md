@@ -1,11 +1,6 @@
----
-title: 'Shell Sort'
-tags:
-  - algorithms
-keywords: [algorithms, 演算法]
----
+<!-- Day 33 極致改良 - Shell Sort -->
 
-Shell Sort 是 [Insertion Sort](./14-insertion-sort.md) 的改良版，加入了間距 (Gap) 的概念將資料分成小區塊，將整組資料分組，每區塊用 Insertion Sort 比對排列，下輪間距變小再進行一次分組與比對，直到間距為 1 時比對完成即結束。
+Shell Sort 是 [Insertion Sort](https://ithelp.ithome.com.tw/articles/10298937) 的改良版，加入了間距 (Gap) 的概念將資料分成小區塊，將整組資料分組，每區塊用 Insertion Sort 比對排列，下輪間距變小再進行一次分組與比對，直到間距為 1 時比對完成即結束。
 
 Gap 要設多少都可以，這邊使用 D.L Shell (Shell Sort 發明人)原先提出時使用的對半分 (length / 2) ，每輪反覆除以 2。
 
@@ -26,7 +21,7 @@ Gap = length / 2 = 4
 
 每列 (row) 中的數字做比對，以上面來說就是 `9, 21` 一列、 `133, 45` 一列，以此類推。
 
-每組用 [Insertion Sort](./14-insertion-sort.md) 比對並交換位置後：
+每組用 [Insertion Sort](https://ithelp.ithome.com.tw/articles/10298937) 比對並交換位置後：
 
 |  9  |  133  |  567  |  44  |  21  |  45  |  11  |  561  |
 |---|---|---|---|---|---|---|---|
@@ -49,7 +44,7 @@ Gap = length / 2 = 4
 |  9  |    |  11  |    |  21  |    |  567  |    |
 |    |  45  |    |  44  |    |  133  |    |  561  |
 
-每組用 [Insertion Sort](./14-insertion-sort.md) 比對後：
+每組用 [Insertion Sort](https://ithelp.ithome.com.tw/articles/10298937) 比對後：
 
 |  9  |  45  |  11  |  44  |  21  |  133  |  567  |  561  |
 |---|---|---|---|---|---|---|---|
@@ -61,7 +56,7 @@ Gap = length / 2 = 4
 |  9  |  44  |  11  |  45  |  21  |  133  |  567  |  561  |
 |---|---|---|---|---|---|---|---|
 
-接續將 Gap 再次砍半變成 1，用 [Insertion Sort](./14-insertion-sort.md) 比對後的結果：
+接續將 Gap 再次砍半變成 1，用 [Insertion Sort](https://ithelp.ithome.com.tw/articles/10298937) 比對後的結果：
 
 |  9  |  11  |  21  |  44  |  45  |  133  |  561  |  567  |
 |---|---|---|---|---|---|---|---|
@@ -93,7 +88,7 @@ function shellSort( array ) {
 |---|---|---|---|
 | O( n log(n) ) | O( n (log(n))² ) | O( n (log(n))² ) | O(1) |
 
-整體而言複雜度概念上和 [Insertion Sort](./14-insertion-sort.md) 相近，只是 Shell Sort 多加了 Gap 的概念做改良。
+整體而言複雜度概念上和 [Insertion Sort](https://ithelp.ithome.com.tw/articles/10298937) 相近，只是 Shell Sort 多加了 Gap 的概念做改良。
 
 空間複雜度一樣都是 O(1)， 都使用原本輸入的陣列做原地排序 (in-place)。
 
