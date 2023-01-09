@@ -9,7 +9,7 @@ const config = {
   projectName: 'jablog', // Usually your repo name.
   baseUrl,
   baseUrlIssueBanner: true,
-  url: 'https://www.jablog.site',
+  url: 'https://blog.jasonzhuang.com',
   trailingSlash: true,
   i18n: {
     defaultLocale: 'zh-TW',
