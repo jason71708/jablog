@@ -7,3 +7,7 @@
 ## Issues
 
 若有任何錯誤或建議，歡迎留言或是發 PR 。
+
+## Todo
+
+- local search 尚不支援中文

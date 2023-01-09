@@ -49,14 +49,9 @@ const config = {
   },
   plugins: [
     [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
+      require.resolve('docusaurus-lunr-search'),
       {
-        // ... Your options.
-        // `hashed` is recommended as long-term-cache of index file is possible.
-        hashed: true,
-        // For Docs using Chinese, The `language` is recommended to set to:
         language: ['zh'],
-        // When applying `zh` in language, please install `nodejieba` in your project.
       },
     ],
     'plugin-image-zoom',
@@ -171,7 +166,8 @@ const config = {
           : undefined,
         sitemap: {
           changefreq: 'weekly',
-          priority: 0.5
+          priority: 0.5,
+          filename: 'sitemap.xml',
         },
       }),
     ],

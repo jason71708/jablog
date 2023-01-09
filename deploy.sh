@@ -1,5 +1,5 @@
 #!/bin/bash
-yarn run build --locale zh-TW
+yarn run build
 # Upload other file to s3 first
 aws s3 sync ./build s3://jablog-website --profile my-account
 # Remove all .html files extension in other to remove .html from the url in s3 & cloudfront
