@@ -188,13 +188,12 @@ const config = {
         disableSwitch: false,
         respectPrefersColorScheme: true,
       },
-      // announcementBar: {
-      //   id: 'new-site',
-      //   content: '✨傑部落搬新家囉✨',
-      //   backgroundColor: '#188038',
-      //   textColor: '#fff',
-      //   isCloseable: true,
-      // },
+      announcementBar: {
+        id: 'new-site',
+        content: '✨傑部落換網址囉✨ https://blog.jasonzhuang.com',
+        textColor: '#000000',
+        isCloseable: true,
+      },
       prism: {
         // magicComments: [
         //   {
