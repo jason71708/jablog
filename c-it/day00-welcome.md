@@ -35,8 +35,8 @@
 ## 本系列大綱
 
 ### 從鐵牌爬起
-- [Day 1 這到底是什麼符號喔齁齁齁齁齁 - Big O Notation](https://ithelp.ithome.com.tw/articles/10288453)
-- [Day 2 哎呀這什麼水平 - 時間與空間複雜度](https://ithelp.ithome.com.tw/articles/10292419)
+- [Day 1 這到底是什麼符號喔齁齁齁齁齁 - Big O Notation](https://ithelp.ithome.com.tw/articles/10292419)
+- [Day 2 哎呀這什麼水平 - 時間與空間複雜度](https://ithelp.ithome.com.tw/articles/10293530)
 - [Day 3 好用兩件套 - 物件與陣列的時間與空間複雜度](https://ithelp.ithome.com.tw/articles/10293886)
 - [Day 4 BO5-1 - Frequency Counter](https://ithelp.ithome.com.tw/articles/10294036)
 - [Day 5 BO5-2 - Multiple Pointers](https://ithelp.ithome.com.tw/articles/10294084)
