@@ -54,7 +54,7 @@ const config = {
         language: ['zh'],
       },
     ],
-    'plugin-image-zoom',
+    require.resolve('docusaurus-plugin-image-zoom'),
     [
       'pwa',
       {
@@ -203,6 +203,15 @@ const config = {
         //   },
         // ],
       },
+      zoom: {
+        selector: '.markdown :not(em) > img',
+        background: {
+          light: 'rgb(255, 255, 255)',
+          dark: 'rgb(50, 50, 50)'
+        },
+        // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
+        config: {}
+      },
       image: 'img/logo.png',
       metadata: [
         {name: 'keywords', content: 'frontend, blog, web, developer'},
@@ -224,7 +233,7 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'threejs/fundamentals',
+            docId: 'algorithms/bigO-notation',
             position: 'left',
             label: 'Docs',
           },
@@ -240,7 +249,6 @@ const config = {
           },
         ],
       },
-      zoomSelector: '.markdown img',
       footer: {
         style: 'dark',
         links: [],
