@@ -17,14 +17,14 @@ System Preferences -> Apple ID → iCloud
 
 ## 安裝 Homebrew
 
-```
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew update
 ```
 
 ## 下載應用程式
 
-```
+```bash
 brew install --cask \
   firefox \
   brave-browser \
@@ -35,7 +35,7 @@ brew install --cask \
 
 ## 下載套件
 
-```
+```bash
 brew install \
   wget \
   exa \
@@ -58,14 +58,14 @@ brew install \
 
 ## ZSH 安裝
 
-```
+```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 omz update
 ```
 
 zsh 設定檔有任何更新，需要下指令使其吃最新的版本
 
-```
+```bash
 source ~/.zshrc
 ```
 
@@ -73,7 +73,7 @@ source ~/.zshrc
 
 在 `~/.zshrc` 中加入下列幾行
 
-```
+```bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh" # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
@@ -81,7 +81,7 @@ export NVM_DIR="$HOME/.nvm"
 
 ## Terminal Theme & Font
 
-```
+```bash
 brew install starship
 echo 'eval "$(starship init zsh)"' >> ~/.zshrc
 brew tap homebrew/cask-fonts
@@ -99,7 +99,7 @@ iTerm2 設置字型：Preferences → Profile → Text → Font: font-hack-nerd-
 
 ## Git 設定
 
-```
+```bash
 git config --global user.name "Your Name"
 git config --global user.email "you@your-domain.com"
 ```
@@ -169,13 +169,13 @@ VSCode Setting
 
 如果還沒有 ssh 資料夾在根目錄的話
 
-```
+```bash
 mkdir ~/.ssh
 ```
 
 進到該資料夾並建立一組 ssh key
 
-```
+```bash
 ssh-keygen -t ed25519 -C "your@email.com"
 ```
 
@@ -183,7 +183,7 @@ ssh-keygen -t ed25519 -C "your@email.com"
 
 接著將 Public Key 複製
 
-```
+```bash
 pbcopy < ~/.ssh/id_ed25519.pub
 ```
 
@@ -191,18 +191,49 @@ pbcopy < ~/.ssh/id_ed25519.pub
 
 ## Node.js
 
-```
+```bash
 nvm install <current lts version>
 ```
 
 檢查 Node & Npm 版本
 
-```
+```bash
 node -v && npm -v
 ```
 
 顯示已安裝的  Global Packages
 
-```
+```bash
 npm list -g --depth=0
+```
+
+AWS CLI
+
+參照當前最新[官方文件](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+
+安裝：
+
+```bash
+curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+sudo installer -pkg ./AWSCLIV2.pkg -target /
+```
+
+檢查：
+
+```bash
+which aws
+aws --version
+```
+
+設定 Access Key
+
+```bash
+aws configure # 依序輸入從 IAM 建立的 User Access Key 與相關設定。
+```
+
+檢查：
+
+```bash
+cat ~/.aws/credentials
+cat ~/.aws/config
 ```
