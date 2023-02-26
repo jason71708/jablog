@@ -15,6 +15,12 @@ System Preferences -> Apple ID → iCloud
 
 使用上電腦常會因為 iCloud 在同步更新檔案而造成過熱，而且已經有用個人硬碟進行備份，所以也沒有雲端備份的需求。
 
+## 關閉螢幕快捷鍵
+
+System Preference -> Mission Control -> Hot Corners -> change "Quick Note" to "-"
+
+滑鼠每次移到螢幕右下角有時會出現 Note 的快捷鍵，時常擾亂關閉全螢幕或點擊其他東西 (蘋果的 UX 怎麼越做越差了...)
+
 ## 安裝 Homebrew
 
 ```bash
@@ -44,7 +50,8 @@ brew install \
   `commitizen` \
   nvm \
   pnpm \
-  graphicsmagick
+  graphicsmagick \
+  rename
 ```
 
 *   `wget` 檔案下載指令
