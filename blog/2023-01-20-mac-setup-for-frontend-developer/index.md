@@ -163,12 +163,9 @@ VSCode Setting
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true
     },
-    "javascript.validate.enable": false,
     // auto generated
     "explorer.confirmDragAndDrop": false,
-    "js/ts.implicitProjectConfig.checkJs": true,
     "editor.formatOnPaste": true,
-    // "editor.formatOnType": true,
   }
 ```
 
@@ -214,7 +211,7 @@ node -v && npm -v
 npm list -g --depth=0
 ```
 
-AWS CLI
+## AWS CLI
 
 參照當前最新[官方文件](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 

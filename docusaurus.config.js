@@ -149,7 +149,7 @@ const config = {
         },
         blog: {
           showReadingTime: true,
-          postsPerPage: 5,
+          postsPerPage: 10,
           feedOptions: {
             type: 'all',
             copyright: `Copyright © ${new Date().getFullYear()} Jablog, Inc.`,
