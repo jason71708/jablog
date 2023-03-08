@@ -3,6 +3,7 @@ title: 資深前端面試題庫
 description: 此篇文章統整面試資深前端工程師時可能會遇到的考題，並加以統整。
 tags: [frontend, interview]
 image: ./cover.png
+draft: true
 ---
 
 ![cover](./cover.png)

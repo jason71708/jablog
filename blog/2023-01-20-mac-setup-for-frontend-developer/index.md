@@ -121,7 +121,7 @@ git config --global user.email "you@your-domain.com"
 * Markdown All in One
 * SVG
 
-VSCode Setting
+## VSCode Setting
 
 ```json
 {
