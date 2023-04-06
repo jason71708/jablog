@@ -47,15 +47,6 @@ Watchman 是由 Facebook 開發的工具，用來監聽檔案變更，類似 Web
 
 ### Command Line Tools
 同 iOS Simulator 步驟，Navbar 這次要選擇 Locations，下方內容就可以選擇 Command Line Tools 版本。(建議都選最新)
-### CocoaPods
-
-Xcode 上專案的套件管理工具
-
-```bash
-sudo gem install cocoapods
-```
-
-上述套件除了 watchman 以外都是必裝的。
 
 ## 建立 React-Native 專案
 指令： `npx react-native init <Your project name>`
@@ -70,10 +61,9 @@ npx react-native init AwesomeProject
 npx react-native init AwesomeProject --version X.XX.X
 ```
 
-也可以指定要用哪個專案模板：
-```bash
-npx react-native init AwesomeTSProject --template react-native-template-typescript
-```
+:::warn
+若安裝時出現 `error warn Multiple Podfiles were found` 的錯誤可參考[這篇](https://github.com/CocoaPods/CocoaPods/issues/11641)。
+:::
 
 ## 執行 React-Native
 
