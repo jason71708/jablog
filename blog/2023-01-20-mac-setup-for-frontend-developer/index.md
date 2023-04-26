@@ -1,7 +1,7 @@
 ---
 title: 從零開始的 2023 年 前端工程師 Mac 配置
 description: 統整幾個前端工程師在拿到新電腦時所需要的步驟與配置。
-tags: [frontend]
+tags: [Front-end]
 image: https://i.stack.imgur.com/plYwy.png
 ---
 

@@ -214,9 +214,9 @@ const config = {
       },
       image: 'img/logo.png',
       metadata: [
-        {name: 'keywords', content: 'frontend, blog, web, developer'},
-        {name: 'author', content: 'Jason Zhuang'},
-        {name: 'copyright', content: '傑部落 Jablog'}
+        { name: 'keywords', content: 'front-end, blog, web, developer' },
+        { name: 'author', content: 'Jason Zhuang' },
+        { name: 'copyright', content: '傑部落 Jablog' }
       ],
       navbar: {
         hideOnScroll: true,
