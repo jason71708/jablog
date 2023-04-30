@@ -114,59 +114,60 @@ git config --global user.email "you@your-domain.com"
 ## VSCode Extensions
 
 * Material Icon Theme
-* Prettier ESLint
-* Color Picker
 * ES7+ React/Redux/React-Native snippets
 * Live Server
 * Markdown All in One
 * SVG
+* Tailwind CSS IntelliSense
+* Import Cost
+* CSV to Table
+* Color Info
+* Color Highlight
+* Auto Rename Tag
+* Polacode-2022
 
 ## VSCode Setting
 
 ```json
 {
-    "breadcrumbs.enabled": false,
-    "files.trimTrailingWhitespace": true,
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.statusBar.visible": true,
-    "workbench.editor.enablePreview": false,
-    "workbench.activityBar.visible": false,
-    "workbench.editor.restoreViewState": true,
-    "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
-    "editor.fontFamily": "Hack Nerd Font Mono",
-    "editor.fontSize": 14,
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true,
-    "editor.detectIndentation": false,
-    "editor.renderWhitespace": "none",
-    "editor.scrollBeyondLastLine": true,
-    "editor.minimap.enabled": false,
-    // prettier
-    "editor.formatOnSave": true,
-    "[javascript]": {
-      "editor.formatOnSave": true,
-      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-    },
-    "[javascriptreact]": {
-      "editor.formatOnSave": true,
-      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-    },
-    "[typescript]": {
-      "editor.formatOnSave": true,
-      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-    },
-    "[typescriptreact]": {
-      "editor.formatOnSave": true,
-      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-    },
-    // eslint
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    },
-    // auto generated
-    "explorer.confirmDragAndDrop": false,
-    "editor.formatOnPaste": true,
-  }
+  "files.trimTrailingWhitespace": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.statusBar.visible": true,
+  "workbench.editor.restoreViewState": true,
+  "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+  "editor.fontFamily": "Hack Nerd Font Mono",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.renderWhitespace": "none",
+  "editor.scrollBeyondLastLine": true,
+  "editor.minimap.enabled": false,
+  "editor.suggestSelection": "first",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "window.zoomLevel": 1,
+  "javascript.format.semicolons": "insert",
+  "typescript.format.semicolons": "insert",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+}
 ```
 
 ## SSH
