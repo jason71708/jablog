@@ -3,8 +3,8 @@ const baseUrl = process.env.BASE_URL ?? '/';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: '傑部落 Jablog',
-  tagline: '紀錄、分享開發、技術和心得。',
+  title: 'Jablog',
+  tagline: 'Share more, get more.',
   organizationName: 'jason71708', // Usually your GitHub org/user name.
   projectName: 'jablog', // Usually your repo name.
   baseUrl,
@@ -12,15 +12,15 @@ const config = {
   url: 'https://blog.jasonzhuang.com',
   trailingSlash: true,
   i18n: {
-    defaultLocale: 'zh-TW',
-    locales: ['zh-TW'],
+    defaultLocale: 'en',
+    locales: ['en'],
   },
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo.png',
   customFields: {
     isDev,
-    description: '從 Vue.js 、 React.js 、 Three.js 等前端開發至後端、 DevOps 、 AWS 雲端建置的開發技術累積與心得',
+    description: 'Sharing everything about software engineering.',
   },
   staticDirectories: [
     'static',
@@ -176,6 +176,15 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      heroTexts: [
+        'Share more',
+        'get more',
+        '',
+        'Jason Zhuang',
+        'a',
+        'frontend',
+        'developer',
+      ],
       liveCodeBlock: {
         playgroundPosition: 'bottom',
       },
@@ -184,12 +193,12 @@ const config = {
         disableSwitch: false,
         respectPrefersColorScheme: true,
       },
-      announcementBar: {
-        id: 'new-site',
-        content: '✨傑部落換網址囉✨ https://blog.jasonzhuang.com',
-        textColor: '#000000',
-        isCloseable: true,
-      },
+      // announcementBar: {
+      //   id: 'new-site',
+      //   content: '✨',
+      //   textColor: '#000000',
+      //   isCloseable: true,
+      // },
       prism: {
         // magicComments: [
         //   {
@@ -216,11 +225,11 @@ const config = {
       metadata: [
         { name: 'keywords', content: 'front-end, blog, web, developer' },
         { name: 'author', content: 'Jason Zhuang' },
-        { name: 'copyright', content: '傑部落 Jablog' }
+        { name: 'copyright', content: 'Jablog' }
       ],
       navbar: {
         hideOnScroll: true,
-        title: '傑部落 Jablog',
+        title: 'Jablog',
         logo: {
           alt: 'Jablog Logo',
           src: 'img/logo.png',
@@ -237,6 +246,11 @@ const config = {
             position: 'left',
             label: 'Docs',
           },
+          {
+            href: 'https://github.com/jason71708',
+            position: 'left',
+            label: 'About'
+          },
           // {
           //   type: 'localeDropdown',
           //   position: 'right',
@@ -252,12 +266,10 @@ const config = {
       footer: {
         style: 'dark',
         links: [],
-        copyright: `Copyright © ${new Date().getFullYear()} 傑部落 Jablog, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Jablog, Inc. Built with Docusaurus.`,
       },
     }),
 };
-
-// module.exports = config;
 
 async function createConfig() {
   const lightTheme = (await import('./src/utils/prismLight.mjs')).default;

@@ -1,14 +1,16 @@
-import React from 'react'
-import {Redirect} from '@docusaurus/router'
+import React from 'react';
 import Layout from '@theme/Layout';
+import HeroSection from '../components/HeroSection';
+import LatestPostsSection from '../components/LatestPostsSection';
+import DocTopicSection from '../components/DocTopicSection';
 
 export default () => {
-  // return (
-  //   <Layout>
-  //     <div>
-  //       <h1>Hi</h1>
-  //     </div>
-  //   </Layout>
-  // )
-  return <Redirect to="/docs/threejs/fundamentals" />
-}
+
+  return (
+    <Layout>
+      <HeroSection />
+      <LatestPostsSection />
+      <DocTopicSection />
+    </Layout>
+  );
+};

@@ -1,0 +1,15 @@
+.doc-topic-section {
+  padding: 20px 0;
+  margin: 40px 0;
+}
+
+.doc-topic-list {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.doc-topic-title {
+  margin: 40px 0;
+  text-align: center;
+}

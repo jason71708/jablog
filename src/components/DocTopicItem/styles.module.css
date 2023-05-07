@@ -1,0 +1,17 @@
+.doc-topic-item {
+  width: 300px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.doc-topic-item-img {
+  background-color: var(--ifm-color-secondary);
+  width: 80%;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 12px 0;
+  overflow: hidden;
+}
