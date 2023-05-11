@@ -5,7 +5,7 @@ tags: [Front-end]
 image: https://i.stack.imgur.com/plYwy.png
 ---
 
-最近心血來潮把手上的 Macpro 重灌看看，因為從剛開始學程式以來這台電腦已經被我安裝了各種各樣奇怪的東西，速度也比以前慢了許多。在買新電腦前想說重設一次看速度有沒有改善，順便也能記錄一下從零開始的配置省下以後要配置新電腦時查東查西的時間。
+最近心血來潮把手上的 Macbook pro 2016  重灌看看，因為從剛開始學程式以來這台電腦已經被我安裝了各種各樣奇怪的東西，速度也比以前慢了許多。在買新電腦前想說重設一次看速度有沒有改善，順便也能記錄一下從零開始的配置省下以後要配置新電腦時查東查西的時間。
 
 <!--truncate-->
 
@@ -76,14 +76,18 @@ zsh 設定檔有任何更新，需要下指令使其吃最新的版本
 source ~/.zshrc
 ```
 
-## NVM 指令路徑設置
+## NVM 安裝
 
-在 `~/.zshrc` 中加入下列幾行
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+```
+
+指令路徑設置，在 `~/.zshrc` 中加入下列幾行
 
 ```bash
 export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh" # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 ```
 
 ## Terminal Theme & Font
@@ -170,6 +174,18 @@ git config --global user.email "you@your-domain.com"
 }
 ```
 
+## `code` command
+
+打開 vscode 並按下 <kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>P</kbd> 打開 Command Palette 然後輸入 `shell command`。
+
+選擇 `Install 'code' command in PATH` 即可安裝完成。
+
+之後就可透過 Terminal 直接下指令打開專案
+
+```bash
+code your-project-folder
+```
+
 ## SSH
 
 如果還沒有 ssh 資料夾在根目錄的話
@@ -221,6 +237,12 @@ npm list -g --depth=0
 ```bash
 curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
 sudo installer -pkg ./AWSCLIV2.pkg -target /
+```
+
+安裝時可能會遇到缺少 Rosetta 2 的錯誤訊息，照著訊息提示的補上即可
+
+```bash
+sudo softwareupdate --install-rosetta
 ```
 
 檢查：
