@@ -4,7 +4,7 @@ const baseUrl = process.env.BASE_URL ?? '/';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Jablog',
-  tagline: 'Share more, get more.',
+  tagline: 'Share more, learn more.',
   organizationName: 'jason71708', // Usually your GitHub org/user name.
   projectName: 'jablog', // Usually your repo name.
   baseUrl,
@@ -178,7 +178,7 @@ const config = {
     ({
       heroTexts: [
         'Share more',
-        'get more',
+        'Learn more',
         '',
         'Jason Zhuang',
         'a',

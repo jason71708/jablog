@@ -1,5 +1,5 @@
 .doc-topic-item {
-  width: 300px;
+  width: 240px;
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
@@ -14,4 +14,16 @@
   border-radius: 20px;
   margin: 12px 0;
   overflow: hidden;
+}
+
+@media screen and (min-width: 1024px) {
+  .doc-topic-item {
+    width: 300px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .doc-topic-item {
+    width: 270px;
+  }
 }
