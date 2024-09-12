@@ -2,7 +2,10 @@
 title: Master TypeScript Mapped Types
 description: We can create our own utility types by some advanced mapped type usages.
 tags: [Typescript]
+image: https://camo.githubusercontent.com/fc7b04de41a9e7c4f788a5311d10d3f14db021edfd1e91c1b526b7ebb3f06f5c/68747470733a2f2f63646e2d69636f6e732d706e672e666c617469636f6e2e636f6d2f3531322f353936382f353936383338312e706e67
 ---
+
+![cover](https://camo.githubusercontent.com/fc7b04de41a9e7c4f788a5311d10d3f14db021edfd1e91c1b526b7ebb3f06f5c/68747470733a2f2f63646e2d69636f6e732d706e672e666c617469636f6e2e636f6d2f3531322f353936382f353936383338312e706e67)
 
 We can create our own utility types by some advanced mapped type usages.
 

@@ -4,9 +4,9 @@ Sliding Window 跟上篇 [Multiple Pointers](https://ithelp.ithome.com.tw/articl
 
 像是：
 
-| start |  |  |  | end |  |  |
-|---|---|---|---|---|---|---|
-| 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+| start |     |     |     | end |     |     |
+| ----- | --- | --- | --- | --- | --- | --- |
+| 1     | 2   | 3   | 4   | 5   | 6   | 7   |
 
 `start` 與 `end` 根據題目所需來移動，這兩個指標所圍出的範圍可大可小，類似像可滑動的兩片窗戶一樣。
 
@@ -125,10 +125,10 @@ function maxSubArraySum(arr, n) {
 
 以 `'abccba'` 為例：
 
-| start |  |  |  |  |  |
-|---|---|---|---|---|---|
-| end |  |  |  |  |  |
-| a | b | c | c | b | a |
+| start |     |     |     |     |     |
+| ----- | --- | --- | --- | --- | --- |
+| end   |     |     |     |     |     |
+| a     | b   | c   | c   | b   | a   |
 
 檢查目前 *end* 指到的字元 `a` 有沒有出現過，
 
@@ -138,33 +138,33 @@ function maxSubArraySum(arr, n) {
 
 最後移動 *end* 到下一格。
 
-| start |  |  |  |  |  |
-|---|---|---|---|---|---|
-|  | end |  |  |  |  |
-| a | b | c | c | b | a |
+| start |     |     |     |     |     |
+| ----- | --- | --- | --- | --- | --- |
+|       | end |     |     |     |     |
+| a     | b   | c   | c   | b   | a   |
 
 `b` 也沒出現過重複上述動作。
 
-| start |  |  |  |  |  |
-|---|---|---|---|---|---|
-|  |  | end |  |  |  |
-| a | b | c | c | b | a |
+| start |     |     |     |     |     |
+| ----- | --- | --- | --- | --- | --- |
+|       |     | end |     |     |     |
+| a     | b   | c   | c   | b   | a   |
 
 `c` 也沒出現過重複上述動作。
 
-| start |  |  |  |  |  |
-|---|---|---|---|---|---|
-|  |  |  | end |  |  |
-| a | b | c | c | b | a |
+| start |     |     |     |     |     |
+| ----- | --- | --- | --- | --- | --- |
+|       |     |     | end |     |     |
+| a     | b   | c   | c   | b   | a   |
 
 `c` 有出現過了，上次出現的位置是 `2` ，
 
 所以只好移動 *start* 到上次出現的位置的下一格，以排除之前出現過的字元。
 
-|  |  |  | start |  |  |
-|---|---|---|---|---|---|
-|  |  |  | end |  |  |
-| a | b | c | c | b | a |
+|     |     |     | start |     |     |
+| --- | --- | --- | ----- | --- | --- |
+|     |     |     | end   |     |     |
+| a   | b   | c   | c     | b   | a   |
 
 紀錄 `c` 的**新**出現過的位置 `index` 等於 `3` ，
 
@@ -172,10 +172,10 @@ function maxSubArraySum(arr, n) {
 
 最後移動 *end* 到下一格。
 
-|  |  |  | start |  |  |
-|---|---|---|---|---|---|
-|  |  |  |  | end |  |
-| a | b | c | c | b | a |
+|     |     |     | start |     |     |
+| --- | --- | --- | ----- | --- | --- |
+|     |     |     |       | end |     |
+| a   | b   | c   | c     | b   | a   |
 
 `b` 雖然有出現過，但上次出現的位置是 `1` ，目前 `start` 的位置是 `3` ，已經排除該字元了，所以不用變更 `start` 的位置。
 
@@ -201,8 +201,8 @@ for (let i = 0; i < str.length; i++) {
   let char = str[i];
 
   //  檢查有無出現過且出現過的位置比 start 還後面，則移動 start 到上次出現過的位置的後一格
-  if (obj.hasOwnProperty(char) && obj[char] >= start) {
-      start = obj[char] + 1;
+  if (Object.prototype.hasOwnProperty.call(seen, char) && seen[char] >= start) {
+      start = seen[char] + 1;
   }
 
   // 將目前的字串長度跟之前的最長字串長度比較，取最長的。

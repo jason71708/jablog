@@ -2,10 +2,10 @@
 title: 手機網頁的滿版可能跟你想的不同
 description: 手機網頁與電腦網頁的 Viewport 在計算上有差異，會發生畫面預期不一致的情形，此篇文章將簡單講解問題的緣由與解決方案。
 tags: [Front-end]
-image: https://i.stack.imgur.com/plYwy.png
+image: ./cover.png
 ---
 
-![cover](https://i.stack.imgur.com/plYwy.png)
+![cover](./cover.png)
 > 上圖為 Google I/O 2022 所演示的新長度單位，但目前在各大瀏覽器支援度不佳。
 
 手機網頁與電腦網頁的 Viewport 在計算上有差異，會發生畫面預期不一致的情形，此篇文章將簡單講解問題與解決方案。
