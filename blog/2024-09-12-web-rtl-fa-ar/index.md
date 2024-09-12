@@ -1,128 +1,114 @@
 ---
-title: Master TypeScript Mapped Types
-description: We can create our own utility types by some advanced mapped type usages.
-tags: [Typescript]
-image: https://camo.githubusercontent.com/fc7b04de41a9e7c4f788a5311d10d3f14db021edfd1e91c1b526b7ebb3f06f5c/68747470733a2f2f63646e2d69636f6e732d706e672e666c617469636f6e2e636f6d2f3531322f353936382f353936383338312e706e67
+title: 網站支援 RTL 排版
+description: RTL（Right-to-Left）排版是一種文字和內容從右至左排列的排版方式，通常應用於使用從右到左書寫的語言，如阿拉伯語、希伯來語、波斯語和烏爾都語等。此篇文章主要是紀錄與分享筆者工作時實作此需求時的眉角。
+tags: [CSS, RTL, HTML]
 ---
 
-![cover](https://camo.githubusercontent.com/fc7b04de41a9e7c4f788a5311d10d3f14db021edfd1e91c1b526b7ebb3f06f5c/68747470733a2f2f63646e2d69636f6e732d706e672e666c617469636f6e2e636f6d2f3531322f353936382f353936383338312e706e67)
+RTL（Right-to-Left）排版是一種文字和內容從右至左排列的排版方式，通常應用於使用從右到左書寫的語言，如阿拉伯語、希伯來語、波斯語和烏爾都語等。此篇文章主要是紀錄與分享筆者工作時實作此需求時的眉角。
+也因為有了 RTL 開發經驗，現在撰寫 CSS 或 HTML 時都會留意一下 LTR 與 RTL 的呈現。
 
-We can create our own utility types by some advanced mapped type usages.
+## HTML 調整
 
-## Basics
-
-Let's see the basic example.
-
-```typescript
-type Person = {
-  name: string;
-  gender: string;
-  age: number;
-  married: boolean;
-}
+```html
+<html dir="rtl" lang="fa-IR">
 ```
 
-<!--truncate-->
+在 `html` 標籤上配置 dir (direction) 屬性使其預設佈局變更至從右往左，這也是一切調整的起始點。
 
-For general uses, this data can be modified partial of it or only for display.
+其中 `fa-IR` 為波斯語代碼。
 
-```typescript
-type PersonPartial = {
-  name?: string;
-  gender?: string;
-  age?: number;
-  married?: boolean;
-}
+## CSS 調整
 
-type ReadonlyPerson = {
-  readonly name: string;
-  readonly gender: string;
-  readonly age: number;
-  readonly married: boolean;
-}
+所有具有方向性的 CSS 屬性都要做改寫：
+
+```
+margin-left -> margin-inline-start
+margin-right -> margin-inline-end
+padding-left -> padding-inline-start
+padding-right -> padding-inline-end
+text-align: left ->  text-align: start
+text-align: right -> text-align: end
+justify-content: left -> justify-content: start
+justify-content: right -> justify-content: end
+border-left -> border-inline-start
+border-right -> border-inline-end
+left: 10px -> inset-inline-start: 10px
+right: 10px -> inset-inline-end: 10px
 ```
 
-This would write lots of duplicate code.
+其中 `border-radius: 16px 0 0 16px` 需要改寫成：
 
-## Reduce the duplicate code
-
-Thus, we can use mapped types syntax to reference the original type.
-
-```typescript
-type UsePartial<T> = {
-  [K in keyof T]?: T[K]
-}
-
-type UseReadonly<T> = {
-  readonly [K in keyof T]: T[K]
-}
-
-type PersonPartial = UsePartial<Person>
-// { name?: string, ... , married?: boolean  }
-type ReadonlyPerson = UseReadonly<Person>
-// { readonly name: string, ... , readonly married: boolean  }
+```
+border-start-start-radius: 16px;
+border-start-end-radius: 0;
+border-end-start-radius: 0;
+border-end-end-radius: 16px;
 ```
 
-`... in ...` syntax is similar to the JavaScript `for. . .in` statement, which is used to iterate all types in type `keyof T`
-`keyof` operator is used to get all the keys of a type `T`, and its return type is a union type.
-`T[K]` is similar to the syntax for attribute access, and is used to get the type of the value corresponding to an attribute of the object type.
+以上改寫後就能自動根據 `dir` 的屬性變更排版方向，但由於瀏覽器對於 RTL 的支援在近幾年才開始普及，以上屬性有些還是需要看下瀏覽器支援度與本身專案的瀏覽器支援需求。
 
+那如果需要針對 RTL 情境做特別調整的話能用以下方式：
 
-And we can adding `+` and `-` prefixes to the modifiers `?` or `readonly` to add or removed the modifiers.
+```scss
+.rtl-icon {
+  transform: scaleX(1);
+}
 
-```typescript
-  type NotAllowPartial<T> = {
-    [K in keyof T]-?: T[K]
+html[dir="rtl"] {
+  .rtl-icon {
+    transform: scaleX(-1);
   }
-
-  type AddReadonly<T> = {
-    +readonly [K in keyof T]: T[K]
-  }
-```
-
-If we don't add prefixes to the modifiers, the default is `+`.
-
-## More tips to generate key types
-
-And also, we can use `as ...` syntax to generates the corresponding type from the type `T`.
-
-```typescript
-  type UseGetter<T> = {
-    [K in keyof T as `get${Capitalize<string & K>}`]: () => T[K]
-  };
-
-  type GetPerson = Getters<Person>
-  // {
-  //   getName: () => string;
-  //   getGender: () => string;
-  //   getAge: () => number;
-  //   getMarried: () => boolean;
-  // }
-```
-
-Because the `Capitalize` utility type requires `string` type for its parameter, and the return type by `keyof` may includes `string`, `number` and `symbol` type. we need to filter it by the `string & ...` .
-
-## Bonus
-
-If we return never type, it would be filter in the process of mapping keys.
-
-```typescript
-type Status = 'excellent' | 'great' | 'bad'
-
-// type Exclude<T, U> = T extends U ? never : T
-
-type InfoGetterWithFilter<T, U> = {
-    [K in T as Exclude<T & string, U>]: string
 }
+```
+或是在 JavaScript 中宣告 `isRTL` 變數供全域使用。
 
-type GetGoodStatusInfo = InfoGetterWithFilter<Status, 'bad'>
-// {
-//     excellent: string;
-//     great: string;
-// }
+## 符號與數字
+
+![rtl-number-unit-before](./rtl-number-unit-before.png)
+> 調整前
+
+帶符號的數字都需要保持原來左到右的方向，但因為 `html` 配置了 `rtl` 屬性會讓符號與數值翻轉，所以我們需要把他們調整回來，例如：
+- +886 912-345-678
+- 1234****5678
+- $1,000 USD
+- (-21.76%)
+
+```html
+<p>
+  <span dir="ltr">$1,000 USD</span>
+</p>
 ```
 
+![rtl-number-unit-after](./rtl-number-unit-after.png)
+> 調整後
 
-## Resources:
+在外層多包個 `span` 標籤配置 `dir` 屬性使其翻轉回來，也不會影響 `p` 標籤本身從右到左的排版佈局。
 
-- https://javascript.plainenglish.io/using-typescript-mapped-types-like-a-pro-be10aef5511a
+另種方式是在要翻轉的符號前面加上 `&lrm;`
+
+```html
+<p>(&lrm;-21.76%)</p>
+```
+
+這樣負號就不會跑到右邊去了。
+
+## 日期與時間格式
+
+英文：2022-12-31 23:59:59 -> 波斯語：23:59:59 2022-12-31
+
+日期與時間順序對調，但日期與時間本身的方向不變。
+
+### Moment.js
+
+而常用的 Moment.js 也提供了配置方法：
+
+```js
+import 'moment/locale/ar-kw'; // 阿拉伯語
+
+moment.locale('ar-AE');
+```
+
+## 結語
+
+雖然配置本身不難，檢查與調整畫面卻是需要花最多心力的地方，也需要和 UI 設計師大量溝通。
+下次撰寫樣式時不妨可以用 `start` 、 `end` 替代原本的寫法，在未來若是要支援 RTL 時也會更加快速。
