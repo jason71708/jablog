@@ -1,7 +1,7 @@
 ---
 title: Master TypeScript Mapped Types
 description: We can create our own utility types by some advanced mapped type usages.
-tags: [Typescript]
+tags: [TypeScript]
 ---
 
 We can create our own utility types by some advanced mapped type usages.
