@@ -2,8 +2,10 @@
 title: Next.js 與 React.js 在圖檔引入上的差異。
 description: 一次搞懂在 Next.js 和 React.js 內使用與引入 SVG 或 PNG 等圖檔的差異。
 tags: [Next.js, React, Webpack]
-# image: ./cover.jpg
+image: ./next-result-6.png
 ---
+
+![cover](./next-result-6.png)
 
 最近因應 SEO 需求在將 React 專案改成 Next 架構時在圖片相關資源踩了許多雷，許多在 React 熟悉的寫法一到 Next 可能就直接報 Error。
 

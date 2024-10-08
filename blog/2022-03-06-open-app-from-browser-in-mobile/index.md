@@ -2,8 +2,10 @@
 title: 在手機瀏覽器上透過 Deep Link 打開其他應用程式
 description: 簡單介紹 Deep Link 來由，iOS 的 Universal Link 與 Android 的 App Link 並應用在網頁上能打開手機 APP 。
 tags: [Front-end]
-# image: https://i.stack.imgur.com/plYwy.png
+image: ./cover.jpg
 ---
+
+![cover](./cover.jpg)
 
 之前做 [NFT 畫廊](https://d3idtkbaj4rnb4.cloudfront.net/) Side Project 時需要在手機網頁上開啟 MetaMask APP 或是引導使用者去安裝該 APP 才能在此畫廊挖 NFT 。
 

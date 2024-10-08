@@ -2,7 +2,10 @@
 title: Master TypeScript Mapped Types
 description: We can create our own utility types by some advanced mapped type usages.
 tags: [TypeScript]
+image: ./cover.png
 ---
+
+![cover](./cover.png)
 
 We can create our own utility types by some advanced mapped type usages.
 

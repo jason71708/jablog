@@ -2,7 +2,10 @@
 title: CSS 的命名規範與各種設計模式
 description: CSS 也寫了一段時日，想整理下現今常見的一些 CSS 設計模式，包括 BEM、OOCSS、ITCSS 到 SMACSS 等規範。同時也想分享下對於近幾年興起的 Tailwind CSS 中 Atomic CSS 概念的看法，了解下各種設計模式的差異和優缺點。
 tags: [CSS]
+image: ./cover.png
 ---
+
+![cover](./cover.png)
 
 CSS 也寫了一段時日，想整理下現今常見的一些 CSS 設計模式，包括 BEM、OOCSS、ITCSS 到 SMACSS 等規範。同時也想分享下對於近幾年興起的 Tailwind CSS 中 Atomic CSS 概念的看法，了解下各種設計模式的差異和優缺點。
 

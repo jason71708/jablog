@@ -2,8 +2,10 @@
 title: 5 種 TypeScript 小技巧
 description: 這 5 種小技巧能讓撰寫型別時更加通用與快速。
 tags: [TypeScript]
-# image: ./cover.jpg
+image: ./cover.png
 ---
+
+![cover](./cover.png)
 
 寫 TypeScript 也有一年多的時間，整理了一些實用的寫法讓撰寫型別能更加彈性與順暢。
 

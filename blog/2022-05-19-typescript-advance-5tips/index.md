@@ -2,8 +2,10 @@
 title: TypeScript 進階 5 種技巧
 description: 這邊介紹 5 種 TypeScript 的進階技巧，有些也結合了 React 實務上會用到情境。
 tags: [TypeScript]
-# image: ./cover.jpg
+image: ./cover.png
 ---
+
+![cover](./cover.png)
 
 這邊介紹 5 種 TypeScript 的進階技巧，有些也結合了 React 實務上會用到情境。
 
@@ -98,7 +100,7 @@ export interface Computer {
 
 export const computer: Computer[] = [
   {
-    __typename: "computer", // 
+    __typename: "computer", //
     id: "123-abc-456",
     cpu: 4,
     ram: 16
@@ -187,7 +189,7 @@ function Title<E extends React.ElementType = typeof __DEFAULT_ELEMENT__>({
   ...props
 }: TitleProps<E>) {
   const Component = as || __DEFAULT_ELEMENT__
-  
+
   return <Component {...props} aria-labelledby='title'>{children}</Component>
 }
 
