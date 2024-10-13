@@ -43,13 +43,19 @@ new Date('2024-11-21'.replaceAll('/', '-'))
 
 ![drawer](./drawer.png)
 
+Drawer 開啟時，會禁止網頁本身滑動：
+
+```js
+document.body.style.overflow = 'hidden'
+```
+
 然後還有個舊有邏輯是打開 Drawer 時是網頁會自動滑動置頂。
 
 ```js
 window.scrollTo({ top: 0, behavior: 'smooth' })
 ```
 
-這時因為網頁置頂了，所以繼續下拉會觸發 WebView 的下拉刷新邏輯，但是這時 Drawer 本身內部又可以滑動，就變成 Drawer 滑動到底下要再滑動到上面時就會沒辦法順利滑動，會一直連動到 WebView 的下拉刷新使其變成整個頁面下拉。
+這時因為網頁置頂了，所以繼續下拉會觸發 WebView 的下拉刷新邏輯，但是這時 Drawer 本身內部又可以滑動，就變成 Drawer 滑動到底下要再滑動到上面時就會沒辦法順利滑動，會一直連動到 WebView 的下拉刷新使其變成整個 WebView 下拉。
 
 這問題在手機瀏覽器上測試是不會發生的，但是專案場景是 APP 會打開我們的網頁，所以最終是將自動置頂的邏輯給刪除，其實也可以留一點空間例如 `top: 1` 來避免此問題。
 
