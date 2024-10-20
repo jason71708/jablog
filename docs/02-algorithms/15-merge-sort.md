@@ -58,7 +58,7 @@ Merge Sort 是一種透過切分資料再一一合併的排序演算法。
   ```
 
   用上面範例陣列輸入之後所得的結果會是：
-  
+
   `[[[[30],[[5],[1]]],[[31],[[10],[9]]]],[[[2],[[3],[4]]],[[8],[[7],[6]]]]]`
 </details>
 
@@ -141,8 +141,8 @@ Merge Sort 是一種透過切分資料再一一合併的排序演算法。
 ## Big O Complexity
 
 | Time Complexity (Best) | Time Complexity (Average) | Time Complexity (Worst) | Space Complexity |
-|---|---|---|---|
-| O(n log n) | O(n log n) | O(n log n) | O(n) |
+| ---------------------- | ------------------------- | ----------------------- | ---------------- |
+| O(n log n)             | O(n log n)                | O(n log n)              | O(n)             |
 
 Space Complexity 的部分較好理解，輸入的陣列元素有多少，我們在分割存新陣列或是合併成新陣列時，總元素的個數就有多少。
 
