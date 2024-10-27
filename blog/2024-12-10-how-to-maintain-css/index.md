@@ -3,6 +3,7 @@ title: 關於如何維護 CSS 的一些心得
 description: 本文分享幾個 CSS 維護技巧：減少巢狀結構與依賴、避免過度使用 inherit、建立設計指引、善用 Mixins 和 Util class，以及專注使用單一 CSS 選擇器。透過這些方法，讓樣式更具可讀性與可維護性。
 tags: [CSS]
 image: ./cover.png
+draft: true
 ---
 
 ![cover](./cover.png)
