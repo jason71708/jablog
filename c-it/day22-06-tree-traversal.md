@@ -32,7 +32,7 @@
 
 以下圖樹狀資料為例：
 
-![bfs-example](https://www.jablog.site/assets/images/bfs-example-96523baf2c43a1a10b1e23dfc41cf3f8.png)
+![bfs-example](https://blog.jasonzhuang.com/assets/images/bfs-example-96523baf2c43a1a10b1e23dfc41cf3f8.png)
 
 1. 首先放 root 進 Queue ，並開始遞迴查找：
 
@@ -203,7 +203,7 @@ depthFirstSearchInOrder() {
 ![breadth-first-search](https://he-s3.s3.amazonaws.com/media/uploads/fdec3c2.jpg)
 
 > 圖 2 ：假設下圖這樣偏集中一邊的樹狀資料共有 1024 層
-![binary-search-tree-worse-case](https://www.jablog.site/assets/images/binary-search-tree-worse-case-51839b7d499b2597763fd7f5d4fbc3ff.png)
+![binary-search-tree-worse-case](https://blog.jasonzhuang.com/assets/images/binary-search-tree-worse-case-51839b7d499b2597763fd7f5d4fbc3ff.png)
 
 假設上兩個情況的總節點數都一樣。
 

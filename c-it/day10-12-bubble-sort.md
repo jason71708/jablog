@@ -4,7 +4,7 @@
 
 儘管如此，作為基礎中的基礎，最好還是要理解其概念。
 
-![bubble-sort](https://www.jablog.site/assets/images/bubble-sort-a1e64d2c2b0f37cc41de2d91d8f8ae85.png)
+![bubble-sort](https://blog.jasonzhuang.com/assets/images/bubble-sort-a1e64d2c2b0f37cc41de2d91d8f8ae85.png)
 
 之後關於排序的章節非常推薦觀看此[網站](https://visualgo.net/en/sorting)的動畫演示。
 
@@ -43,7 +43,7 @@ function bubbleSort(arr) {
       }
     }
   }
-  return arr   
+  return arr
 }
 ```
 

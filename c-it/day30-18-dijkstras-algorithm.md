@@ -31,7 +31,7 @@ class WeightedGraph {
 
 ## Pseudo Code
 
-![graph-ud-u](https://www.jablog.site/assets/images/graph-ud-u-963fe98f49fc3f3e8a7d1f143f863c0d.png)
+![graph-ud-u](https://blog.jasonzhuang.com/assets/images/graph-ud-u-963fe98f49fc3f3e8a7d1f143f863c0d.png)
 
 以上圖為例子，找尋從 A 到 E 的最短距離。
 
@@ -253,7 +253,7 @@ class PriorityQueue {
       if (rightChildIdx < length) {
         rightChild = this.values[rightChildIdx]
         if (
-          (swap === null && rightChild.priority < element.priority) || 
+          (swap === null && rightChild.priority < element.priority) ||
           (swap !== null && rightChild.priority < leftChild.priority)
         ) {
           swap = rightChildIdx
@@ -300,7 +300,7 @@ dijkstra(start, finish) {
         smallest = previous[smallest]
       }
       break
-    } 
+    }
     if (smallest || distances[smallest] !== Infinity) {
       for (let neighbor in this.adjacencyList[smallest]) {
         // find neighboring node
@@ -319,6 +319,6 @@ dijkstra(start, finish) {
       }
     }
   }
-  return path.concat(smallest).reverse()     
+  return path.concat(smallest).reverse()
 }
 ```

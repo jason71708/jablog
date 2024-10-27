@@ -22,9 +22,9 @@ Graph 是目前最廣泛應用的資料結構之一，在社群網路、地圖�
 
 ## Storing Graph - Adjacency Matrix
 
-![graph-uw-ud](https://www.jablog.site/assets/images/graph-uw-ud-be4b3478e100d8a94f3c643af2b68c0b.png)
+![graph-uw-ud](https://blog.jasonzhuang.com/assets/images/graph-uw-ud-be4b3478e100d8a94f3c643af2b68c0b.png)
 
-![ad-matrix-uw-ud](https://www.jablog.site/assets/images/ad-matrix-uw-ud-5fdf2c98788f3f683086290d9c4c9db7.png)
+![ad-matrix-uw-ud](https://blog.jasonzhuang.com/assets/images/ad-matrix-uw-ud-5fdf2c98788f3f683086290d9c4c9db7.png)
 
 [來源](https://visualgo.net/en/graphds)
 
@@ -69,7 +69,7 @@ Adjacency Matrix 重點在於就算某個節點沒有跟其他節點連線，也
 
 ## Storing Graph - Adjacency List
 
-![graph-uw-ud](https://www.jablog.site/assets/images/graph-uw-ud-be4b3478e100d8a94f3c643af2b68c0b.png)
+![graph-uw-ud](https://blog.jasonzhuang.com/assets/images/graph-uw-ud-be4b3478e100d8a94f3c643af2b68c0b.png)
 
 ![ad-list-uw-ud](https://ithelp.ithome.com.tw/upload/images/20221013/201238892S0ZayFC7I.png)
 
@@ -112,14 +112,14 @@ Adjacency List 重點在於只存有關聯的節點，有關連的節點才會�
 |V| - 節點的數量
 |E| - 連線的數量
 
-| Operation | Adjacency List | Adjacency Matrix |
-|---|---|---|
-| Add Vertex | `O(1)` | `O(|V²|)` |
-| Add Edge | `O(1)` | `O(1)` |
-| Remove Vertex | `O(|V|+|E|)` | `O(|V²|)` |
-| Remove Edge | `O(E)` | `O(1)` |
-| Query | `O(|V|+|E|)` | `O(1)` |
-| Storage | `O(|V|+|E|)` | `O(|V²|)` |
+| Operation     | Adjacency List | Adjacency Matrix |
+| ------------- | -------------- | ---------------- |
+| Add Vertex    | `O(1)`         | `O(              | V² | )` |
+| Add Edge      | `O(1)`         | `O(1)`           |
+| Remove Vertex | `O(            | V                | +  | E  | )` | `O(    | V² | )` |
+| Remove Edge   | `O(E)`         | `O(1)`           |
+| Query         | `O(            | V                | +  | E  | )` | `O(1)` |
+| Storage       | `O(            | V                | +  | E  | )` | `O(    | V² | )` |
 
 > 以下簡稱 List 與 Matrix
 

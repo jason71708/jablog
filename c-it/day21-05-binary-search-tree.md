@@ -2,7 +2,7 @@
 
 一種樹狀資料結構，含有根節點與子節點，每個節點彼此是親子的關聯。
 
-![binary-search-tree](https://www.jablog.site/assets/images/binary-search-tree-965eaa490ca3e7c3100e77e7a78986d0.png)
+![binary-search-tree](https://blog.jasonzhuang.com/assets/images/binary-search-tree-965eaa490ca3e7c3100e77e7a78986d0.png)
 
 1. Root: 根節點，樹狀資料結構的第一個的節點，以上圖來說就是 15。
 2. Child: 子節點，具有父節點，以上圖來說 6 、 23 是 15 的子節點。
@@ -116,13 +116,13 @@ find(value) {
 
 ## Big O Complexity
 
-|  | Insertion | Search |
-|---|---|---|
-| Best & Average | O(log n) | O(log n) |
-| Worse | O(n) | O(n) |
+|                | Insertion | Search   |
+| -------------- | --------- | -------- |
+| Best & Average | O(log n)  | O(log n) |
+| Worse          | O(n)      | O(n)     |
 
 在最好與平均情況下，每次往下一層尋找時都可以濾掉最多一半的節點。
 
 在最壞的情況下，子節點都集中在同一邊造成每次尋找都只能濾掉當前的節點而已。
 
-![binary-search-tree-worse-case](https://www.jablog.site/assets/images/binary-search-tree-worse-case-51839b7d499b2597763fd7f5d4fbc3ff.png)
+![binary-search-tree-worse-case](https://blog.jasonzhuang.com/assets/images/binary-search-tree-worse-case-51839b7d499b2597763fd7f5d4fbc3ff.png)

@@ -6,7 +6,7 @@ Binary Heap 和 [Binary Search Tree](https://ithelp.ithome.com.tw/articles/10304
 - Max Binary Heap - 父節點永遠比子節點大
 - Min Binary Heap - 子節點永遠比父節點大
 
->![Binary Heap](https://www.jablog.site/assets/images/binary-heap-043879e3f271388aece29fc0d103a77c.png)
+>![Binary Heap](https://blog.jasonzhuang.com/assets/images/binary-heap-043879e3f271388aece29fc0d103a77c.png)
 像上圖就是屬於 Max Binary Heap
 
 而 Max Binary Heap 的規則就只管父節點比子節點大而已，就算某個子節點比父節點的相鄰節點大也沒關係。
@@ -22,7 +22,7 @@ Binary Heap 可用來實作 Priority Queues，也會在之後會寫到的 Graph 
 而也因為必須先加左再加右，同層滿了才可以往下加的規則，所以我們可以為每個節點標記 Index 順序，而存成陣列的形式。
 
 >延續上張圖的 Binary Heap
-![binary-heap-array](https://www.jablog.site/assets/images/binary-heap-array-e3d1ee6c7c7dc8f3e37b4c391aff9ea9.png)
+![binary-heap-array](https://blog.jasonzhuang.com/assets/images/binary-heap-array-e3d1ee6c7c7dc8f3e37b4c391aff9ea9.png)
 
 這邊可以觀察出一些規則：
 - Index 為 N 的節點，其左右子節點會位於 2N + 1 與 2N + 2 的位置。
@@ -48,11 +48,11 @@ class MaxBinaryHeap {
 - 加在最後面 - `[93, 89, 80, 81, 88, 63, 21, 75, 11, 13, 50, 95]`
 - 然後我們需要找到 `95` 的父節點來比大小，這邊可以用上面有提到的 (N-1) / 2 取整數 (floor) 方法來找到
 - `95` 比其父節點 `63` 大，故兩個需要交換位置
-- ![binary-heap-insert](https://www.jablog.site/assets/images/binary-heap-insert-fa93f3d715b4e02b948364058343c8cf.png)
+- ![binary-heap-insert](https://blog.jasonzhuang.com/assets/images/binary-heap-insert-fa93f3d715b4e02b948364058343c8cf.png)
 - 交換後， `95` 比新父節點 `80` 大，故兩個需要交換位置
 - 交換後， `95` 比新父節點 `93` 大，故兩個需要交換位置
 - 交換後，已經在根節點的位置 (0) 了，所以結束。
-- ![binary-heap-insert-complete](https://www.jablog.site/assets/images/binary-heap-insert-complete-29f463f7bc97606f07acf707c27f3e60.png)
+- ![binary-heap-insert-complete](https://blog.jasonzhuang.com/assets/images/binary-heap-insert-complete-29f463f7bc97606f07acf707c27f3e60.png)
 
 若是比父節點小，就可以直接結束。
 
@@ -84,11 +84,11 @@ bubbleUp() {
 步驟如下：
 - 將最後一個節點與根節點交換位置
 - 將最後一個節點移除
-- ![binary-heap-extract-max](https://www.jablog.site/assets/images/binary-heap-extract-max-2f421842c5018a10aa2163b9dc8b85eb.png)
+- ![binary-heap-extract-max](https://blog.jasonzhuang.com/assets/images/binary-heap-extract-max-2f421842c5018a10aa2163b9dc8b85eb.png)
 - 將新的根節點與其左右子節點比對
 - 若比左右子節點小則與其交換位置 (若同時比左右都小，則挑左右之中最大的節點交換位置)
 - 直到比左右子節點都大或是已經沒有左右子節點為止
-- ![Binary Heap](https://www.jablog.site/assets/images/binary-heap-043879e3f271388aece29fc0d103a77c.png)
+- ![Binary Heap](https://blog.jasonzhuang.com/assets/images/binary-heap-043879e3f271388aece29fc0d103a77c.png)
 
 若移除根節點後就沒有其他節點了，就直接回傳被移除的節點，不用再做比對交換。
 
@@ -144,12 +144,12 @@ sinkDown() {
 
 ## Big O Complexity
 
-| Search | Insertion | Removal |
-|---|---|---|
-| O(n) | O(log n) | O(log n) |
+| Search | Insertion | Removal  |
+| ------ | --------- | -------- |
+| O(n)   | O(log n)  | O(log n) |
 
 > 沿用此張圖示例
-![Binary Heap](https://www.jablog.site/assets/images/binary-heap-043879e3f271388aece29fc0d103a77c.png)
+![Binary Heap](https://blog.jasonzhuang.com/assets/images/binary-heap-043879e3f271388aece29fc0d103a77c.png)
 
 搜尋的部分， Binary Heap 只保證上下節點的大小規則，所以假設要找 13 ，從根節點開始遍歷在第二層遇到 89、93 時這兩個值是都有可能在 13 上面的，所以還是需要遍歷整個節點們。
 
@@ -158,4 +158,4 @@ Insertion 與 Removal 都是類似的，從最後開始往上比對跟從頭開�
 至於為何沒有 Worst Case 與 Best Case 呢？
 是因為 Binary Heap 一定都是同層加滿後才會往下一層加，不會像下圖 Binary Search Tree 這樣集中分佈在某一邊。
 
-![binary-search-tree-worse-case](https://www.jablog.site/assets/images/binary-search-tree-worse-case-51839b7d499b2597763fd7f5d4fbc3ff.png)
+![binary-search-tree-worse-case](https://blog.jasonzhuang.com/assets/images/binary-search-tree-worse-case-51839b7d499b2597763fd7f5d4fbc3ff.png)

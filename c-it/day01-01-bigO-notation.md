@@ -47,11 +47,11 @@ function addUpto2(n) {
 
 [演算法效能視覺化工具](https://rithmschool.github.io/function-timer-demo/)
 
-![tracker](https://www.jablog.site/assets/images/tracker-2687d1fd1d937cc1473bd7dd3a5b9225.jpg)
+![tracker](https://blog.jasonzhuang.com/assets/images/tracker-2687d1fd1d937cc1473bd7dd3a5b9225.jpg)
 
 從這網站可以看到，不同演算法在 *n* 越大的情況下，線的斜率變化。
 
-![trands](https://www.jablog.site/assets/images/trands.jpg)
+![trands](https://blog.jasonzhuang.com/assets/images/trands.jpg)
 
 以下舉網站中三個算法為例：
 
