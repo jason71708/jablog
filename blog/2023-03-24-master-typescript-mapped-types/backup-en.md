@@ -1,17 +1,17 @@
 ---
-title: 掌握 TypeScript 映射型別
-description: 透過這些映射型別技巧來建立工具型別。
+title: Master TypeScript Mapped Types
+description: We can create our own utility types by some advanced mapped type usages.
 tags: [TypeScript]
 image: ./cover.png
 ---
 
 ![cover](./cover.png)
 
-透過這些映射型別技巧來建立工具型別。
+We can create our own utility types by some advanced mapped type usages.
 
-## 基礎部分
+## Basics
 
-首先來個最基本的範例：
+Let's see the basic example.
 
 ```typescript
 type Person = {
@@ -24,7 +24,7 @@ type Person = {
 
 <!--truncate-->
 
-一般使用上，如果要改動型別的前綴屬性，可以用 `?` 或 `readonly`。
+For general uses, this data can be modified partial of it or only for display.
 
 ```typescript
 type PersonPartial = {
@@ -42,11 +42,11 @@ type ReadonlyPerson = {
 }
 ```
 
-但這樣會寫很多重複的程式碼。
+This would write lots of duplicate code.
 
-## 減少多餘的程式碼
+## Reduce the duplicate code
 
-我們可以使用映射型別來根據原本的型別來產出新的型別。
+Thus, we can use mapped types syntax to reference the original type.
 
 ```typescript
 type UsePartial<T> = {
@@ -62,9 +62,13 @@ type PersonPartial = UsePartial<Person>
 type ReadonlyPerson = UseReadonly<Person>
 // { readonly name: string, ... , readonly married: boolean  }
 ```
-`... in ...` 語法和 JavaScript `for. . .in` 用法類似，用來迭代 `keyof T` 所有可能的型別，而 `keyof` 是用來取得該型別 `T` 的所有屬性名，很像 JavaScript 的 `Object.keys()`。`T[K]` 應該也很熟悉，就是取型別 `T` 的屬性 `K` 的型別。
 
-也能透過添加 `+` 和 `-` 前綴來增加或減少型別屬性 `?` 和 `readonly`。
+`... in ...` syntax is similar to the JavaScript `for. . .in` statement, which is used to iterate all types in type `keyof T`
+`keyof` operator is used to get all the keys of a type `T`, and its return type is a union type.
+`T[K]` is similar to the syntax for attribute access, and is used to get the type of the value corresponding to an attribute of the object type.
+
+
+And we can adding `+` and `-` prefixes to the modifiers `?` or `readonly` to add or removed the modifiers.
 
 ```typescript
   type NotAllowPartial<T> = {
@@ -76,11 +80,11 @@ type ReadonlyPerson = UseReadonly<Person>
   }
 ```
 
-如果不加任何前綴，則預設是 `+`。
+If we don't add prefixes to the modifiers, the default is `+`.
 
-## 更多映射技巧
+## More tips to generate key types
 
-透過 `as ...` 語法根據原本的型別來生成新的型別。
+And also, we can use `as ...` syntax to generates the corresponding type from the type `T`.
 
 ```typescript
   type UseGetter<T> = {
@@ -96,11 +100,11 @@ type ReadonlyPerson = UseReadonly<Person>
   // }
 ```
 
-用 `keyof` 取得型別的屬性名，屬性名的型別可能是 `string` 或 `number` 或 `symbol`，而 `Capitalize` 只能接受 `string` 參數，所以需要用 `string & ...` 的方法來過濾掉其他可能的型別。
+Because the `Capitalize` utility type requires `string` type for its parameter, and the return type by `keyof` may includes `string`, `number` and `symbol` type. we need to filter it by the `string & ...` .
 
-## 加碼
+## Bonus
 
-如果使用映射技巧時，聯集型別中有 `never` 的話，映射時會自動過濾掉。
+If we return never type, it would be filter in the process of mapping keys.
 
 ```typescript
 type Status = 'excellent' | 'great' | 'bad'
@@ -117,6 +121,7 @@ type GetGoodStatusInfo = InfoGetterWithFilter<Status, 'bad'>
 //     great: string;
 // }
 ```
+
 
 ## Resources:
 
