@@ -221,6 +221,10 @@ draft: true
 
 原因前面有稍微提過，因為 CSS 有樣式優先級，最大到最小依序是 `!important`、id、class、tag、`*`，若是混用的話最終會造成樣式套用與預期不一致。
 
+:::tip
+而直接寫在 HTML 上的 style 屬性優先級介於 `!important` 與 id 之間。
+:::
+
 ```html
 <div class="card card-primary">
   <p class="card-description">Hello</p>
