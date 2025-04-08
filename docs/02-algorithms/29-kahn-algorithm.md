@@ -105,6 +105,13 @@ class Graph {
 | ---------------------- | ------------------------- | ----------------------- | ---------------- | ------------------------ |
 | *O(V + E)*             | *O(V + E)*                | *O(V + E)*              | *O(V)*           | *O(V)*                   |
 
+- V: 節點數量
+- E: 邊數量
+
+在 Kahn’s algorithm 中，我們需要遍歷每個節點來初始化 `inDegree`，這裡時間複雜度為 `O(V)`，接著遍歷每個邊來更新 `inDegree`，這裡時間複雜度為 `O(E)`，再來遍歷每個節點來找出 In-Degree 為 0 的節點並放入 `queue`，這裡時間複雜度為 `O(V)`，當 `queue` 不為空時，我們需要遍歷 `queue` 中的每個節點，這裡時間複雜度為 `O(V)`，而我們在迴圈中會根據 `inDegree` 的數量來不斷更新每個節點的 `inDegree` 直到為 0，並丟入 `queue` 中，這裡時間複雜度為 `O(E)`，所以總時間複雜度為 `O(V + E)`。
+
+空間複雜度方面，我們需要一個 `inDegree` 來記錄每個節點的 In-Degree，這裡空間複雜度為 `O(V)`，再來還需要一個 `queue` 來存放 In-Degree 為 0 的節點，這裡空間複雜度為 `O(V)`，再來還需要一個 `result` 來存放排序後的節點，這裡空間複雜度為 `O(V)`，所以總空間複雜度為 `O(V)`。
+
 ## Testcase
 
 ```js
@@ -132,4 +139,4 @@ console.log(graph.kahnAlgorithm());
 在 LeetCode 使用到 Topological Sorting 的題目有：
 
 - [207. Course Schedule](https://leetcode.com/problems/course-schedule/)
-- [210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)å
+- [210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)
